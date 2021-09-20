@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view> 
- 
+  <div>
+    <h1>Clinica veterinaria</h1>
+  </div>
 </template>
-
