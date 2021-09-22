@@ -13,7 +13,7 @@
 
 
     <!-- Aquí empiezan los productos -->
-
+      <productos></productos>
     <!-- Aquí terminan los productos -->
 
 
@@ -25,8 +25,12 @@
 </template>
 
 <script>
-export default {
+import Productos from '@/views/Productos.vue'
 
+export default {
+  components:{
+    Productos
+  }
 }
 </script>
 
