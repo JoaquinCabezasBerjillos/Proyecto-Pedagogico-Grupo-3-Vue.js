@@ -231,6 +231,9 @@ img.team-img {
 	padding: 100px 0;
 	background-color: #f6f6f6;
 }
+.col-sm-3 {
+    width: 33%;
+}
 .categories {
 	padding-bottom: 30px;
 }
@@ -436,10 +439,29 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	text-decoration: none;
 	color: #71bd46;
 }
-
+@media (max-width: 992px) {
+	.portfolio-item .hover-bg {
+		height: 49vh;
+		width: 62vw;
+		overflow: hidden;
+		position: relative;
+	}
+	.col-sm-3, .col-md-3, .col-lg-4{
+		padding-left: 8vw !important;
+	}
+	h2{
+		font-size: 50px !important;
+	}
+	h4{
+		font-size: 40px !important;
+	}
+	small{
+		font-size: 20px !important;
+	}
+}
 @media (min-width: 768px){
 .col-sm-3 {
-    width: 65% !important;
+    width: 65%;
 }
 }
 @media (max-width: 768px) {
