@@ -32,8 +32,7 @@ export default {
     Productos
   }
 }
+
 </script>
 
-<style>
-
-</style>
+<style></style>
