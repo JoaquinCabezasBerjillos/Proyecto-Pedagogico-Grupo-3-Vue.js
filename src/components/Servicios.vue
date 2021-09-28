@@ -13,7 +13,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-154902723-612x612.jpg"
+              src="../assets/images/istockphoto-154902723-612x612.jpg"
               height="180px"
               alt=""
               class="img-responsive"
@@ -29,7 +29,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-485629581-612x612.jpg"
+              src="../assets/images/istockphoto-485629581-612x612.jpg"
               alt=""
               class="img-responsive"
             />
@@ -43,7 +43,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-843827698-612x612.jpg"
+              src="../assets/images/istockphoto-843827698-612x612.jpg"
               alt=""
               class="img-responsive"
             />
@@ -62,7 +62,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-1196017263-612x612.jpg"
+              src="../assets/images/istockphoto-1196017263-612x612.jpg"
               alt=""
               class="img-responsive"
             />
@@ -75,7 +75,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-966384466-612x612.jpg"
+              src="../assets/images/istockphoto-966384466-612x612.jpg"
               alt=""
               class="img-responsive"
             />
@@ -88,7 +88,7 @@
         <div class="col-md-4">
           <figure class="effect-marley">
             <img
-              src="../assets/img/istockphoto-875811032-612x612.jpg"
+              src="../assets/images/istockphoto-875811032-612x612.jpg"
               alt=""
               class="img-responsive"
             />
