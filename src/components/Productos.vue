@@ -32,7 +32,7 @@
         </div>
         <div class="col-sm-3 col-md-4 col-lg-4 web">
           <div class="portfolio-item">
-            <div class="hover-bg"> <a href="../assets/img/Accesorios3.jpg" rel="prettyPhoto">
+            <div class="hover-bg"> <a href="../assets/Accesorios3.jpg" rel="prettyPhoto">
               <div class="hover-text">
                 <h4>Accesorios</h4>
                 <small>Todo tipo de productos para tu mascota </small>

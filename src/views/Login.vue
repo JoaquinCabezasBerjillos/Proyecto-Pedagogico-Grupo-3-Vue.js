@@ -160,7 +160,7 @@ export default {};
 <style scoped>
 .auth-background-holder {
   background: url("../assets/images/background/istockphoto-1214325113-612x612.jpg")
-     !important;
+    no repeat center !important;
 }
 
 .btn app-btn-primary {
