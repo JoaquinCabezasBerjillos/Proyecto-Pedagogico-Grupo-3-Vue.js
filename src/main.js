@@ -20,9 +20,6 @@ import "./assets/css/font-awesome.min.css";
 import "./assets/css/home/animate.css";
 import "./assets/css/home/animate.min.css";
 
-
-
-
 createApp(App)
   .use(router)
   .use(store)

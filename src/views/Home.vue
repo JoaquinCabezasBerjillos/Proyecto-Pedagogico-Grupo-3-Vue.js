@@ -7,6 +7,8 @@
 <script>
 
 import Servicios from "../components/Servicios.vue";
+import Productos from "../components/Productos.vue";
+
 
 export default {
   
