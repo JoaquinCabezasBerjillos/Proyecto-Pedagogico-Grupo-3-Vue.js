@@ -15,10 +15,7 @@ import "./assets/plugins/bootstrap/js/bootstrap.min.js";
 
 //import de componente servicios
 import "./assets/css/bootstrap.min.css";
-import "./assets/js/jquery.js";
-import "./assets/css/font-awesome.min.css";
-import "./assets/css/home/animate.css";
-import "./assets/css/home/animate.min.css";
+
 
 createApp(App)
   .use(router)
