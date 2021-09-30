@@ -110,7 +110,8 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 
+/* @import "../assets/css/bootstrap.min.css";  */
 @import "../assets/css/home/servicios.css";
 </style>

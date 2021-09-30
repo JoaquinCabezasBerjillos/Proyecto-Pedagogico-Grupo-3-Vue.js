@@ -53,6 +53,7 @@ export default {
 }
 </script>
 
-<style>
-@import "../assets/ProductosCss/style.css";
+<style scoped>
+
+
 </style>
