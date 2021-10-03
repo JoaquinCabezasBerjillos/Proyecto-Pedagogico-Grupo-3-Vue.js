@@ -9,7 +9,7 @@ import router from "./router";
 window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle.js");
 
 //import plantilla dashboard.
-// 
+
 
 
 
