@@ -18,5 +18,11 @@ export default {
 
     return respuesta;
   },
+  async register(data) {
+      await apiCliente.get("/sanctum/csrf-cookie");
 
-}
+      let respuesta = await apiCliente.post("/api/register", data);
+
+      return respuesta;
+    },  
+  };
