@@ -24,13 +24,14 @@
             </div>
             <h2 class="auth-heading text-center mb-5">Iniciar sesión</h2>
             <div class="auth-form-container text-start">
-              <form class="auth-form login-form">
+              <form @submit.prevent="login" class="auth-form login-form">
                 <div class="email mb-3">
                   <label class="sr-only" for="signin-email">Email</label>
                   <input
                     id="signin-email"
                     name="signin-email"
                     type="email"
+                    v-model="email"
                     class="form-control signin-email"
                     placeholder="Email* "
                     required="required"
@@ -43,6 +44,7 @@
                     id="signin-password"
                     name="signin-password"
                     type="password"
+                    v-model="password"
                     class="form-control signin-password"
                     placeholder="Contraseña*"
                     required="required"
@@ -120,40 +122,38 @@
 <script>
 //Import especificos de Login
 
-export default {};
+import AuthService from "@/services/AuthService.js";
 
-// import AuthService from "@/services/AuthService.js";
+export default {
+  data() {
+    return {
+      email: null,
+      password: null,
+    };
+  },
 
-// export default {
-//    data() {
-//      return {
-//        email: null,
-//       password: null,
-//      };
-//    },
+  methods: {
+    login() {
+      let data = {
+        email: this.email,
+        password: this.password,
+      };
 
-//   methods: {
-//      login() {
-//        let data = {
-//          email: this.email,
-//          password: this.password,
-//       };
+      AuthService.login(data)
 
-//       AuthService.login(data)
-
-//         .then((respuesta) => {
-//            //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
-//            localStorage.setItem("token", JSON.stringify(respuesta.data.token));
-//           localStorage.setItem("usuario", JSON.stringify(respuesta.data.usuario));
-//            // Cuando ya tenemos el login hecho llevar a la vista Alumnos
-//                       this.$router.push({ name: "Alumnos" });
-//         })         .catch((error) => {
-//           console.log(error);
-//         });
-//      },
-//    },
-//  };
-
+        .then((respuesta) => {
+          //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
+          localStorage.setItem("token", JSON.stringify(respuesta.data.token));
+          localStorage.setItem("usuario", JSON.stringify(respuesta.data.usuario));
+          // Cuando ya tenemos el login llevar a la vista Dashboard o Bienvenida.
+          this.$router.push({ name: "Bienvenida" });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
