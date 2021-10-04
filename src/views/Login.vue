@@ -15,22 +15,23 @@
         <div class="d-flex flex-column align-content-end">
           <div class="app-auth-body mx-auto">
             <div class="app-auth-branding mb-4">
-              <a class="app-logo" href="index.html"
+              <a class="app-logo" href="#"
                 ><img
                   class="logo-icon me-2"
-                  src="assets/img/mobile_me_icon-icons.com_59217.svg"
+                  src="/assets/images/mobile_me_icon-icons.com_59217.svg"
                   alt="logo"
               /></a>
             </div>
             <h2 class="auth-heading text-center mb-5">Iniciar sesión</h2>
             <div class="auth-form-container text-start">
-              <form class="auth-form login-form">
+              <form @submit.prevent="login" class="auth-form login-form">
                 <div class="email mb-3">
                   <label class="sr-only" for="signin-email">Email</label>
                   <input
                     id="signin-email"
                     name="signin-email"
                     type="email"
+                    v-model="email"
                     class="form-control signin-email"
                     placeholder="Email* "
                     required="required"
@@ -43,6 +44,7 @@
                     id="signin-password"
                     name="signin-password"
                     type="password"
+                    v-model="password"
                     class="form-control signin-password"
                     placeholder="Contraseña*"
                     required="required"
@@ -120,53 +122,72 @@
 <script>
 //Import especificos de Login
 
-export default {};
+import AuthService from "@/services/AuthService.js";
 
-// import AuthService from "@/services/AuthService.js";
+export default {
+  data() {
+    return {
+      email: null,
+      password: null,
+    };
+  },
 
-// export default {
-//   data() {
-//     return {
-//       email: null,
-//       password: null,
-//     };
-//   },
+  methods: {
+    login() {
+      let data = {
+        email: this.email,
+        password: this.password,
+      };
 
-//   methods: {
-//     login() {
-//       let data = {
-//         email: this.email,
-//         password: this.password,
-//       };
+      AuthService.login(data)
 
-//       AuthService.login(data)
-
-//         .then((respuesta) => {
-//           //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
-//           localStorage.setItem("token", JSON.stringify(respuesta.data.token));
-//           localStorage.setItem("usuario", JSON.stringify(respuesta.data.usuario));
-//           // Cuando ya tenemos el login hecho llevar a la vista Alumnos
-//           this.$router.push({ name: "Alumnos" });
-//         })
-//         .catch((error) => {
-//           console.log(error);
-//         });
-//     },
-//   },
-// };
-//
+        .then((respuesta) => {
+          //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
+          localStorage.setItem("token", JSON.stringify(respuesta.data.token));
+          localStorage.setItem("usuario", JSON.stringify(respuesta.data.usuario));
+          // Cuando ya tenemos el login llevar a la vista Dashboard o Bienvenida.
+          this.$router.push({ name: "Bienvenida" });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
 .auth-background-holder {
-  background: url("../assets/images/background/istockphoto-1214325113-612x612.jpg")
-    no repeat center !important;
+  background: url("../assets/images/background/istockphoto-1214325113-612x612.jpg") !important;
+  background-size: 1080px !important;
+  min-height: 100% !important;
 }
 
-.btn app-btn-primary {
-  background-color: #053189;
+.app-btn-primary {
+  background: #053189;
+}
+.app-btn-primary:hover {
+  background: #f98d0d;
 }
 .form-check-input {
-  background-color: #053189;
+  background-color: #053189 !important;
+}
+.form-check-input:hover{
+ background: #f98d0d !important;
+}
+.auth-heading {
+  color: #053189;
+}
+footer {
+  background: white;
+}
+
+.app-auth-footer .copyright {
+  font-size: 0.5rem;
+}
+label{
+  
+    font-size: 16px;
+
 }
 </style>

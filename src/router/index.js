@@ -1,11 +1,12 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-import Dashboardlayout from "../layout/Dashboard.vue";
-import Dashboard from "../layout/Dashboard.vue";
+import AdminLayout from "../layout/Admin.vue"
+import Consulta from "../views/Consulta.vue"
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
+
 
 const routes = [
   {
@@ -15,37 +16,39 @@ const routes = [
   },
 
   {
-    path: "/",
-    name: "Dashboardlayout",
-    component: Dashboardlayout,
+    path: "/admin",
+    name: "AdminLayout",
+    component: AdminLayout,
 
-    children: [
-      {
-        path: "/",
-        name: "Dashboard",
-        component: Dashboard,
-      },
-    ],
-  },
-
-  {
+    children: [  
+           
+      
+        {
+          path: "/consulta",
+          name: "Consulta",
+          component: Consulta,
+        },
+     
+      ]
+  }, 
+   
+     {
     path: "/login",
     name: "Login",
     component: Login,
   },
 
-   {
-     path: "/register",
+  {
+    path: "/register",
     name: "Register",
     component: Register,
-   },
-
-   {
-    path: "/reset",
-   name: "Reset",
-   component: Reset,
   },
 
+  {
+    path: "/reset",
+    name: "Reset",
+    component: Reset,
+  },
 ];
 
 const router = createRouter({
