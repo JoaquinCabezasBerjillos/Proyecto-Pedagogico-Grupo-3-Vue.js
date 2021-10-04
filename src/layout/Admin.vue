@@ -1,8 +1,7 @@
 <template>
   <div>
     <div class="app">
-   
-      <header class="app-header fixed-top">
+         <header class="app-header fixed-top">
         <div class="app-header-inner">
           <div class="container-fluid py-2">
             <div class="app-header-content">
@@ -300,7 +299,7 @@
               <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                 <li class="nav-item">
                   <router-link
-                    class="nav-link" :to="{ name: 'Admin.Consulta' }" exact-active-class="active">
+                    class="nav-link" :to="{ name: 'Consulta' }" exact-active-class="active">
                     <span class="nav-icon">
                       <svg
                         width="1em"
