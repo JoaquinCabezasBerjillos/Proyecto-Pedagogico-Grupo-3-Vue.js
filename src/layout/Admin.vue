@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="app">
-         <header class="app-header fixed-top">
+      <header class="app-header fixed-top">
         <div class="app-header-inner">
           <div class="container-fluid py-2">
             <div class="app-header-content">
@@ -372,7 +372,7 @@
                         <circle cx="3.5" cy="10.5" r=".5" />
                       </svg>
                     </span>
-                    <span class="nav-link-text">Clientes</span> </a
+                    <span class="nav-link-text">Mascotas</span> </a
                   ><!--//nav-link-->
                 </li>
                 <!--//nav-item-->
