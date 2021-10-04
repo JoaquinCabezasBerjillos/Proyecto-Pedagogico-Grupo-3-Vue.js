@@ -22,6 +22,7 @@
                     id="signup-name"
                     name="signup-name"
                     type="text"
+                    v-model="name"
                     class="form-control signup-name"
                     placeholder="Nombre*"
                     required="required"
@@ -33,6 +34,7 @@
                     id="signup-name"
                     name="signup-name"
                     type="text"
+                    v-model="apellido"
                     class="form-control signup-name"
                     placeholder="apellido*"
                     required="required"
@@ -44,6 +46,7 @@
                     id="signup-email"
                     name="signup-email"
                     type="email"
+                    v-model="email"
                     class="form-control signup-email"
                     placeholder="Email*"
                     required="required"
@@ -57,6 +60,7 @@
                     id="signup-password"
                     name="signup-password"
                     type="password"
+                    v-model="password"
                     class="form-control signup-password"
                     placeholder="Contraseña"
                     required="required"
@@ -135,7 +139,45 @@
 </template>
 
 <script>
-export default {};
+import AuthService from "@/services/AuthService.js";
+
+export default {
+  data() {
+    return {
+      name: null,
+      email: null,
+      password: null,
+      confirm_password: null,
+    };
+  },
+
+  methods: {
+    register() {
+      let data = {
+        name: this.name,
+
+        apellidos: this.apellidos,
+
+        email: this.email,
+
+        password: this.password,
+      };
+      AuthService.register(data)
+        .then((respuesta) => {
+          //console.log(respuesta);
+          localStorage.setItem("token", JSON.stringify(respuesta.data.token));
+          localStorage.setItem(
+            "usuario",
+            JSON.stringify(respuesta.data.usuario)
+          );
+          this.$router.push({ name: "Clientes" });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
