@@ -542,7 +542,7 @@
 
 <script>
 import "../assets/js/app.js";
-import "../views/Consulta.vue";
+
 export default {
   components: {
     
