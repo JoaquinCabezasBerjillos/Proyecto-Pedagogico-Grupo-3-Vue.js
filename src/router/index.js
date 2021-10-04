@@ -2,8 +2,8 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
 
+import DashboardLayout from "../layout/Dashboard.vue"
 import Dashboard from "../layout/Dashboard.vue";
-
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Bienvenida from "../views/Bienvenida.vue";
@@ -19,25 +19,32 @@ const routes = [
   },
 
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Dashboard,
+    path: "/",
+    name: "DasboarLayout",
+    component: DashboardLayout,
 
-    children: [
+    children: [  
       {
-        path: "/bienvenida",
-        name: "Bienvenida",
-        component: Bienvenida,
+        path: "/dashboard",
+        name: "Dashboard",
+        component: Dashboard,
       },
-      {
-        path: "/historial",
-        name: "Historial",
-        component: Historial,
-      },
-    ],
-  },
-
-  {
+      
+        {
+          path: "/bienvenida",
+          name: "Bienvenida",
+          component: Bienvenida,
+        },
+        {
+          path: "/historial",
+          name: "Historial",
+          component: Historial,
+        },
+     
+      ]
+  }, 
+   
+     {
     path: "/login",
     name: "Login",
     component: Login,
