@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="app">
-   
       <header class="app-header fixed-top">
         <div class="app-header-inner">
           <div class="container-fluid py-2">
@@ -265,7 +264,7 @@
                       </li>
                       <li><hr class="dropdown-divider" /></li>
                       <li>
-                        <a class="dropdown-item" href="login.html">Log Out</a>
+                        <a class="dropdown-item" href="#">Log Out</a>
                       </li>
                     </ul>
                   </div>
@@ -300,7 +299,7 @@
               <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                 <li class="nav-item">
                   <router-link
-                    class="nav-link" :to="{ name: 'Admin.Consulta' }" exact-active-class="active">
+                    class="nav-link" :to="{ name: 'Consulta' }" exact-active-class="active">
                     <span class="nav-icon">
                       <svg
                         width="1em"
@@ -403,7 +402,7 @@
 
                 <li class="nav-item">
                   <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                  <a class="nav-link" href="help.html">
+                  <router-link to="/" class="nav-link">
                     <span class="nav-icon">
                       <svg
                         width="1em"
@@ -422,7 +421,7 @@
                         />
                       </svg>
                     </span>
-                    <span class="nav-link-text">Salir</span> </a
+                    <span @click="logout" class="nav-link-text">Salir</span> </router-link
                   ><!--//nav-link-->
                 </li>
                 <!--//nav-item-->
@@ -543,10 +542,19 @@
 
 <script>
 import "../assets/js/app.js";
-import "../views/Consulta.vue";
 export default {
-  components: {
-    
+	 methods: {
+    logout() {
+      AuthService.logout()
+        .then((res) => {
+          localStorage.removeItem("token");
+          localStorage.removeIten("usuario");
+          this.$router.push({ name: "Login" });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>

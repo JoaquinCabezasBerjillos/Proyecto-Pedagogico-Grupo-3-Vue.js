@@ -1,13 +1,10 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-
-import DashboardLayout from "../layout/Dashboard.vue"
-import Dashboard from "../layout/Dashboard.vue";
+import AdminLayout from "../layout/Admin.vue"
+import Consulta from "../views/Consulta.vue"
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
-import Bienvenida from "../views/Bienvenida.vue";
-import Historial from "../views/Historial.vue";
 import Reset from "../views/Reset.vue";
 
 
@@ -19,26 +16,17 @@ const routes = [
   },
 
   {
-    path: "/",
-    name: "DasboarLayout",
-    component: DashboardLayout,
+    path: "/admin",
+    name: "AdminLayout",
+    component: AdminLayout,
 
     children: [  
-      {
-        path: "/dashboard",
-        name: "Dashboard",
-        component: Dashboard,
-      },
+           
       
         {
-          path: "/bienvenida",
-          name: "Bienvenida",
-          component: Bienvenida,
-        },
-        {
-          path: "/historial",
-          name: "Historial",
-          component: Historial,
+          path: "/consulta",
+          name: "Consulta",
+          component: Consulta,
         },
      
       ]
