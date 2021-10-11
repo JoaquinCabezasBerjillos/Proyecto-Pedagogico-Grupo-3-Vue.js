@@ -8,7 +8,9 @@
     </div>
     <div class="row">
       <div class="portfolio-items">
-        <div class="col-sm-3  col-lg-4 web">
+
+        <div class="col-sm-3 col-md-3 col-lg-4 web">
+
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="../assets/images/Alimentacion.jpg" rel="prettyPhoto">
               <div class="hover-text">
@@ -53,6 +55,5 @@ export default {
 </script>
 
 <style scoped>
-
 @import "../assets/css/home/home.css";
 </style>

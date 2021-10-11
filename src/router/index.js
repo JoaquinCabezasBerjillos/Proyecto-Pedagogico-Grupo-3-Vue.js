@@ -8,6 +8,7 @@ import Productos from "../views/Productos.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
+import Clientes from "../views/Clientes.vue";
 
 
 const routes = [
@@ -30,12 +31,20 @@ const routes = [
           name: "Consulta",
           component: Consulta,
         },
+
+        {
+          path: "/clientes",
+          name: "Clientes",
+          component: Clientes,
+        }, 
+
         {
           path: "/productos",
           name: "Productos",
           component:Productos,
         },
       
+
       ]
   }, 
    

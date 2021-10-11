@@ -443,7 +443,6 @@
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
-
       <footer class="app-footer">
         <small class="copyright"
           >Diseñado por
@@ -459,11 +458,9 @@
 <script>
 import "../assets/js/app.js";
 import AuthService from "../services/AuthService.js";
-import Bienvenida from "../components/Bienvenida.vue"
+
 export default {
-  components: 
-    Bienvenida,
-  
+
   methods: {
     logout() {
       AuthService.logout()
