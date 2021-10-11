@@ -216,33 +216,11 @@
                     <!--//dropdown-menu-->
                   </div>
                   <!--//app-utility-item-->
-                  <div class="app-utility-item">
-                    <a href="settings.html" title="Settings">
-                      <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                      <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        class="bi bi-gear icon"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+                  
                   <!--//app-utility-item-->
 
                   <div class="app-utility-item app-user-dropdown dropdown">
                     <a
-                      class="dropdown-toggle"
                       id="user-dropdown-toggle"
                       data-bs-toggle="dropdown"
                       href="#"
@@ -250,23 +228,6 @@
                       aria-expanded="false"
                       ><img src="../assets/images/user.png" alt="user profile"
                     /></a>
-                    <ul
-                      class="dropdown-menu"
-                      aria-labelledby="user-dropdown-toggle"
-                    >
-                      <li>
-                        <a class="dropdown-item" href="account.html">Cuenta</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="settings.html"
-                          >Settings</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                      </li>
-                    </ul>
                   </div>
                   <!--//app-user-dropdown-->
                 </div>
@@ -349,7 +310,7 @@
                 <!--//nav-item-->
                 <li class="nav-item">
                   <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                  <a class="nav-link" href="orders.html">
+                  <router-link to="/mascotas" exact-active-class="active" class="nav-link">
                     <span class="nav-icon">
                       <svg
                         width="1em"
@@ -372,7 +333,7 @@
                         <circle cx="3.5" cy="10.5" r=".5" />
                       </svg>
                     </span>
-                    <span class="nav-link-text">Mascotas</span> </a
+                    <span class="nav-link-text">Mascotas</span> </router-link
                   ><!--//nav-link-->
                 </li>
                 <!--//nav-item-->
@@ -439,83 +400,20 @@
         <!--//app-sidepanel-->
       </header>
       <!--//app-header-->
+      
+       <div class="app-wrapper">
+         <div class="app-content pt-3 p-md-3 p-lg-4">
+           <div class="row-12 row-md-12">
+            <div class="container-xl">
+        <router-view />
+            </div>
+           </div>
+          </div>
+       </div>
+      <!-- /app-card-body-->
 
-      <!-- <div class="app-wrapper">
-        <div class="app-content pt-3 p-md-3 p-lg-4">
-          <div class="container-xl">
-            <h1 class="app-page-title">Historial Clínico</h1>
-
-            <div
-              class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"
-              role="alert"
-            >
-              <div class="inner">
-                <div class="app-card-body p-3 p-lg-4">
-                  <h3 class="mb-3">Bienvenido a su rincón, Andrés!</h3>
-                  <div class="row gx-5 gy-3">
-                    <div class="col-12 col-lg-9">
-                      <div>
-                        Consulte toda la información de su mascota. Acceda a su
-                        historial clínico, consultas, próxima consulta, etc... (
-                        redactar y buscar otro texto)
-                      </div>
-                    </div>
-                   
-                    <div class="col-12 col-lg-3">
-                      <a
-                        class="btn app-btn-primary"
-                        href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/"
-                        ><svg
-                          width="1em"
-                          height="1em"
-                          viewBox="0 0 16 16"
-                          class="bi bi-file-earmark-arrow-down me-2"
-                          fill="currentColor"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"
-                          />
-                          <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
-                          <path
-                            fill-rule="evenodd"
-                            d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"
-                          /></svg
-                        >Cerrar</a
-                      >
-                    </div>
-                
-                  </div>
-               
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
-                  ></button>
-                </div> -->
-      <!-- /app-card-body
-          -->
-
-      <div class="row g-4 mb-4">
-        <div class="col-6 col-lg-3"></div>
-
-        <div class="row g-4 mb-4">
-          <div class="col-12 col-lg-6"></div>
-          <!--//app-card-->
-        </div>
-        <!--//col-->
-      </div>
       <!--//row-->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-6"></div>
-        <!--//row-->
-        <div class="row g-4 mb-4">
-          <div class="col-12 col-lg-4"></div>
-          <!--//col-->
-        </div>
-        <!--//row-->
-      </div>
+      
       <!--//container-fluid-->
     </div>
     <!--//app-content-->
@@ -542,6 +440,7 @@
 
 <script>
 import "../assets/js/app.js";
+
 export default {
 	 methods: {
     logout() {
@@ -549,7 +448,7 @@ export default {
         .then((res) => {
           localStorage.removeItem("token");
           localStorage.removeIten("usuario");
-          this.$router.push({ name: "Login" });
+          this.$router.push({ name: "Home" });
         })
         .catch((error) => {
           console.log(error);

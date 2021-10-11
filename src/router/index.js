@@ -6,6 +6,7 @@ import Consulta from "../views/Consulta.vue"
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
+import Mascotas from "../views/Mascotas.vue";
 
 
 const routes = [
@@ -27,6 +28,12 @@ const routes = [
           path: "/consulta",
           name: "Consulta",
           component: Consulta,
+        },
+
+        {
+          path: "/mascotas",
+          name: "Mascotas",
+          component: Mascotas,
         },
      
       ]
