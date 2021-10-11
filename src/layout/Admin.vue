@@ -78,7 +78,12 @@
                       <div class="dropdown-menu-content">
                         <div class="item p-3">
                           <div
-                            class="row gx-2 justify-content-between align-items-center"
+                            class="
+                              row
+                              gx-2
+                              justify-content-between
+                              align-items-center
+                            "
                           >
                             <div class="col-auto">
                               <img
@@ -90,9 +95,7 @@
                             <!--//col-->
                             <div class="col">
                               <div class="info">
-                                <div class="desc">
-                                  Coatex, 60 cápsulas
-                                </div>
+                                <div class="desc">Coatex, 60 cápsulas</div>
                                 <div class="meta">20,99€</div>
                               </div>
                             </div>
@@ -104,7 +107,12 @@
                         <!--//item-->
                         <div class="item p-3">
                           <div
-                            class="row gx-2 justify-content-between align-items-center"
+                            class="
+                              row
+                              gx-2
+                              justify-content-between
+                              align-items-center
+                            "
                           >
                             <div class="col-auto">
                               <div class="app-icon-holder">
@@ -145,7 +153,12 @@
                         <!--//item-->
                         <div class="item p-3">
                           <div
-                            class="row gx-2 justify-content-between align-items-center"
+                            class="
+                              row
+                              gx-2
+                              justify-content-between
+                              align-items-center
+                            "
                           >
                             <div class="col-auto">
                               <div class="app-icon-holder icon-holder-mono">
@@ -182,7 +195,12 @@
                         <!--//item-->
                         <div class="item p-3">
                           <div
-                            class="row gx-2 justify-content-between align-items-center"
+                            class="
+                              row
+                              gx-2
+                              justify-content-between
+                              align-items-center
+                            "
                           >
                             <div class="col-auto">
                               <img
@@ -215,58 +233,10 @@
                     </div>
                     <!--//dropdown-menu-->
                   </div>
-                  <!--//app-utility-item-->
-                  <div class="app-utility-item">
-                    <a href="settings.html" title="Settings">
-                      <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                      <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        class="bi bi-gear icon"
-                        fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                  <!--//app-utility-item-->
-
                   <div class="app-utility-item app-user-dropdown dropdown">
                     <a
-                      class="dropdown-toggle"
-                      id="user-dropdown-toggle"
-                      data-bs-toggle="dropdown"
-                      href="#"
-                      role="button"
-                      aria-expanded="false"
                       ><img src="../assets/images/user.png" alt="user profile"
                     /></a>
-                    <ul
-                      class="dropdown-menu"
-                      aria-labelledby="user-dropdown-toggle"
-                    >
-                      <li>
-                        <a class="dropdown-item" href="account.html">Cuenta</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="settings.html"
-                          >Settings</a
-                        >
-                      </li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li>
-                        <a class="dropdown-item" href="#">Log Out</a>
-                      </li>
-                    </ul>
                   </div>
                   <!--//app-user-dropdown-->
                 </div>
@@ -299,7 +269,10 @@
               <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                 <li class="nav-item">
                   <router-link
-                    class="nav-link" :to="{ name: 'Consulta' }" exact-active-class="active">
+                    class="nav-link"
+                    :to="{ name: 'Consulta' }"
+                    exact-active-class="active"
+                  >
                     <span class="nav-icon">
                       <svg
                         width="1em"
@@ -324,27 +297,28 @@
                 </li>
                 <!--//nav-item-->
                 <li class="nav-item">
-                  <a class="nav-link" href="docs.html">
+                  <router-link
+                    to="/clientes"
+                    exact-active-class="active"
+                    class="nav-link"
+                  >
                     <span class="nav-icon">
                       <svg
-                        width="1em"
-                        height="1em"
-                        viewBox="0 0 16 16"
-                        class="bi bi-folder"
-                        fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg"
+                        width="1.5em"
+                        height="1.5em"
+                        fill="currentColor"
+                        class="bi bi-person"
+                        viewBox="0 0 16 16"
                       >
                         <path
-                          d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"
-                        />
-                        <path
-                          fill-rule="evenodd"
-                          d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"
                         />
                       </svg>
                     </span>
-                    <span class="nav-link-text">Clientes</span> </a
-                  ><!--//nav-link-->
+                    <span class="nav-link-text">Clientes</span>
+                  </router-link>
+                  <!--//nav-link-->
                 </li>
                 <!--//nav-item-->
                 <li class="nav-item">
@@ -421,7 +395,9 @@
                         />
                       </svg>
                     </span>
-                    <span @click="logout" class="nav-link-text">Salir</span> </router-link
+                    <span @click="logout" class="nav-link-text"
+                      >Salir</span
+                    > </router-link
                   ><!--//nav-link-->
                 </li>
                 <!--//nav-item-->
@@ -440,83 +416,15 @@
       </header>
       <!--//app-header-->
 
-      <!-- <div class="app-wrapper">
+      <div class="app-wrapper">
         <div class="app-content pt-3 p-md-3 p-lg-4">
+          <div class="row-12 row-md-12">
           <div class="container-xl">
-            <h1 class="app-page-title">Historial Clínico</h1>
-
-            <div
-              class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration"
-              role="alert"
-            >
-              <div class="inner">
-                <div class="app-card-body p-3 p-lg-4">
-                  <h3 class="mb-3">Bienvenido a su rincón, Andrés!</h3>
-                  <div class="row gx-5 gy-3">
-                    <div class="col-12 col-lg-9">
-                      <div>
-                        Consulte toda la información de su mascota. Acceda a su
-                        historial clínico, consultas, próxima consulta, etc... (
-                        redactar y buscar otro texto)
-                      </div>
-                    </div>
-                   
-                    <div class="col-12 col-lg-3">
-                      <a
-                        class="btn app-btn-primary"
-                        href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/"
-                        ><svg
-                          width="1em"
-                          height="1em"
-                          viewBox="0 0 16 16"
-                          class="bi bi-file-earmark-arrow-down me-2"
-                          fill="currentColor"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"
-                          />
-                          <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z" />
-                          <path
-                            fill-rule="evenodd"
-                            d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"
-                          /></svg
-                        >Cerrar</a
-                      >
-                    </div>
-                
-                  </div>
-               
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="alert"
-                    aria-label="Close"
-                  ></button>
-                </div> -->
-      <!-- /app-card-body
-          -->
-
-      <div class="row g-4 mb-4">
-        <div class="col-6 col-lg-3"></div>
-
-        <div class="row g-4 mb-4">
-          <div class="col-12 col-lg-6"></div>
-          <!--//app-card-->
+            <router-view />
+          </div>
+          </div>
         </div>
-        <!--//col-->
       </div>
-      <!--//row-->
-      <div class="row g-4 mb-4">
-        <div class="col-12 col-lg-6"></div>
-        <!--//row-->
-        <div class="row g-4 mb-4">
-          <div class="col-12 col-lg-4"></div>
-          <!--//col-->
-        </div>
-        <!--//row-->
-      </div>
-      <!--//container-fluid-->
     </div>
     <!--//app-content-->
 
@@ -524,7 +432,7 @@
       <div class="container text-center py-3">
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
         <small class="copyright"
-          >Diseñado <i class="fas fa-heart" style="color: #fb866a;"></i>por
+          >Diseñado <i class="fas fa-heart" style="color: #fb866a"></i>por
           <a
             class="app-link"
             href="http://themes.3rdwavemedia.com"
@@ -543,13 +451,13 @@
 <script>
 import "../assets/js/app.js";
 export default {
-	 methods: {
+  methods: {
     logout() {
       AuthService.logout()
         .then((res) => {
           localStorage.removeItem("token");
           localStorage.removeIten("usuario");
-          this.$router.push({ name: "Login" });
+          this.$router.push({ name: "Home" });
         })
         .catch((error) => {
           console.log(error);
