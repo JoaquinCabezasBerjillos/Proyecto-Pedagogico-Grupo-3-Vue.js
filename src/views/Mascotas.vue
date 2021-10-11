@@ -39,13 +39,6 @@ export default {
     }
 };
 
-  
-</template>
-
-<script>
-export default {
-
-}
 
 </script>
 

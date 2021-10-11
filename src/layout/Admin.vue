@@ -2,6 +2,7 @@
   <div class="app">
    
     <header class="app-header fixed-top">
+      <!-- BARRA DE NAVEGACION -->
       <div class="app-header-inner">
         <div class="container-fluid py-2">
           <div class="app-header-content">
@@ -97,7 +98,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="notifications.html"></a>
+                        <a class="link-mask" href="#"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -138,7 +139,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="notifications.html"></a>
+                        <a class="link-mask" href="#"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -175,7 +176,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="notifications.html"></a>
+                        <a class="link-mask" href="#"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -237,7 +238,7 @@
         </div>
         <!--//container-fluid-->
       </div>
-      <!--//app-header-inner-->
+      <!--//ASIDE LATERAL-->
       <div id="app-sidepanel" class="app-sidepanel">
         <div id="sidepanel-drop" class="sidepanel-drop"></div>
         <div class="sidepanel-inner d-flex flex-column">
@@ -245,7 +246,7 @@
             >&times;</a
           >
           <div class="app-branding">
-            <a class="app-logo" href="index.html"
+            <a class="app-logo" href="#"
               ><img
                 class="logo-icon me-2"
                 src="../assets/images/app-logo.svg"
@@ -285,7 +286,11 @@
               </li>
               <!--//nav-item-->
               <li class="nav-item">
-                <a class="nav-link" href="docs.html">
+                <router-link
+                  :to="{ name: 'Clientes' }"
+                  exact-active-class="active"
+                  class="nav-link"
+                >
                   <span class="nav-icon">
                     <svg
                       width="1em"
@@ -304,12 +309,12 @@
                       />
                     </svg>
                   </span>
-                  <span class="nav-link-text">Clientes</span> </a
+                  <span class="nav-link-text">Clientes</span> </router-link
                 ><!--//nav-link-->
               </li>
               <!--//nav-item-->
               <li class="nav-item">
-                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+               
                 <router-link
                   to="/mascotas"
                   exact-active-class="active"
@@ -344,7 +349,7 @@
               <li class="nav-item">
                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                 <router-link
-                  :to= "{name: 'Productos'}"
+                  :to="{ name: 'Productos' }"
                   exact-active-class="active"
                   class="nav-link"
                 >
@@ -370,8 +375,12 @@
               <!--//nav-item-->
 
               <li class="nav-item">
-                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                <a class="nav-link" href="">
+              
+                <router-link
+                  :to="{name: 'Pedidos' }"
+                  exact-active-class="active"
+                  class="nav-link"
+                >
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -386,13 +395,13 @@
                       />
                     </svg>
                   </span>
-                  <span class="nav-link-text">Pedidos</span> </a
+                  <span class="nav-link-text">Pedidos</span> </router-link
                 ><!--//nav-link-->
               </li>
               <!--//nav-item-->
 
               <li class="nav-item">
-                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                
                 <router-link to="/" class="nav-link">
                   <span class="nav-icon">
                     <svg
@@ -422,10 +431,7 @@
             <!--//app-menu-->
           </nav>
           <!--//app-nav-->
-          <div class="app-sidepanel-footer">
-            <nav class="app-nav app-nav-footer"></nav>
-          </div>
-          <!--//app-sidepanel-footer-->
+         <!--//app-sidepanel-footer-->
         </div>
         <!--//sidepanel-inner-->
       </div>
@@ -436,18 +442,19 @@
     <div class="app-wrapper">
       <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
-          <!-- Contenido -->
+          <!-- CONTENIDO -->
           <router-view />
         </div>
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
-      <footer class="app-footer">
+      <!-- <footer class="app-footer">
+        
         <small class="copyright"
           >Diseñado por
           <a class="app-link" href="#" target="_blank">Equipo 3</a></small
         >
-      </footer>
+      </footer> -->
       <!--//app-footer-->
     </div>
     <!--//app-wrapper-->
@@ -459,7 +466,6 @@ import "../assets/js/app.js";
 import AuthService from "../services/AuthService.js";
 
 export default {
-
   methods: {
     logout() {
       AuthService.logout()
@@ -511,7 +517,7 @@ footer {
 label {
   font-size: 16px;
 }
-.app-utility-item>a {
-    color: white;
+.app-utility-item > a {
+  color: white;
 }
 </style>

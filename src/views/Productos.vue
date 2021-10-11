@@ -1,10 +1,11 @@
 <template>
 
-<div>
-  <ProductosForm /> 
-  
-  
-  </div>
+<div class="app-card app-card-settings shadow-sm p-3">
+    <div class="app-card-body">
+      <ProductosForm />
+      <!-- <ProductosForm v-form="producto in producto" :key="producto.id" :producto="producto"></ProductosForm> ver video 5 vuex para el listado de productos -->
+    </div>
+    </div>
 </template>
 
 <script>
@@ -16,8 +17,12 @@ export default {
   components: {   
     ProductosForm,
    
-  }
+  },
+
+  
+
+   
 };
 </script>
 
-<style></style>
+<style scoped></style>
