@@ -137,6 +137,7 @@ export default {
       let data = {
         email: this.email,
         password: this.password,
+        
       };
 
       AuthService.login(data)

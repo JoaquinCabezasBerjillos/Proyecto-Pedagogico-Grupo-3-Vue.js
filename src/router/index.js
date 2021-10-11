@@ -1,8 +1,10 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
-import AdminLayout from "../layout/Admin.vue"
-import Consulta from "../views/Consulta.vue"
+import AdminLayout from "../layout/Admin.vue";
+import Consulta from "../views/Consulta.vue";
+import Productos from "../views/Productos.vue";
+
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
@@ -28,7 +30,12 @@ const routes = [
           name: "Consulta",
           component: Consulta,
         },
-     
+        {
+          path: "/productos",
+          name: "Productos",
+          component:Productos,
+        },
+      
       ]
   }, 
    
