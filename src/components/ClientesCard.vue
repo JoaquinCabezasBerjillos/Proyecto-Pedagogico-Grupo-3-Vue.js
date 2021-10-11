@@ -106,13 +106,7 @@ export default {
   props: {
     cliente: {
       type: Object,
-      default() {
-        return{
-          nombre: null,
-          apellido: null,
-          movil: null,
-        }
-      }
+      required: true,
     },
   },
   methods: {
