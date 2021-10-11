@@ -8,7 +8,9 @@ import Productos from "../views/Productos.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
+import Mascotas from "../views/Mascotas.vue";
 import Clientes from "../views/Clientes.vue";
+
 
 
 const routes = [
@@ -33,6 +35,11 @@ const routes = [
         },
 
         {
+          path: "/mascotas",
+          name: "Mascotas",
+          component: Mascotas,
+        },
+     
           path: "/clientes",
           name: "Clientes",
           component: Clientes,
@@ -44,7 +51,6 @@ const routes = [
           component:Productos,
         },
       
-
       ]
   }, 
    

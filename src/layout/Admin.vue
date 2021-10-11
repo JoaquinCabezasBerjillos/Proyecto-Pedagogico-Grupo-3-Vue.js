@@ -253,7 +253,6 @@
               /><span class="logo-text">PORTAL</span></a
             >
           </div>
-
           <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
             <ul class="app-menu list-unstyled accordion" id="menu-accordion">
               <li class="nav-item">
