@@ -248,8 +248,3 @@ input[type="file"]#fileinput {
   cursor: pointer;
   padding: 2vh 2vw !important;
   width: fit-content;
-  text-align: center;
-  border-radius: 4.1vh;
-  margin-left: 29vw;
-} */
-</style>

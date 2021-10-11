@@ -144,10 +144,10 @@ export default {
 
         .then((respuesta) => {
           //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
-          localStorage.setItem("token", JSON.stringify(respuesta.data.token));
-          localStorage.setItem("usuario", JSON.stringify(respuesta.data.usuario));
+          localStorage.setItem("token", JSON.stringify(respuesta.data.data.token));
+          localStorage.setItem("usuario", JSON.stringify(respuesta.data.data.usuario));
           // Cuando ya tenemos el login llevar a la vista Dashboard o Bienvenida.
-          this.$router.push({ name: "Bienvenida" });
+          this.$router.push({ name:"admin" });
         })
         .catch((error) => {
           console.log(error);
