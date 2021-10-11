@@ -18,7 +18,5 @@ export default {
 </script>
 
 <style scoped>
-  /* @import "../assets/css/bootstrap.min.css";   */
-  @import "../assets/css/home/servicios.css";
-  @import "../assets/css/home/tienda.css";
+  @import "../assets/css/home/home.css"; 
 </style>

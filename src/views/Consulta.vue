@@ -1,5 +1,5 @@
 <template>
-  <h1>Hola, soy la consulta del día></h1>
+  <h1>Hola, soy la consulta del día</h1>
 </template>
 
 <script>
