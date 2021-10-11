@@ -2,7 +2,7 @@
   <div id="works-section">
   <div class="container"> <!-- Container -->
     <div class="section-title">
-      <h2>Productos</h2>
+      <h2>Tienda</h2>
       <hr>
       <div class="clearfix"></div>
     </div>
@@ -16,10 +16,10 @@
                 <small>Gran variedad de alimentación para tu mascota</small>
                 <div class="clearfix"></div>
               </div>
-              <img src="../assets/images/Alimentacion.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="../assets/images/Alimentacion.jpg" class="img-fluid" alt="Foto con pienso para mascotas"> </a> </div>
           </div>
         </div>
-        <div class="col-sm-3 col-md-3 col-lg-4 app">
+        <div class="col-sm-3 col-md-3 col-lg-4 web">
           <div class="portfolio-item">
             <div class="hover-bg"> <a href="../assets/images/Medicina4.jpg" rel="prettyPhoto">
               <div class="hover-text">
@@ -27,7 +27,7 @@
                 <small>Para cuidar la salud de tu mascota</small>
                 <div class="clearfix"></div>
               </div>
-              <img src="../assets/images/Medicina4.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="../assets/images/Medicina4.jpg" class="img-fluid" alt="Project Title"> </a> </div>
           </div>
         </div>
         <div class="col-sm-3 col-md-4 col-lg-4 web">
@@ -38,7 +38,7 @@
                 <small>Todo tipo de productos para tu mascota </small>
                 <div class="clearfix"></div>
               </div>
-              <img src="../assets/images/Accesorios3.jpg" class="img-responsive" alt="Project Title"> </a> </div>
+              <img src="../assets/images/Accesorios3.jpg" class="img-fluid" alt="Project Title"> </a> </div>
               </div>
           </div>
         </div>
@@ -54,6 +54,5 @@ export default {
 </script>
 
 <style scoped>
-@import "../assets/css/home/tienda.css";
-
+@import "../assets/css/home/home.css";
 </style>

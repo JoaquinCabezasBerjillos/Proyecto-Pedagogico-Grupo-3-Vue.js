@@ -33,4 +33,5 @@ export default {
     axios.defaults.headers.common['Authorization'] = null
     return respuesta;
   },
+ 
 };
