@@ -16,7 +16,7 @@
               src="../assets/images/istockphoto-154902723-612x612.jpg"
               height="180px"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Medicina General</h4>
@@ -31,7 +31,7 @@
             <img
               src="../assets/images/istockphoto-485629581-612x612.jpg"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Cirugía</h4>
@@ -45,7 +45,7 @@
             <img
               src="../assets/images/istockphoto-843827698-612x612.jpg"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Hospitalización</h4>
@@ -64,7 +64,7 @@
             <img
               src="../assets/images/istockphoto-1196017263-612x612.jpg"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Radiología</h4>
@@ -77,7 +77,7 @@
             <img
               src="../assets/images/istockphoto-966384466-612x612.jpg"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Análisis Clínicos</h4>
@@ -90,7 +90,7 @@
             <img
               src="../assets/images/istockphoto-875811032-612x612.jpg"
               alt=""
-              class="img-responsive"
+              class="img-fluid"
             />
             <figcaption>
               <h4>Peluquería</h4>
@@ -107,11 +107,13 @@
 </template>
 
 <script>
+
+
 export default {};
 </script>
 
 <style scoped>
 
-/* @import "../assets/css/bootstrap.min.css";  */
-@import "../assets/css/home/servicios.css";
+
+@import "../assets/css/home/home.css";
 </style>
