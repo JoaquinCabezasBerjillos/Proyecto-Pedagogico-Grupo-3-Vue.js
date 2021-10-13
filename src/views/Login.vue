@@ -31,7 +31,7 @@
                     id="signin-email"
                     name="signin-email"
                     type="email"
-                    v-model="email"
+                    v-model="form.email"
                     class="form-control signin-email"
                     placeholder="Email* "
                     required="required"
@@ -44,7 +44,7 @@
                     id="signin-password"
                     name="signin-password"
                     type="password"
-                    v-model="password"
+                    v-model="form.password"
                     class="form-control signin-password"
                     placeholder="Contraseña*"
                     required="required"
@@ -120,44 +120,29 @@
 </template>
 
 <script>
-//Import especificos de Login
 
-import AuthService from "@/services/AuthService.js";
-
-export default {
-  data() {
-    return {
-      email: null,
-      password: null,
-    };
-  },
-
-  methods: {
-    login() {
-      let data = {
-        email: this.email,
-        password: this.password,
-        
-      };
-
-      AuthService.login(data)
-
-        .then((respuesta) => {
-          console.log(respuesta.data)
-          //para guardar los datos que estamos recibiendo los tenemos que guardar en el localStore
-          localStorage.setItem("token", JSON.stringify(respuesta.data.data.token));
-          localStorage.setItem("usuario", JSON.stringify(respuesta.data.data.usuario));
-          // Cuando ya tenemos el login llevar a la vista Dashboard o Bienvenida.
-          
-          this.$router.push({ name:"admin" });
-
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-  },
-};
+ export default {
+        data() {
+            return {
+                form: {
+                    email: null,
+                    password: null,
+                },
+                errors: null,
+            }
+        },
+        methods: {
+            login () {
+                this.$store.dispatch('login', this.form)
+                .then(() => {
+                    this.$router.push({ name: 'AdminLayout' })
+                })
+                .catch((err) => {
+                    this.errors = err.response.data.errors;
+                })
+            }
+        }
+    }
 </script>
 
 <style scoped>
