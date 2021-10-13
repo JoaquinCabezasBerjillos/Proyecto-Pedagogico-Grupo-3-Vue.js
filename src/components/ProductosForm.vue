@@ -1,9 +1,8 @@
 <template>
-  <div class="app-card app-card-settings shadow-sm p-3">
-    <div class="app-card-body">
-      <h1 class="app-page-title">Medicamentos y Alimentación</h1>
-
-      <form class="settings-form">
+  <div class="row g-4 mb-4">
+    <div class="col-6">
+      <h4>Alta de producto</h4>
+      <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
           <input
@@ -44,40 +43,38 @@
         </div>
         <div class="mb-3">
           <label for="nombre" class="form-label">Descripción</label>
-          <input
-            type="textarea"
+          <textarea
             class="form-control"
-            id="nombre"
-            v-model="producto.descripción"
+            v-model="producto.description"
+            placeholder="Breve descripción del Producto"
             required=""
-          />
+          ></textarea>
+        </div>
+        <div class="closed-button">
+          <button type="submit" class="btn app-btn-primary">Guardar</button>
         </div>
       </form>
-    
-      <div class="closed-button" @submit.prevent="onSubmit">
-        <button type="submit" class="btn app-btn-primary">Guardar</button>
-      </div>
-      <div class="app-card app-card-basic d-flex flex-column ">
-        <h4 class="app-card-title">Coatex</h4>
-        <div class="app.card-body">
-          <div class="fotos">
-            <!-- probar poniendo esta clase a imagen para el marco img-thumbnail -->
-          </div>
+    </div>
 
-          <div class="app-card-footer p-4 mt-auto">
-            <a class="btn app-btn-secondary" href="#"
-              >20,99€<br />Cápsulas para el pelo de mascotas</a
-            >
-          </div>
-        </div>
-      </div>
+    <div class="col-6">
+      <h4>Imagen del producto</h4>
+      <img id="Previewimg" />
+
+      <span>
+        <input
+          type="file"
+          accept="image/*"
+          @change="selectFile($event)"
+          id="file-input"
+        />
+      </span>
     </div>
   </div>
 </template>
 
 <script>
 import ProductoService from "@/services/ProductoService.js";
-
+import "../assets/js/app.js";
 export default {
   props: {
     producto: {
@@ -88,26 +85,39 @@ export default {
           precio: null,
           categoria: null,
           descripcion: null,
-          images: [],
-        };
-      },
+
+      }
+      }
+
+    }
     },
-  },
-  data() {
-    return {};
-  },
-  methods: {
+   data: () => ({
+        photo: null,
+        
+    }),
+ methods:{
+
+    selectFile(event) {
+      const data = new FormData();
+        data.append('photo', this.photo);
+        
+        axios.post("/api/photo", data);
+            // `files` is always an array because the file input may be in multiple mode
+            this.photo = event.target.files[0];
+        },
+
+
     onSubmit() {
-      if (this.producto.id) {
-        // Actualizar
-        ProductoService.updateProducto(this.producto.id, this.producto)
-          .then((respuesta) => {
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
+      // if (this.producto.id) {
+      //   // Actualizar
+      //   ProductoService.updateProducto(this.producto.id, this.producto)
+      //     .then((respuesta) => {
+      //       console.log(respuesta.data);
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //     });
+      // } else {
         // Crear
         ProductoService.createProducto(this.producto)
           .then((respuesta) => {
@@ -117,12 +127,19 @@ export default {
           .catch((error) => {
             console.log(error);
           });
-      }
+
     },
-  },
+
+
+
+ }
 };
+  
 </script>
+
 <style scoped>
+@import "../assets/css/portal.css";
+
 label {
   font-size: 1rem !important;
 }
@@ -131,38 +148,28 @@ label {
   color: #fff;
   border-color: #053189;
 }
-
-.closed-button {
-  display: flex;
-  justify-content: center;
+.form-control {
+  border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }
-.app-content {
-  height: 600px !important;
+#Previewimg {
+  background-color: #ffffff;
+  width: 25vw;
+  height: 40.041667vh;
+  border-radius: 3.1vh;
+  border: 0.1vh solid rgba(81, 98, 111, 0.5);
+  margin-top: 6vh;
+  margin-left: 3vw;
+  margin-bottom: 2vh;
 }
-.app-card-basic {
-  align-items: center !important;
-}
-
-.fotos {
-  display: flex;
-  margin-top: 30px;
-  background: url("../assets/images/coatex.jpg") no-repeat !important;
-  width: 290px;
-  height: 200px;
+#file-input {
+  overflow: hidden;
+  background-color: #053189;
+  color: #ffffff;
+  border-radius: 1vh;
+  cursor: pointer;
   border-color: #053189;
-  align-content: center;
-}
-h4 {
-  font-size: 2rem !important;
-}
-.app-btn-secondary:hover {
-  color: #053189;
-  border: 1px solid #053189;
-  background: #fff;
-}
-
-.app-content {
-  padding: 0px !important;
-  margin: 0px !important;
+  font-size: 1.1vw;
+  padding: 2vh 2vw;
+  margin-left: 2vw;
 }
 </style>

@@ -1,14 +1,3 @@
-import axios from 'axios'
-
-const apiCliente = axios.create({
-    baseURL: 'http://localhost:8000',
-    withCredentials: false,
-    headers: {
-        Accept: 'application/json',
-        'Content-type': 'application/json'
-    }
-})
-
 export default {
     getClientes() {
         return apiCliente.get('/api/clientes')

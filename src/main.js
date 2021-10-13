@@ -5,7 +5,7 @@ import store from "./store";
 import router from "./router";
 import axiosConfig from "./config/axiosConfig"
 
-window.apiClient = axiosConfig
+window.apiCliente = axiosConfig
 window.bootstrap = require("bootstrap/dist/js/bootstrap.bundle.js");
 
 
