@@ -17,7 +17,7 @@
             <div class="auth-form-container text-start mx-auto">
               <form class="auth-form auth-signup-form">
                 <div class="email mb-3">
-                  <label class="sr-only" for="signup-email">Nombre</label>
+                  <label class="sr-only" for="signup-name">Nombre</label>
                   <input
                     id="signup-name"
                     name="signup-name"
@@ -29,14 +29,14 @@
                   />
                 </div>
                 <div class="email mb-3">
-                  <label class="sr-only" for="signup-email">Apellido</label>
+                  <label class="sr-only" for="signup-apellido">Apellido</label>
                   <input
-                    id="signup-name"
-                    name="signup-name"
+                    id="signup-apellido"
+                    name="signup-apellido"
                     type="text"
                     v-model="apellido"
-                    class="form-control signup-name"
-                    placeholder="apellido*"
+                    class="form-control signup-apellido"
+                    placeholder="Apellido*"
                     required="required"
                   />
                 </div>
@@ -146,6 +146,7 @@ export default {
     return {
       name: null,
       email: null,
+      apellido: null,
       password: null,
       confirm_password: null,
     };
@@ -156,7 +157,7 @@ export default {
       let data = {
         name: this.name,
 
-        apellidos: this.apellidos,
+        apellido: this.apellido,
 
         email: this.email,
 
@@ -188,10 +189,10 @@ export default {
 }
 
 .app-btn-primary {
-  background: #053189;
+  background: #053189 !important;
 }
 .app-btn-primary:hover {
-  background: #f98d0d;
+  background: #f98d0d !important;
 }
 .form-check-input {
   background-color: #053189 !important;
