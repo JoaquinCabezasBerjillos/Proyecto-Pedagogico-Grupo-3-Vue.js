@@ -2,7 +2,6 @@
   <div class="app">
    
     <header class="app-header fixed-top">
-      <!-- BARRA DE NAVEGACION -->
       <div class="app-header-inner">
         <div class="container-fluid py-2">
           <div class="app-header-content">
@@ -50,6 +49,7 @@
                     aria-expanded="false"
                     title="Notifications"
                   >
+                    <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -97,7 +97,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="#"></a>
+                        <a class="link-mask" href="notifications.html"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -138,7 +138,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="#"></a>
+                        <a class="link-mask" href="notifications.html"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -175,7 +175,7 @@
                           <!--//col-->
                         </div>
                         <!--//row-->
-                        <a class="link-mask" href="#"></a>
+                        <a class="link-mask" href="notifications.html"></a>
                       </div>
                       <!--//item-->
                       <div class="item p-3">
@@ -237,7 +237,7 @@
         </div>
         <!--//container-fluid-->
       </div>
-      <!--//ASIDE LATERAL-->
+      <!--//app-header-inner-->
       <div id="app-sidepanel" class="app-sidepanel">
         <div id="sidepanel-drop" class="sidepanel-drop"></div>
         <div class="sidepanel-inner d-flex flex-column">
@@ -245,7 +245,7 @@
             >&times;</a
           >
           <div class="app-branding">
-            <a class="app-logo" href="#"
+            <a class="app-logo" href="index.html"
               ><img
                 class="logo-icon me-2"
                 src="../assets/images/app-logo.svg"
@@ -285,11 +285,7 @@
               </li>
               <!--//nav-item-->
               <li class="nav-item">
-                <router-link
-                  :to="{ name: 'Clientes' }"
-                  exact-active-class="active"
-                  class="nav-link"
-                >
+                <a class="nav-link" href="docs.html">
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -305,38 +301,23 @@
                     </svg>
 
                   </span>
-                  <span class="nav-link-text">Clientes</span> </router-link
+                  <span class="nav-link-text">Clientes</span> </a
                 ><!--//nav-link-->
               </li>
               <!--//nav-item-->
               <li class="nav-item">
-               
+                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                 <router-link
                   to="/mascotas"
                   exact-active-class="active"
                   class="nav-link"
                 >
                   <span class="nav-icon">
-                    <svg
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 16 16"
-                      class="bi bi-card-list"
-                      fill="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fill-rule="evenodd"
-                        d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"
-                      />
-                      <path
-                        fill-rule="evenodd"
-                        d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"
-                      />
-                      <circle cx="3.5" cy="5.5" r=".5" />
-                      <circle cx="3.5" cy="8" r=".5" />
-                      <circle cx="3.5" cy="10.5" r=".5" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 512 512">
+                    <title>Mascotas</title><path d="M457.74 170.1a30.26 30.26 0 00-11.16-2.1h-.4c-20.17.3-42.79 19.19-54.66 47.76-14.23 34.18-7.68 69.15 14.74 78.14a30.21 30.21 0 0011.15 2.1c20.27 0 43.2-19 55.17-47.76 14.13-34.18 7.48-69.15-14.84-78.14zM327.6 303.48C299.8 257.35 287.8 240 256 240s-43.9 17.46-71.7 63.48c-23.8 39.36-71.9 42.64-83.9 76.07a50.91 50.91 0 00-3.6 19.25c0 27.19 20.8 49.2 46.4 49.2 31.8 0 75.1-25.39 112.9-25.39S337 448 368.8 448c25.6 0 46.3-22 46.3-49.2a51 51 0 00-3.7-19.25c-12-33.55-60-36.71-83.8-76.07zM192.51 196a26.53 26.53 0 004-.3c23.21-3.37 37.7-35.53 32.44-71.85C224 89.61 203.22 64 181.49 64a26.53 26.53 0 00-4 .3c-23.21 3.37-37.7 35.53-32.44 71.85C150 170.29 170.78 196 192.51 196zM366.92 136.15c5.26-36.32-9.23-68.48-32.44-71.85a26.53 26.53 0 00-4-.3c-21.73 0-42.47 25.61-47.43 59.85-5.26 36.32 9.23 68.48 32.44 71.85a26.53 26.53 0 004 .3c21.73 0 42.51-25.71 47.43-59.85zM105.77 293.9c22.39-9 28.93-44 14.72-78.14C108.53 187 85.62 168 65.38 168a30.21 30.21 0 00-11.15 2.1c-22.39 9-28.93 44-14.72 78.14C51.47 277 74.38 296 94.62 296a30.21 30.21 0 0011.15-2.1z" fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32"/></svg>
                   </span>
                   <span class="nav-link-text">Mascotas</span> </router-link
                 ><!--//nav-link-->
@@ -345,7 +326,7 @@
               <li class="nav-item">
                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                 <router-link
-                  :to="{ name: 'Productos' }"
+                  :to= "{name: 'Productos'}"
                   exact-active-class="active"
                   class="nav-link"
                 >
@@ -371,12 +352,8 @@
               <!--//nav-item-->
 
               <li class="nav-item">
-              
-                <router-link
-                  :to="{name: 'Pedidos' }"
-                  exact-active-class="active"
-                  class="nav-link"
-                >
+                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+                <a class="nav-link" href="">
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -391,13 +368,13 @@
                       />
                     </svg>
                   </span>
-                  <span class="nav-link-text">Pedidos</span> </router-link
+                  <span class="nav-link-text">Pedidos</span> </a
                 ><!--//nav-link-->
               </li>
               <!--//nav-item-->
 
               <li class="nav-item">
-                
+                <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
                 <router-link to="/" class="nav-link">
                   <span class="nav-icon">
                     <svg
@@ -427,7 +404,10 @@
             <!--//app-menu-->
           </nav>
           <!--//app-nav-->
-         <!--//app-sidepanel-footer-->
+          <div class="app-sidepanel-footer">
+            <nav class="app-nav app-nav-footer"></nav>
+          </div>
+          <!--//app-sidepanel-footer-->
         </div>
         <!--//sidepanel-inner-->
       </div>
@@ -438,16 +418,18 @@
     <div class="app-wrapper">
       <div class="app-content pt-3 p-md-3 p-lg-4">
         <div class="container-xl">
-          <!-- CONTENIDO -->
+          <!-- Contenido -->
           <router-view />
         </div>
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
-      <footer class="footer">
-        <p>Diseñado por Grupo-3 Don Bosco- Factiría 5</p>
-        
-      </footer>
+      <!-- <footer class="app-footer">
+        <small class="copyright"
+          >Diseñado por
+          <a class="app-link" href="#" target="_blank">Equipo 3</a></small
+        >
+      </footer> -->
       <!--//app-footer-->
     </div>
     <!--//app-wrapper-->
@@ -459,6 +441,7 @@ import "../assets/js/app.js";
 import AuthService from "../services/AuthService.js";
 
 export default {
+
   methods: {
     logout() {
       AuthService.logout()
@@ -510,7 +493,7 @@ footer {
 label {
   font-size: 16px;
 }
-.app-utility-item > a {
-  color: white;
+.app-utility-item>a {
+    color: white;
 }
 </style>
