@@ -447,13 +447,7 @@
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
-      <!-- <footer class="app-footer">
-        <small class="copyright"
-          >Diseñado por
-          <a class="app-link" href="#" target="_blank">Equipo 3</a></small
-        >
-      </footer> -->
-      <!--//app-footer-->
+ 
     </div>
     <!--//app-wrapper-->
   </div>

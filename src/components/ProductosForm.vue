@@ -56,7 +56,7 @@
       </form>
     </div>
 
-    <div class="col-6">
+    <div v-if="showImage" class="col-6">
       <h4>Imagen del producto</h4>
       <img id="Previewimg" />
 
@@ -85,56 +85,61 @@ export default {
           precio: null,
           categoria: null,
           descripcion: null,
-
-      }
-      }
-
-    }
+        };
+      },
     },
-   data: () => ({
-        photo: null,
-        
-    }),
- methods:{
+  },
 
+  created() {
+    this.showImage = false;
+  },
+
+  data: () => ({
+    photo: null,
+    id: null,
+    showImage: false,
+  }),
+
+  methods: {
     selectFile(event) {
-      const data = new FormData();
-        data.append('photo', this.photo);
-        
-        axios.post("/api/photo", data);
-            // `files` is always an array because the file input may be in multiple mode
-            this.photo = event.target.files[0];
-        },
-
+      this.photo = event.target.value;
+      this.id = event.target.value;
+      console.log(this.photo);
+      ProductoService.selectFile(this.photo)
+        .then((respuesta) => {
+          console.log(respuesta);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
 
     onSubmit() {
-      // if (this.producto.id) {
-      //   // Actualizar
-      //   ProductoService.updateProducto(this.producto.id, this.producto)
-      //     .then((respuesta) => {
-      //       console.log(respuesta.data);
-      //     })
-      //     .catch((error) => {
-      //       console.log(error);
-      //     });
-      // } else {
-        // Crear
-        ProductoService.createProducto(this.producto)
+      if (this.producto.id) {
+        // Actualizar
+        ProductoService.updateProducto(this.producto.id, this.producto)
+
           .then((respuesta) => {
-            this.$emit("producto-creado");
             console.log(respuesta.data);
           })
           .catch((error) => {
             console.log(error);
           });
+      } else {
+        ProductoService.createProducto(this.producto)
+          .then((respuesta) => {
+            this.showImage = true;
+            this.$emit("producto-creado");
 
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
     },
-
-
-
- }
+  },
 };
-  
 </script>
 
 <style scoped>
