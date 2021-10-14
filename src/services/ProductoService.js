@@ -15,8 +15,8 @@ createProducto(producto) {
 updateProductos(id, producto) {
     return apiCliente.put('/api/productos/'+id, producto)
 },
-uploadImage(name, file) {
-    return apiCliente.put('/api/productos/'+name, file)
+selectFile(id, file) {
+    return apiCliente.put('/api/photo/'+id, file)
 
 },
 

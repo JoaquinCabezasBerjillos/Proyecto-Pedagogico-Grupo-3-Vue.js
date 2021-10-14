@@ -444,11 +444,7 @@
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
-      <footer class="footer">
-        <p>Diseñado por Grupo-3 Don Bosco- Factiría 5</p>
-        
-      </footer>
-      <!--//app-footer-->
+ 
     </div>
     <!--//app-wrapper-->
   </div>

@@ -1,3 +1,4 @@
+
 export default {
   async login(data) {
     await apiCliente.get("/sanctum/csrf-cookie");
