@@ -34,7 +34,8 @@ export default {
     };
   },
   created() {
-    ClienteService.getClientes()
+    ClienteService
+      .getClientes()
       .then((respuesta) => {
         this.clientes = respuesta.data;
       })
