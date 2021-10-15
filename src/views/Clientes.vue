@@ -1,20 +1,22 @@
 <template>
-<div>
-<Search />
-</div>
-  <div
-    v-for="cliente in clientes"
-    :key="cliente.id"
-    class="col-6 col-md-4 col-xl-3 col-xxl-2"
-  >
-    <ClientesCard :cliente="cliente" />
+  <div>
+    <Search />
+  </div>
+  <div class="row g-4 mb-4">
+    <div
+      v-for="cliente in clientes"
+      :key="cliente.id"
+      class="col-6 col-md-4 col-xl-3 col-xxl-2"
+    >
+      <ClientesCard :cliente="cliente" />
+    </div>
   </div>
 </template>
 
 <script>
 import ClientesCard from "@/components/ClientesCard.vue";
 import ClienteService from "@/services/ClienteService.js";
-import Search from '@/components/Search.vue';
+import Search from "@/components/Search.vue";
 
 export default {
   components: {
@@ -34,8 +36,7 @@ export default {
     };
   },
   created() {
-    ClienteService
-      .getClientes()
+    ClienteService.getClientes()
       .then((respuesta) => {
         this.clientes = respuesta.data;
       })
