@@ -120,29 +120,30 @@
 </template>
 
 <script>
-
- export default {
-        data() {
-            return {
-                form: {
-                    email: null,
-                    password: null,
-                },
-                errors: null,
-            }
-        },
-        methods: {
-            login () {
-                this.$store.dispatch('login', this.form)
-                .then(() => {
-                    this.$router.push({ name: 'AdminLayout' })
-                })
-                .catch((err) => {
-                    this.errors = err.response.data.errors;
-                })
-            }
-        }
-    }
+export default {
+  data() {
+    return {
+      form: {
+        email: null,
+        password: null,
+      },
+      errors: null,
+    };
+  },
+  methods: {
+    login() {
+      this.$store
+        .dispatch("login", this.form)
+        .then(() => {
+          this.$router.push({ name: "AdminLayout" });
+        })
+        .catch((err) => {
+          this.errors = err.response.data.errors;
+          
+        });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -161,8 +162,8 @@
 .form-check-input {
   background-color: #053189 !important;
 }
-.form-check-input:hover{
- background: #f98d0d !important;
+.form-check-input:hover {
+  background: #f98d0d !important;
 }
 .auth-heading {
   color: #053189;
@@ -174,9 +175,7 @@ footer {
 .app-auth-footer .copyright {
   font-size: 0.5rem;
 }
-label{
-  
-    font-size: 16px;
-
+label {
+  font-size: 16px;
 }
 </style>
