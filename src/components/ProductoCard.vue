@@ -1,13 +1,15 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
     <div class="app-card-thumb-holder p-3">
-      <span class="icon-holder">
-        <img src="{{ producto.foto }}" alt="" />
+    <span class="icon-holder">
+        <img src="{{ producto.foto }}" alt="">
+        <!-- <i class="fas fa-file-alt text-file"></i> Font Awesome fontawesome.com -->
       </span>
       <a class="app-card-link-mask" href="#file-link"></a>
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0">
+       
         <a href="#file-link">{{ producto.nombre }}</a>
       </h4>
       <div class="app-doc-meta">
@@ -100,13 +102,21 @@
 </template>
 
 <script>
+
+import image from "../assets/images/background/coatex.jpg"
+
 export default {
   props: {
     producto: {
       type: Object,
       required: true,
     },
-  },
+      data: function () {
+        return {
+            image: image,}
+            },
+
+
   methods: {
     borrarProducto() {
       ProductoService.deleteProducto(this.producto.id)
@@ -119,6 +129,7 @@ export default {
         });
     },
   },
+  }
 };
 </script>
 

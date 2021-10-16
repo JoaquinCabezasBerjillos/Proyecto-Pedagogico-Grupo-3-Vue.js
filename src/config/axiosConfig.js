@@ -8,5 +8,11 @@ const base = axios.create({
     'Content-Type': 'application/json',
   }
 })
-
+base.interceptors.response.use( response => response, error => {
+  if (error.response.status === 401) {
+      router.push('/login')
+      store.dispatch('logout')
+  }
+  return Promise.reject(error)
+})
 export default base

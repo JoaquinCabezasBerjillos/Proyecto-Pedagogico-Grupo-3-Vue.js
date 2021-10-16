@@ -31,8 +31,8 @@
   <div class="app-search-box col-6">
     <div class="createButton">
       <button class="btn app-btn-primary">
-        <a href="/components/ProductoForm"></a>
-      
+        <a href="src/components/ProductosForm"></a>
+       
         Crear Producto
       </button>
     </div>

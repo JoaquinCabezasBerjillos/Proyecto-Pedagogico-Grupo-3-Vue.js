@@ -1,30 +1,30 @@
 <template>
   <div class="row g-4 mb-4">
-    <SearchProducto /> 
+    <SearchBoton /> 
      
   </div>
   <div class="row g-4 mb-4">
     <div
-      v-for="producto in productos"
-      :key="producto.id">
+      v-for="producto in productos" :key="producto.id" class="col-6 col-md-4 col-xl-3 col-xxl-2">
       
-      <ProductoCard :productos="producto"></ProductoCard>
+      <ProductoCard :producto="producto"></ProductoCard>
     </div>
   </div>
 </template>
 
 <script>
-import SearchProducto from "@/components/SearchProducto.vue";
+import SearchBoton from "@/components/SearchBoton.vue";
 import ProductoCard from "@/components/ProductoCard.vue";
+import ProductoService from "@/services/ProductoService.js";
 
 export default {
   components: {
-     SearchProducto,
+     SearchBoton,
      ProductoCard,
   },
    data () {
       return {
-        producto: [
+        productos: [
           {
             nombre: 'Pienso',
             precio: '11,83€',
@@ -36,7 +36,29 @@ export default {
         ]
       }
     },
-   
+   created() {
+  ProductoService
+  .getProductos()
+  .then(respuesta => {
+       this.productos = respuesta.data
+     })
+  .catch(error => {
+       console.log(error)
+     })
+       },
+
+ methods: {
+      actualizarListado() {
+        this.producto = null;
+        ProductoService.getProductos()
+          .then((respuesta) => {
+            this.productos = respuesta.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      },
+    },
 
   
 };
