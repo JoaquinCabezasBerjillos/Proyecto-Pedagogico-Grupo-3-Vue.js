@@ -1,6 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
-    <Search />  
+    <SearchProducto /> 
+     
   </div>
   <div class="row g-4 mb-4">
     <div
@@ -13,12 +14,12 @@
 </template>
 
 <script>
-import Search from "@/components/Search.vue";
+import SearchProducto from "@/components/SearchProducto.vue";
 import ProductoCard from "@/components/ProductoCard.vue";
 
 export default {
   components: {
-     Search,
+     SearchProducto,
      ProductoCard,
   },
    data () {
