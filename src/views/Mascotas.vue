@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { watchEffect } from 'vue'
-
 import MascotasForm from "@/components/MascotasForm.vue";
 import MascotaCard from "@/components/MascotaCard.vue"
 import MascotaService from "@/services/MascotaService.js"
