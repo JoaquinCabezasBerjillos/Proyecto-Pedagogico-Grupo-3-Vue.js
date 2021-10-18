@@ -10,7 +10,7 @@ import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
 import Mascotas from "../views/Mascotas.vue";
 import Clientes from "../views/Clientes.vue";
-import NotFound from "../views/NotFound.vue"
+import NotFound from "../views/NotFound.vue";
 
 
 

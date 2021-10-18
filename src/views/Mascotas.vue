@@ -1,12 +1,20 @@
 <template>
+<!-- <div class="app-card app-card-settings shadow-sm p-3">
+  <div class="app-card-body">
+      <MascotasForm />
+  </div> 
+  </div> -->
   <div class="row g-4 mb-4">
-    <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-2">
-      <MascotaCard :mascota="mascota"></MascotaCard>
+    <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-2"> 
+      <MascotaCard @mascota-borrada="actualizarListado" :mascota="mascota"></MascotaCard>
     </div>
   </div>
 </template>
 
 <script>
+import { watchEffect } from 'vue'
+
+// import MascotasForm from "@/components/MascotasForm.vue";
 import MascotaCard from "@/components/MascotaCard.vue"
 import MascotaService from "@/services/MascotaService.js"
 
@@ -28,14 +36,27 @@ export default {
       }
     },
     created() {
-      MascotaService
-      .getMascotas()
-      .then(respuesta => {
-        this.mascotas = respuesta.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+          MascotaService
+          .getMascotas()
+          .then(respuesta => {
+            this.mascotas = respuesta.data
+          })
+          .catch(error => {
+            console.log(error)
+        })
+    },
+    methods: {
+      actutualizarListado() {
+        this.mascotas = null
+          MascotaService
+        .getMascotas()
+        .then(respuesta => {
+          this.mascotas = respuesta.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
     }
 };
 

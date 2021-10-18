@@ -3,7 +3,8 @@
 window.onload = () => {
 	/* ===== Enable Bootstrap Popover (on element  ====== */
 
-	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="popover"]'))
+	var popoverTriggerList = [].slice.call(
+	document.querySelectorAll('[data-toggle="popover"]'))
 	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 	  return new bootstrap.Popover(popoverTriggerEl)
 	})
@@ -45,36 +46,39 @@ window.onload = () => {
 			sidePanel.classList.add('sidepanel-hidden');
 		}
 	};
+	if (sidePanelToggler) {
+		sidePanelToggler.addEventListener('click', () => {
+			if (sidePanel.classList.contains('sidepanel-visible')) {
+				console.log('visible');
+				sidePanel.classList.remove('sidepanel-visible');
+				sidePanel.classList.add('sidepanel-hidden');
 
-	sidePanelToggler.addEventListener('click', () => {
-		if (sidePanel.classList.contains('sidepanel-visible')) {
-			console.log('visible');
-			sidePanel.classList.remove('sidepanel-visible');
-			sidePanel.classList.add('sidepanel-hidden');
+			} else {
+				console.log('hidden');
+				sidePanel.classList.remove('sidepanel-hidden');
+				sidePanel.classList.add('sidepanel-visible');
+			}
+		});
+	}
 
-		} else {
-			console.log('hidden');
-			sidePanel.classList.remove('sidepanel-hidden');
-			sidePanel.classList.add('sidepanel-visible');
-		}
-	});
+	if (sidePanelClose) {
+		sidePanelClose.addEventListener('click', (e) => {
+			e.preventDefault();
+			sidePanelToggler.click();
+		});
+	}
 
-
-
-	sidePanelClose.addEventListener('click', (e) => {
-		e.preventDefault();
-		sidePanelToggler.click();
-	});
-
-	sidePanelDrop.addEventListener('click', (e) => {
-		sidePanelToggler.click();
-	});
-
-
+	if (sidePanelDrop) {
+		sidePanelDrop.addEventListener('click', (e) => {
+			sidePanelToggler.click();
+		});
+	}
 
 	/* ====== Mobile search ======= */
 	const searchMobileTrigger = document.querySelector('.search-mobile-trigger');
 	const searchBox = document.querySelector('.app-search-box');
+
+	if(searchMobileTrigger){
 
 	searchMobileTrigger.addEventListener('click', () => {
 
@@ -90,4 +94,5 @@ window.onload = () => {
 			searchMobileTriggerIcon.classList.add('fa-search');
 		}
 	});
+	}
 }
