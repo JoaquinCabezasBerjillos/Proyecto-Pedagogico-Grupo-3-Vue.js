@@ -1,6 +1,7 @@
 "use strict";
 
 window.onload = () => {
+
   /* ===== Enable Bootstrap Popover (on element  ====== */
 
   var popoverTriggerList = [].slice.call(
