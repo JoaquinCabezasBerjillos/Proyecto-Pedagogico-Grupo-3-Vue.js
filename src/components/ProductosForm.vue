@@ -45,7 +45,7 @@
           <label for="nombre" class="form-label">Descripción</label>
           <textarea
             class="form-control"
-            v-model="producto.description"
+            v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
             required=""
           ></textarea>
@@ -74,6 +74,7 @@
 
 <script>
 import ProductoService from "@/services/ProductoService.js";
+
 import "../assets/js/app.js";
 export default {
   props: {
@@ -85,27 +86,38 @@ export default {
           precio: null,
           categoria: null,
           descripcion: null,
+          foto: null,
+          producto_id: null,
         };
       },
     },
   },
 
-  created() {
-    this.showImage = false;
-  },
+  data () {
+    return{
+     
+      showImage: false,
+    }
+   },
 
-  data: () => ({
-    photo: null,
-    id: null,
-    showImage: false,
-  }),
 
   methods: {
+      created() {
+      ProductoService
+      .getProductos()
+      .then(respuesta => {
+        this.producto = respuesta.data
+        this.showImage = false;
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    },
     selectFile(event) {
-      this.photo = event.target.value;
+      this.foto = event.target.value;
       this.id = event.target.value;
-      console.log(this.photo);
-      ProductoService.selectFile(this.photo)
+      console.log(this.foto);
+      ProductoService.selectFile(this.foto)
         .then((respuesta) => {
           console.log(respuesta);
         })
@@ -138,6 +150,7 @@ export default {
           });
       }
     },
+
   },
 };
 </script>
