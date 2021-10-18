@@ -10,7 +10,7 @@ import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
 import Mascotas from "../views/Mascotas.vue";
 import Clientes from "../views/Clientes.vue";
-import NotFound from "../views/NotFound.vue"
+import NotFound from "../views/NotFound.vue";
 
 
 
@@ -22,9 +22,11 @@ const routes = [
   },
 
   {
+    // ruta protegida
     path: "/admin",
     name: "AdminLayout",
     component: AdminLayout,
+    meta: { requiresAuth: true},
 
     children: [  
            
@@ -33,28 +35,33 @@ const routes = [
           path: "/consulta",
           name: "Consulta",
           component: Consulta,
+          meta: { requiresAuth: true },
         },
 
         {
           path: "/mascotas",
           name: "Mascotas",
           component: Mascotas,
+          meta: { requiresAuth: true},
         },
      
         { path: "/clientes",
           name: "Clientes",
           component: Clientes,
+          meta: { requiresAuth: true},
         }, 
 
         {
           path: "/productos",
           name: "Productos",
           component:Productos,
+          meta: { requiresAuth: true},
         },
         {
           path: "/pedidos",
           name: "Pedidos",
           component:Pedidos,
+          meta: { requiresAuth: true},
         },
       
       ]
