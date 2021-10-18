@@ -242,7 +242,7 @@
                     role="button"
                     aria-expanded="false"
                     ><img src="../assets/images/user.png" alt="user profile"
-                  /></a>
+                  />{{ this.$store.state.user.name }}</a>
                 </div>
                 <!--//app-user-dropdown-->
               </div>
@@ -379,7 +379,7 @@
 
               <li class="nav-item">
                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                <router-link to="/pedidos" exact-active-class="active" class="nav-link" href="">
+                <router-link to="/pedidos" exact-active-class="active" class="nav-link">
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
