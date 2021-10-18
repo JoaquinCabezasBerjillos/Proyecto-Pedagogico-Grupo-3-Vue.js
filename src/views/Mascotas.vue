@@ -1,10 +1,11 @@
 <template>
-<!-- <div class="app-card app-card-settings shadow-sm p-3">
+<div class="row g-4 mb-4">
+ <div class="app-card app-card-settings shadow-sm p-3">
   <div class="app-card-body">
       <MascotasForm />
   </div> 
-  </div> -->
-  <div class="row g-4 mb-4">
+</div> 
+  
     <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-2"> 
       <MascotaCard @mascota-borrada="actualizarListado" :mascota="mascota"></MascotaCard>
     </div>
@@ -14,13 +15,14 @@
 <script>
 import { watchEffect } from 'vue'
 
-// import MascotasForm from "@/components/MascotasForm.vue";
+import MascotasForm from "@/components/MascotasForm.vue";
 import MascotaCard from "@/components/MascotaCard.vue"
 import MascotaService from "@/services/MascotaService.js"
 
 export default {
     components: {
         MascotaCard,
+        MascotasForm,
     },
     data () {
       return {
