@@ -1,26 +1,21 @@
 <template>
-<div class="row g-4 mb-4">
- <div class="app-card app-card-settings shadow-sm p-3">
-  <div class="app-card-body">
-      <MascotasForm />
-  </div> 
-</div> 
-  
-    <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-2"> 
-      <MascotaCard @mascota-borrada="actualizarListado" :mascota="mascota"></MascotaCard>
-    </div>
+  <div class="row g-4 mb-4">
+    <SearchBoton />
+  <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-3"> 
+    <MascotaCard @mascota-borrada="actualizarListado" :mascota="mascota"></MascotaCard>
   </div>
+    </div> 
 </template>
 
 <script>
-import MascotasForm from "@/components/MascotasForm.vue";
-import MascotaCard from "@/components/MascotaCard.vue"
-import MascotaService from "@/services/MascotaService.js"
+import SearchBoton from "@/components/SearchBoton.vue";
+import MascotaCard from "@/components/MascotaCard.vue";
+import MascotaService from "@/services/MascotaService.js";
 
 export default {
     components: {
         MascotaCard,
-        MascotasForm,
+        SearchBoton,
     },
     data () {
       return {
@@ -38,26 +33,26 @@ export default {
     created() {
           MascotaService
           .getMascotas()
-          .then(respuesta => {
+          .then((respuesta) => {
             this.mascotas = respuesta.data
           })
-          .catch(error => {
+          .catch((error) => {
             console.log(error)
         })
     },
     methods: {
-      actutualizarListado() {
+      actualizarListado() {
         this.mascotas = null
           MascotaService
         .getMascotas()
-        .then(respuesta => {
+        .then((respuesta) => {
           this.mascotas = respuesta.data
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error)
-        })
-      }
-    }
+        });
+      },
+    },
 };
 
 

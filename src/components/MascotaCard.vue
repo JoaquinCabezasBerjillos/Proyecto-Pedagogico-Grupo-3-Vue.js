@@ -61,7 +61,7 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <button class="dropdown-item" @click="borrarMascota"
+              <button class="dropdown-item" @click="borrarMascota()"
                 ><svg
                   width="1em"
                   height="1em"
@@ -103,18 +103,18 @@ export default {
       }
     },
     methods: {
-      borrarMascota(){
+      borrarMascota() {
         MascotaService
         .deleteMascota(this.mascota.id)
-        .then(respuesta => {
+        .then((respuesta) => {
           this.$emit('mascota-borrada')
-          console.log(respuesta)
-        }).catch(error => {
-          console.log(error)
-        })
-      }
-    }
-}
+            console.log(respuesta)
+        }).catch((error) => {
+            console.log(error)
+        });
+      },
+    },
+};
 </script>
 
 <style>

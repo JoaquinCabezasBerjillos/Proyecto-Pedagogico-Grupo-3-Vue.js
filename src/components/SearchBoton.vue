@@ -33,7 +33,7 @@
       <button class="btn app-btn-primary">
         <a href="src/components/ProductosForm"></a>
        
-        Crear Producto
+        Crear {{ this.$route.name }}
       </button>
     </div>
   </div>
