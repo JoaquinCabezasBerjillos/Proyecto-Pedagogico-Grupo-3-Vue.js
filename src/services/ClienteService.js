@@ -3,15 +3,12 @@ export default {
         return apiCliente.get('/api/clientes')
     },
     getCliente(id) {
-        return apiCliente.get('/api/clientes/'+id)
+        return apiCliente.get('/api/clientes/mostrar/'+id)
     },
     deleteCliente(id) {
-        return apiCliente.delete('/api/clientes/'+id)
-    },
-    createCliente(cliente) {
-        return apiCliente.post('/api/clientes/', cliente)
+        return apiCliente.delete('/api/clientes/borrar/'+id)
     },
     updateCliente(id, cliente) {
-        return apiCliente.put('/api/clientes/'+id, cliente)
+        return apiCliente.put('/api/clientes/actualizar/'+id, cliente)
     },
 }

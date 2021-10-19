@@ -46,7 +46,7 @@ export default {
         })
     },
     methods: {
-      actutualizarListado() {
+      actualizarListado() {
         this.mascotas = null
           MascotaService
         .getMascotas()
