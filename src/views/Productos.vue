@@ -5,9 +5,9 @@
   </div>
   <div class="row g-4 mb-4">
     <div
-      v-for="producto in productos" :key="producto.id" class="col-6 col-md-4 col-xl-3 col-xxl-2">
+      v-for="producto in productos" :key="producto.id" class="col-6 col-md-4 col-xl-3 col-xxl-3">
       
-      <ProductoCard :producto="producto"></ProductoCard>
+      <ProductoCard :producto="producto" @producto-borrado="actualizarListado"></ProductoCard>
     </div>
   </div>
 </template>
@@ -26,19 +26,18 @@ export default {
       return {
         productos: [
           {
-            nombre: 'Pienso',
-            precio: '11,83€',
-            categoria: 'medicamentos',            
-            descripcion: 'Cápsulas para el pelo de las Mascotas',
-            foto: 'coatex.jpg',           
-            producto_id: '1',
+            // nombre: null,
+            // precio: null,
+            // categoria: null,            
+            // descripcion: null,
+             // foto: 'coatex.jpg',           
+            // producto_id: '1',
           }
         ]
       }
     },
    created() {
-  ProductoService
-  .getProductos()
+  ProductoService.getProductos()
   .then(respuesta => {
        this.productos = respuesta.data
      })
