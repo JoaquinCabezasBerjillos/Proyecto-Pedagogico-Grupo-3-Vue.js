@@ -82,12 +82,12 @@ export default {
       type: Object,
       default() {
         return {
-         nombre: 'Pienso',
-            precio: '11,83€',
-            categoria: 'medicamento',            
-            descripcion: 'Cápsulas para el pelo de las Mascotas',
-            foto: 'coatex.jpg',  
-            producto_id: '9'         
+         nombre: null,
+            precio: null,
+            categoria: null,            
+            descripcion: null,
+            foto: null,  
+            producto_id: null         
         };
       },
     },
