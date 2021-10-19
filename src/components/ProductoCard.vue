@@ -1,15 +1,18 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
     <div class="app-card-thumb-holder p-3">
-    <span class="icon-holder">
-        <img src="{{ producto.foto }}" alt="">
-        <!-- <i class="fas fa-file-alt text-file"></i> Font Awesome fontawesome.com -->
-      </span>
-      <a class="app-card-link-mask" href="#file-link"></a>
+      <div class="app-card-thumb">
+        <a class="app-card-link-mask"
+          ><img
+            class="thumb-image"
+            img
+            src="assets/images/background/coatex.jpg"
+        /></a>
+        <!-- <img src="{{ producto.foto }}" alt="imagen del producto">  -->
+      </div>
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0">
-       
         <a href="#file-link">{{ producto.nombre }}</a>
       </h4>
       <div class="app-doc-meta">
@@ -51,10 +54,12 @@
             <!--//dropdown-toggle-->
             <ul class="dropdown-menu">
               <li>
-                <router-link
+                <button
                   class="dropdown-item"
-                  :to="{ nombre: 'ProductoEdit', params: { id: producto.id } }"
-                  ><svg
+                  data-bs-toggle="modal"
+                  data-bs-target="#exampleModal"
+                >
+                  <svg
                     width="1em"
                     height="1em"
                     viewBox="0 0 16 16"
@@ -66,12 +71,13 @@
                       fill-rule="evenodd"
                       d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"
                     ></path></svg
-                  >Editar</router-link
-                >
+                  >Editar
+                </button>
               </li>
-              <li><hr class="dropdown-divider" @click="borrarCliente" /></li>
+
+              <li><hr class="dropdown-divider" /></li>
               <li>
-                <button class="dropdown-item">
+                <button class="dropdown-item" @click="borrarProducto()">
                   <svg
                     width="1em"
                     height="1em"
@@ -98,12 +104,36 @@
       <!--//app-card-body-->
     </div>
     <!--//app-card-->
+    <div class="modal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Editar Producto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p>Modal body text goes here.</p>
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+            <button type="button" class="btn btn-primary">
+              Guardar cambios
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
-import image from "../assets/images/background/coatex.jpg"
+import ProductoService from "../services/ProductoService";
+import image from "../assets/images//coatex.jpg";
 
 export default {
   props: {
@@ -111,25 +141,25 @@ export default {
       type: Object,
       required: true,
     },
-      data: function () {
-        return {
-            image: image,}
-            },
+    // data: function () {
+    //   return {
+    //       image: image,}
+    //       },
 
-
-  methods: {
-    borrarProducto() {
-      ProductoService.deleteProducto(this.producto.id)
-        .then((respuesta) => {
-          this.$emit("producto-eliminado");
-          console.log(respuesta);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+    methods: {
+      borrarProducto() {
+        ProductoService.deleteProducto(this.producto.id)
+          .then((respuesta) => {
+            this.$emit("producto-borrado");
+            console.log(respuesta);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        console.log(1);
+      },
     },
   },
-  }
 };
 </script>
 
