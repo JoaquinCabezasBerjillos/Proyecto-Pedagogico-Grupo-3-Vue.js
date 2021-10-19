@@ -26,6 +26,14 @@
     </form>
   </div>
   <div class="app-search-box col-6">
+
+    <div class="createButton">
+      <button class="btn app-btn-primary">
+        <a href="src/components/ProductosForm"></a>
+       
+        Crear {{ this.$route.name }}
+      </button>
+
     <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
       
  Crear {{ this.$route.name }} 

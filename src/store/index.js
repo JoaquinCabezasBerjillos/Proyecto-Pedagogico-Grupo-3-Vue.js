@@ -21,6 +21,13 @@ export default createStore({
         commit("SET_USER_DATA", data.data);
       });
     },
+    register({ commit }, credentials) {
+      return apiCliente
+      .post('/api/register', credentials)
+      .then(({ data }) => {
+        commit('SET_USER_DATA', data.data)
+      });
+    },
   },
   modules: {},
 });

@@ -14,39 +14,32 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Precio</label>
+          <label for="nombre" class="form-label">Chip</label>
           <input
             type="text"
             class="form-control"
             id="nombre"
-            v-model="mascota.precio"
+            v-model="mascota.chip"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Categoría</label>
+          <label for="nombre" class="form-label">Tipo</label>
           <input
             type="text"
             class="form-control"
-            list="mascotas"
-            placeholder="Seleccione tipo de mascota"
+            list="mascotas" 
             id="nombre"
-            v-model="mascota.categoria"
+            v-model="mascota.tipo"
             required=""
           />
-          <datalist id="mascotas">
-            <option>Medicamento</option>
-            <option>Alimentación</option>
-            <option>Vacunas</option>
-            <option>Otros</option>
-          </datalist>
         </div>
         <div class="mb-3">
           <label for="nombre" class="form-label">Descripción</label>
           <textarea
             class="form-control"
             v-model="mascota.description"
-            placeholder="Breve descripción del Mascota"
+            placeholder="Breve descripción de la mascota"
             required=""
           ></textarea>
         </div>
@@ -82,8 +75,8 @@ export default {
       default() {
         return {
           nombre: null,
-          precio: null,
-          categoria: null,
+          chip: null,
+          tipo: null,
           descripcion: null,
         };
       },

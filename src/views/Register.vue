@@ -15,14 +15,14 @@
             <h2 class="auth-heading text-center mb-4">Crear cuenta</h2>
 
             <div class="auth-form-container text-start mx-auto">
-              <form class="auth-form auth-signup-form">
+              <form @submit.prevent="register" class="auth-form auth-signup-form">
                 <div class="email mb-3">
                   <label class="sr-only" for="signup-name">Nombre</label>
                   <input
                     id="signup-name"
                     name="signup-name"
                     type="text"
-                    v-model="name"
+                    v-model="form.name"
                     class="form-control signup-name"
                     placeholder="Nombre*"
                     required="required"
@@ -34,7 +34,7 @@
                     id="signup-apellido"
                     name="signup-apellido"
                     type="text"
-                    v-model="apellido"
+                    v-model="form.apellido"
                     class="form-control signup-apellido"
                     placeholder="Apellido*"
                     required="required"
@@ -46,7 +46,7 @@
                     id="signup-email"
                     name="signup-email"
                     type="email"
-                    v-model="email"
+                    v-model="form.email"
                     class="form-control signup-email"
                     placeholder="Email*"
                     required="required"
@@ -60,12 +60,26 @@
                     id="signup-password"
                     name="signup-password"
                     type="password"
-                    v-model="password"
+                    v-model="form.password"
                     class="form-control signup-password"
                     placeholder="Contraseña"
                     required="required"
                   />
-                </div>
+                  </div>
+                  <div class="password mb-3">
+                  <label class="sr-only" for="signup-password"
+                    >Contraseña</label
+                  >
+                  <input
+                    id="signup-password"
+                    name="signup-password"
+                    type="password"
+                    v-model="form.confirm_password"
+                    class="form-control signup-password"
+                    placeholder="Contraseña"
+                    required="required"
+                  />
+                  </div>
                 <div class="extra mb-3">
                   <div class="form-check">
                     <input
@@ -139,42 +153,31 @@
 </template>
 
 <script>
-import AuthService from "@/services/AuthService.js";
+import '../assets/js/app.js';
 
 export default {
   data() {
     return {
-      name: null,
-      email: null,
-      apellido: null,
-      password: null,
-      confirm_password: null,
+      form: {
+        name: null,
+        apellido: null,
+        email: null,
+        password: null,
+        confirm_password: null,
+      },
+      errors: null,
     };
   },
 
   methods: {
     register() {
-      let data = {
-        name: this.name,
-
-        apellido: this.apellido,
-
-        email: this.email,
-
-        password: this.password,
-      };
-      AuthService.register(data)
-        .then((respuesta) => {
-          //console.log(respuesta);
-          localStorage.setItem("token", JSON.stringify(respuesta.data.token));
-          localStorage.setItem(
-            "usuario",
-            JSON.stringify(respuesta.data.usuario)
-          );
-          this.$router.push({ name: "Clientes" });
+      this.$store
+        .dispatch("register", this.form)
+        .then(() => {
+          this.$router.push({ name: "AdminLayout" });
         })
-        .catch((error) => {
-          console.log(error);
+        .catch((err) => {
+          this.errors = err.response.data.errors;
         });
     },
   },
