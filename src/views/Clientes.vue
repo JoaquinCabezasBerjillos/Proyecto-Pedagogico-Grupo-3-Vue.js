@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <Search />
+  <div class="row g-4 mb-4">
+    <Search :clientes="clientes" />
   </div>
   <div class="row g-4 mb-4">
     <div
       v-for="cliente in clientes"
       :key="cliente.id"
-      class="col-6 col-md-4 col-xl-3 col-xxl-2"
+      class="col-6 col-md-4 col-xl-3 col-xxl-3"
     >
-      <ClientesCard :cliente="cliente" />
+      <ClientesCard :cliente="cliente" @cliente-borrado="actualizarListado" />
     </div>
   </div>
 </template>
@@ -26,13 +26,7 @@ export default {
 
   data() {
     return {
-      clientes: [
-        {
-          nombre: "Javi",
-          apellido: "Moreno",
-          movil: "657021443",
-        },
-      ],
+      clientes: [],
     };
   },
   created() {
