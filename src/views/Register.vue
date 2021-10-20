@@ -67,16 +67,16 @@
                   />
                   </div>
                   <div class="password mb-3">
-                  <label class="sr-only" for="signup-password"
-                    >Contraseña</label
+                  <label class="sr-only" for="confirm_password"
+                    >Confirmar contraseña</label
                   >
                   <input
-                    id="signup-password"
-                    name="signup-password"
+                    id="confirm_password"
+                    name="confirm_password"
                     type="password"
                     v-model="form.confirm_password"
-                    class="form-control signup-password"
-                    placeholder="Contraseña"
+                    class="form-control confirm_password"
+                    placeholder="Repetir Contraseña"
                     required="required"
                   />
                   </div>

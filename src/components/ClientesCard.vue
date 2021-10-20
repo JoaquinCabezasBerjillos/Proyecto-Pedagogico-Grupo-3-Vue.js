@@ -141,7 +141,7 @@
   </div>
 </template>
 
-// <script>
+ <script>
 import ClienteService from "@/services/ClienteService.js";
 import EditClientes from "@/components/EditClientes.vue";
 export default {
