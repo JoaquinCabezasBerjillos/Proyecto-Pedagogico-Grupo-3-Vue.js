@@ -1,7 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-      <h4>Editar usuario</h4>
+      <h4>Editar mascota</h4>
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -9,47 +9,47 @@
             type="text"
             class="form-control"
             id="nombre"
-            v-model="cliente.nombre"
+            v-model="mascota.nombre"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="apellido" class="form-label">Apellido</label>
+          <label for="chip" class="form-label">Chip</label>
           <input
             type="text"
             class="form-control"
-            id="apellido"
-            v-model="cliente.apellido"
+            id="chip"
+            v-model="mascota.chip"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="movil" class="form-label">Móvil</label>
+          <label for="tipo" class="form-label">Tipo</label>
           <input
             type="text"
             class="form-control"
             placeholder=""
-            id="movil"
-            v-model="cliente.movil"
+            id="tipo"
+            v-model="mascota.tipo"
             required=""
           />
         </div>
-        <!-- <div class="closed-button">
+        <div class="closed-button">
           <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div> -->
+        </div>
       </form>
     </div>
     </div>
 </template>
 
 <script>
-import ClienteService from "@/services/ClienteService.js";
+import MascotaService from "@/services/MascotaService.js";
 
 import "../assets/js/app.js";
 
 export default {
   props: {
-    cliente: {
+    mascotas: {
       type: Object,
       default() {
         return {
@@ -64,15 +64,40 @@ export default {
 
   methods: {
       created() {
-      ClienteService
-      .getClientes()
+      MascotaService
+      .getMascotas()
       .then(respuesta => {
-        this.cliente = respuesta.data
+        this.mascota = respuesta.data
       })
       .catch(error => {
         console.log(error)
       })
     },
+
+    onSubmit() {
+      if (this.mascota.id) {
+        // Actualizar
+       MascotaService.updateMascota(this.mascota.id, this.mascota)
+
+          .then((respuesta) => {
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        MascotaService.createMascota(this.mascota)
+          .then((respuesta) => {
+            this.$emit("mascota-actualizada");
+
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
+
   },
 };
 </script>
@@ -83,7 +108,11 @@ export default {
 label {
   font-size: 1rem !important;
 }
-
+.app-btn-primary {
+  background: #053189;
+  color: #fff;
+  border-color: #053189;
+}
 .form-control {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }

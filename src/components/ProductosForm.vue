@@ -87,8 +87,7 @@ export default {
             precio: null,
             categoria: null,            
             descripcion: null,
-            // foto: null, 
-               
+            // foto: null,
         };
       },
     },

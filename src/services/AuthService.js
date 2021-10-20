@@ -1,4 +1,4 @@
-
+/* 
 export default {
   async login(data) {
     await apiCliente.get("/sanctum/csrf-cookie");
@@ -16,11 +16,9 @@ export default {
   },
 
   async logout(data) {
-    
     await apiCliente.get("/sanctum/csrf-cookie")
     let respuesta = await apiCliente.get("/api/logout")
-    axios.defaults.headers.common['Authorization'] = null
     return respuesta;
   },
  
-};
+}; */

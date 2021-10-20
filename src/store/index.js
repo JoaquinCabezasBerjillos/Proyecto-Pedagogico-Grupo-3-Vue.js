@@ -3,7 +3,6 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     user: null,
-    
   },
   mutations: {
     SET_USER_DATA(state, data) {
@@ -13,6 +12,15 @@ export default createStore({
       apiCliente.defaults.headers.common[
         "Authorization"
       ] = `Bearer ${data.token}`;
+    },
+    LOGOUT (state) {
+      // state.user = null
+      // localStorage.removeItem('user')
+      // localStorage.removeItem('token')
+      // apiClient.defaults.headers.common['Authorization'] = null
+      localStorage.removeItem('user')
+      localStorage.removeItem('token')
+      location.reload()
     },
   },
   actions: {
@@ -28,6 +36,13 @@ export default createStore({
         commit('SET_USER_DATA', data.data)
       });
     },
+    logout ({ commit }) {
+      return apiCliente
+        .get('/api/logout')
+        .then(() => {
+          commit('LOGOUT')
+        })
+    }
   },
   modules: {},
 });
