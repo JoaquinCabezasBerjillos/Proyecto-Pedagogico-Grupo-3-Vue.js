@@ -1,7 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-      <h4>Editar usuario</h4>
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
