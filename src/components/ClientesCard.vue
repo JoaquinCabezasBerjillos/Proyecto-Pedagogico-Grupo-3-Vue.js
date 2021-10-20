@@ -109,7 +109,7 @@
   </div>
 </template>
 
-// <script>
+ <script>
 import ClienteService from "@/services/ClienteService.js";
 
 export default {

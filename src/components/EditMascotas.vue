@@ -1,7 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-     
+      <h4>Editar mascota</h4>
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -9,127 +9,75 @@
             type="text"
             class="form-control"
             id="nombre"
-            v-model="producto.nombre"
+            v-model="mascota.nombre"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Precio</label>
+          <label for="chip" class="form-label">Chip</label>
           <input
             type="text"
             class="form-control"
-            id="nombre"
-            v-model="producto.precio"
+            id="chip"
+            v-model="mascota.chip"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Categoría</label>
+          <label for="tipo" class="form-label">Tipo</label>
           <input
             type="text"
             class="form-control"
-            list="productos"
-            placeholder="Seleccione tipo de producto"
-            id="nombre"
-            v-model="producto.categoria"
+            placeholder=""
+            id="tipo"
+            v-model="mascota.tipo"
             required=""
           />
-          <datalist id="productos">
-            <option>Medicamento</option>
-            <option>Alimentación</option>
-            <option>Vacunas</option>
-            <option>Otros</option>
-          </datalist>
-        </div>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Descripción</label>
-          <textarea
-            class="form-control"
-            v-model="producto.descripcion"
-            placeholder="Breve descripción del Producto"
-            required=""
-          ></textarea>
         </div>
         <div class="closed-button">
           <button type="submit" class="btn app-btn-primary">Guardar</button>
         </div>
       </form>
     </div>
-
-    <div v-if="showImage" class="col-6">
-      <h4>Imagen del producto</h4>
-      <img id="Previewimg" />
-
-      <span>
-        <input
-          type="file"
-          accept="image/*"
-          @change="selectFile($event)"
-          id="file-input"
-        />
-      </span>
     </div>
-  </div>
 </template>
 
 <script>
-import ProductoService from "@/services/ProductoService.js";
+import MascotaService from "@/services/MascotaService.js";
 
 import "../assets/js/app.js";
+
 export default {
   props: {
-    producto: {
+    mascotas: {
       type: Object,
       default() {
         return {
-         nombre: null,
-            precio: null,
-            categoria: null,            
-            descripcion: null,
-            foto: null,
-            producto_id: null,        
+          nombre: null,
+          apellido: null,
+          movil: null,
         };
       },
     },
   },
 
-  data () {
-    return{
-     
-      showImage: false,
-    }
-   },
-
 
   methods: {
       created() {
-      ProductoService
-      .getProductos()
+      MascotaService
+      .getMascotas()
       .then(respuesta => {
-        this.producto = respuesta.data
-        this.showImage = false;
+        this.mascota = respuesta.data
       })
       .catch(error => {
         console.log(error)
       })
     },
-    selectFile(event) {
-      this.foto = event.target.value;
-      this.id = event.target.value;
-      console.log(this.foto);
-      ProductoService.selectFile(this.foto)
-        .then((respuesta) => {
-          console.log(respuesta);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
 
     onSubmit() {
-      if (this.producto.id) {
+      if (this.mascota.id) {
         // Actualizar
-        ProductoService.updateProducto(this.producto.id, this.producto)
+       MascotaService.updateMascota(this.mascota.id, this.mascota)
 
           .then((respuesta) => {
             console.log(respuesta.data);
@@ -138,10 +86,9 @@ export default {
             console.log(error);
           });
       } else {
-        ProductoService.createProducto(this.producto)
+        MascotaService.createMascota(this.mascota)
           .then((respuesta) => {
-            this.showImage = true;
-            this.$emit("producto-creado");
+            this.$emit("mascota-actualizada");
 
             console.log(respuesta.data);
           })
