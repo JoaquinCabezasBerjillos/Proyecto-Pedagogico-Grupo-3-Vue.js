@@ -241,8 +241,11 @@
                     href="#"
                     role="button"
                     aria-expanded="false"
-                    ><img src="../assets/images/user.png" alt="user profile"
-                  />{{ this.$store.state.user.name }}</a>
+                    ><img
+                      src="../assets/images/user.png"
+                      alt="user profile"
+                    />{{ this.$store.state.user.name }}</a
+                  >
                 </div>
                 <!--//app-user-dropdown-->
               </div>
@@ -301,7 +304,11 @@
               </li>
               <!--//nav-item-->
               <li class="nav-item">
-                <router-link to="/clientes" exact-active-class="active" class="nav-link" >
+                <router-link
+                  to="/clientes"
+                  exact-active-class="active"
+                  class="nav-link"
+                >
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -379,7 +386,11 @@
 
               <li class="nav-item">
                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                <router-link to="/pedidos" exact-active-class="active" class="nav-link">
+                <router-link
+                  to="/pedidos"
+                  exact-active-class="active"
+                  class="nav-link"
+                >
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -401,7 +412,7 @@
 
               <li class="nav-item">
                 <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-                <router-link to="/" exact-active-class="active" class="nav-link">
+                <div class="nav-link">
                   <span class="nav-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -417,10 +428,9 @@
                       <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z" />
                     </svg>
                   </span>
-                  <span @click="logout" class="nav-link-text"
-                    >Salir</span
-                  > </router-link
-                ><!--//nav-link-->
+                  <span @click="logout" class="nav-link-text">Salir</span>
+                </div>
+                <!--//nav-link-->
               </li>
               <!--//nav-item-->
             </ul>
@@ -447,7 +457,6 @@
         <!--//container-fluid-->
       </div>
       <!--//app-content-->
- 
     </div>
     <!--//app-wrapper-->
   </div>
@@ -460,16 +469,8 @@ import AuthService from "../services/AuthService.js";
 export default {
   methods: {
     logout() {
-      AuthService.logout()
-        .then((res) => {
-          localStorage.removeItem("token");
-          localStorage.removeIten("usuario");
-          this.$router.push({ name: "Home" });
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+      this.$store.dispatch('logout')
+    }
   },
 };
 </script>
@@ -497,6 +498,7 @@ footer {
 .nav-link {
   background-color: #053189;
   color: white !important;
+  cursor: pointer !important;
 }
 .nav-link.active {
   background-color: white !important;

@@ -34,9 +34,9 @@
             required=""
           />
         </div>
-        <div class="closed-button">
+        <!-- <div class="closed-button">
           <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div>
+        </div> -->
       </form>
     </div>
     </div>
@@ -49,7 +49,7 @@ import "../assets/js/app.js";
 
 export default {
   props: {
-    clientes: {
+    cliente: {
       type: Object,
       default() {
         return {
@@ -73,31 +73,6 @@ export default {
         console.log(error)
       })
     },
-
-    onSubmit() {
-      if (this.cliente.id) {
-        // Actualizar
-       ClienteService.updateCliente(this.cliente.id, this.cliente)
-
-          .then((respuesta) => {
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        ClienteService.createCliente(this.cliente)
-          .then((respuesta) => {
-            this.$emit("usuario-actualizado");
-
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
-
   },
 };
 </script>
@@ -108,11 +83,7 @@ export default {
 label {
   font-size: 1rem !important;
 }
-.app-btn-primary {
-  background: #053189;
-  color: #fff;
-  border-color: #053189;
-}
+
 .form-control {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }
