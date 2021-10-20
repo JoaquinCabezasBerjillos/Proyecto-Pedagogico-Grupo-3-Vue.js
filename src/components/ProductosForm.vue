@@ -14,17 +14,17 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Precio</label>
+          <label for="precio" class="form-label">Precio</label>
           <input
             type="text"
             class="form-control"
-            id="nombre"
+            id="precio"
             v-model="producto.precio"
             required=""
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Categoría</label>
+          <label for="categoria" class="form-label">Categoría</label>
           <input
             type="text"
             class="form-control"
@@ -42,9 +42,10 @@
           </datalist>
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Descripción</label>
+          <label for="descripcion" class="form-label">Descripción</label>
           <textarea
             class="form-control"
+            id="descripcion"
             v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
             required=""
@@ -57,7 +58,7 @@
     </div>
 
     <div v-if="showImage" class="col-6">
-      <h4>Imagen del producto</h4>
+      
       <img id="Previewimg" />
 
       <span>
@@ -82,12 +83,12 @@ export default {
       type: Object,
       default() {
         return {
-         nombre: 'Pienso',
-            precio: '11,83€',
-            categoria: 'medicamento',            
-            descripcion: 'Cápsulas para el pelo de las Mascotas',
-            foto: 'coatex.jpg',  
-            producto_id: '9'         
+            nombre: null,
+            precio: null,
+            categoria: null,            
+            descripcion: null,
+            // foto: null, 
+               
         };
       },
     },
@@ -115,7 +116,7 @@ export default {
     },
     selectFile(event) {
       this.foto = event.target.value;
-      this.id = event.target.value;
+      // this.id = event.target.value;
       console.log(this.foto);
       ProductoService.selectFile(this.foto)
         .then((respuesta) => {
@@ -171,11 +172,11 @@ label {
 }
 #Previewimg {
   background-color: #ffffff;
-  width: 25vw;
+  width: 20vw;
   height: 40.041667vh;
   border-radius: 3.1vh;
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
-  margin-top: 6vh;
+  margin-top: 2vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
 }
@@ -188,6 +189,13 @@ label {
   border-color: #053189;
   font-size: 1.1vw;
   padding: 2vh 2vw;
-  margin-left: 2vw;
+  margin-left: 1vw;
+ width:25vw;
+  
+ 
+}
+.modal-dialog {
+    max-width: 850px;
+    margin: 2rem auto;
 }
 </style>

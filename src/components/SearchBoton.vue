@@ -8,7 +8,7 @@
         class="form-control search-input"
       />
 
-     <button type="submit" class="btn search-btn btn-primary" value="Search">
+      <button type="submit" class="btn search-btn btn-secondary" value="Search">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -26,30 +26,50 @@
   </div>
   <div class="app-search-box col-6">
     <div class="createButton">
-    <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Crear {{ this.$route.name }} 
-    </button>
+      <button
+        type="button"
+        class="btn btn-primary "
+        data-bs-toggle="modal"
+        data-bs-target="#ModalAltaProducto"
+      >
+        Crear {{ this.$route.name }}
+      </button>
     </div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
- 
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Alta Producto</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <ProductosForm />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="ModalAltaProducto"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalForm">Alta Producto</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <ProductosForm />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="button" class="btn btn-primary">Guardar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-
   </div>
 </template>
 
@@ -57,12 +77,9 @@
 import ProductosForm from "../components/ProductosForm";
 import "../assets/js/app.js";
 export default {
-
   components: {
-
- ProductosForm,  },
-
- 
+    ProductosForm,
+  },
 };
 </script>
 
@@ -76,11 +93,13 @@ label {
   background: #053189 !important;
   color: #fff !important;
   border-color: #053189 !important;
- 
 }
 
- .app-search-form .search-btn {
-  padding: .0rem 1rem !important;
+.app-search-form .search-btn {
+  padding: 0rem 1rem !important;
 }
-
+.modal-dialog {
+    max-width: 850px;
+    margin: 2rem auto;
+}
 </style>
