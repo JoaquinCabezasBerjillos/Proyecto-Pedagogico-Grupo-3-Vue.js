@@ -46,7 +46,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalForm">Alta Producto</h5>
+            <h5 class="modal-title" id="ModalForm">Alta {{ this.$route.name }}</h5>
             <button
               type="button"
               class="btn-close"
@@ -55,7 +55,8 @@
             ></button>
           </div>
           <div class="modal-body">
-            <ProductosForm />
+            <ProductosForm v-if="showForm==='productos'" :producto="producto"/>
+            <MascotasForm v-if="showForm==='mascotas'" :mascota="mascota"/>
           </div>
           <div class="modal-footer">
             <button
@@ -74,11 +75,16 @@
 </template>
 
 <script>
+import MascotasForm from "../components/MascotasForm";
 import ProductosForm from "../components/ProductosForm";
 import "../assets/js/app.js";
 export default {
   components: {
+    MascotasForm,
     ProductosForm,
+  },
+  props: {
+    showForm: String
   },
 };
 </script>

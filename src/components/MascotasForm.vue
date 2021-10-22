@@ -1,7 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-      <h4>Alta de mascota</h4>
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -34,18 +33,6 @@
             required=""
           />
         </div>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Descripción</label>
-          <textarea
-            class="form-control"
-            v-model="mascota.description"
-            placeholder="Breve descripción de la mascota"
-            required=""
-          ></textarea>
-        </div>
-        <div class="closed-button">
-          <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div>
       </form>
     </div>
 
@@ -77,13 +64,14 @@ export default {
           nombre: null,
           chip: null,
           tipo: null,
-          descripcion: null,
+          // foto: null,
         };
       },
     },
   },
 
   created() {
+    console.log(this.mascota)
     this.showImage = false;
   },
 

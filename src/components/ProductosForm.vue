@@ -83,7 +83,7 @@ export default {
       type: Object,
       default() {
         return {
-            nombre: null,
+            nombre: "",
             precio: null,
             categoria: null,            
             descripcion: null,

@@ -102,7 +102,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Editar Mascota</h5>
           <button
             type="button"
             class="btn-close"
@@ -110,7 +110,8 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body">Far over the mistic mountains cold</div>
+        <div class="modal-body"></div>
+          <MascotasForm :mascota="mascota"></MascotasForm>
         <div class="modal-footer">
           <button
             type="button"
@@ -129,10 +130,12 @@
 <script>
 import MascotaService from '@/services/MascotaService.js';
 import EditMascotas from "@/components/EditMascotas.vue";
+import MascotasForm from "@/components/MascotasForm.vue";
 
 export default {
   components: {
     EditMascotas,
+    MascotasForm,
   },
 	props: {
       mascota: {
