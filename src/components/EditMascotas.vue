@@ -53,25 +53,36 @@ export default {
       type: Object,
       default() {
         return {
-          nombre: null,
-          apellido: null,
-          movil: null,
+          nombre: "",
+          chip: null,
+          tipo: null,
         };
       },
     },
   },
+  created() {
+    console.log(this.mascota)
+    this.showImage = false;
+  },
 
+  data: () => ({
+    photo: null,
+    id: null,
+    showImage: false,
+  }),
 
   methods: {
-      created() {
-      MascotaService
-      .getMascotas()
-      .then(respuesta => {
-        this.mascota = respuesta.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      selectFile(event) {
+      this.photo = event.target.value;
+      this.id = event.target.value;
+      console.log(this.photo);
+      MascotaService.selectFile(this.photo)
+        .then((respuesta) => {
+          console.log(respuesta);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
 
     onSubmit() {

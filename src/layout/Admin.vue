@@ -464,7 +464,6 @@
 
 <script>
 import "../assets/js/app.js";
-import AuthService from "../services/AuthService.js";
 
 export default {
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <SearchBoton />
+    <SearchBoton :showForm="showForm" :mascota="mascota"/>
   <div v-for="mascota in mascotas" :key="mascota.id" class="col-6 col-md-4 col-xl-3 col-xxl-3"> 
     <MascotaCard @mascota-borrada="actualizarListado" :mascota="mascota"></MascotaCard>
   </div>
@@ -27,7 +27,8 @@ export default {
             tipo: 'algo',
             cliente_id: '1',
           }
-        ]
+        ],
+        showForm: "mascotas",
       }
     },
     created() {
