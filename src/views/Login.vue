@@ -18,7 +18,7 @@
               <a class="app-logo" href="#"
                 ><img
                   class="logo-icon me-2"
-                  src="/assets/images/mobile_me_icon-icons.com_59217.svg"
+                  src="../assets/images/logosinfondo.png"
                   alt="logo"
               /></a>
             </div>

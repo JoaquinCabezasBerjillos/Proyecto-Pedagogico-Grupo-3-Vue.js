@@ -242,7 +242,7 @@
                     role="button"
                     aria-expanded="false"
                     ><img
-                      src="../assets/images/user.png"
+                      src="../assets/images/logosinfondo.png"
                       alt="user profile"
                     />{{ this.$store.state.user.name }}</a
                   >
@@ -268,9 +268,9 @@
             <a class="app-logo" href="index.html"
               ><img
                 class="logo-icon me-2"
-                src="../assets/images/app-logo.svg"
+                src="../assets/images/logosinfondo.png"
                 alt="logo"
-              /><span class="logo-text">PORTAL</span></a
+              /><span class="logo-text">Clínica Victoria</span></a
             >
           </div>
           <nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">

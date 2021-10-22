@@ -31,7 +31,7 @@ import "../assets/js/app.js";
 export default {
   props: ["clientes"],
   data() {
- 
+  
 
     return { name:[]}
   },
