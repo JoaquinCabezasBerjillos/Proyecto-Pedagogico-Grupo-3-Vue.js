@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <SearchBoton />
+    <SearchBoton :showForm="showForm" :producto="producto"/>
   </div>
   <div class="row g-4 mb-4">
     <div
@@ -27,6 +27,7 @@ export default {
    data(){
     return {
       productos: [],
+      showForm: "productos",
     };
   },
   created() {
