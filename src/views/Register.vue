@@ -8,7 +8,7 @@
               <a class="app-logo" href="#"
                 ><img
                   class="logo-icon me-2"
-                  src="assets/images/avatardefault_92824.svg"
+                  src="../assets/images/logosinfondo.png"
                   alt="logo"
               /></a>
             </div>
