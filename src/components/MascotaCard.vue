@@ -111,7 +111,7 @@
         </div>
         <div class="modal-body"></div>
           <MascotasForm :mascota="mascota"></MascotasForm>
-        <div class="modal-footer">
+        <div class="closed-button">
           <button
             type="button"
             class="btn btn-secondary"
@@ -119,7 +119,7 @@
           >
             Cerrar
           </button>
-          <button type="button" class="btn btn-primary">Guardar cambios</button>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
         </div>
       </div>
     </div>
