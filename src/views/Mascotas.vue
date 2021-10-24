@@ -20,13 +20,7 @@ export default {
     data () {
       return {
         mascotas: [
-          {
-            nombre: 'Alguien',
-            chip: '123456',
-            foto: 'C:\Users\ADM\AppData\Local\Temp\c54039199799e640fa6974ddad807900.png',
-            tipo: 'algo',
-            cliente_id: '1',
-          }
+          
         ],
         showForm: "mascotas",
       }
@@ -55,7 +49,6 @@ export default {
       },
     },
 };
-
 
 </script>
 

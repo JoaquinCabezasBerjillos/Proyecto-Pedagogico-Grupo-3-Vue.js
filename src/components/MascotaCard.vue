@@ -1,10 +1,9 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
     <div class="app-card-thumb-holder p-3">
-      <span class="icon-holder">
-        <img src="{{ mascota.foto }}" alt="">
-        <!-- <i class="fas fa-file-alt text-file"></i> Font Awesome fontawesome.com -->
-      </span>
+      <div class="app-card-thumb">
+        <img class="thumb-image" src="{{ mascota.foto }}" alt="">
+      </div>
       <a class="app-card-link-mask" href="#file-link"></a>
     </div>
     <div class="app-card-body p-3 has-card-actions">
