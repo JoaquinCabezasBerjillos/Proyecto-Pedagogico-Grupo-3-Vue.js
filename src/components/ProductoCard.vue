@@ -51,11 +51,7 @@
           <!--//dropdown-toggle-->
           <ul class="dropdown-menu">
             <li>
-              <button
-                class="dropdown-item"
-                data-bs-toggle="modal"
-                data-bs-target="#ModalEditarProducto"
-              >
+              <button class="dropdown-item" >
                 <svg
                   width="1em"
                   height="1em"
@@ -74,11 +70,7 @@
 
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <button
-                id="delete"
-                class="dropdown-item"
-                @click="borrarProducto"
-              >
+              <button id="delete" class="dropdown-item" @click="borrarProducto">
                 <svg
                   width="1em"
                   height="1em"
@@ -105,7 +97,12 @@
       <!--//app-card-body-->
     </div>
     <!--//app-card-->
-    <div class="modal" id="ModalEditarProducto" tabindex="-1">
+    <div
+      class="modal"
+      id="ModalEditarProducto"
+      tabindex="-1"
+      v-show="isModalVisible"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -113,12 +110,11 @@
             <button
               type="button"
               class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
+            
             ></button>
           </div>
           <div class="modal-body">
-            <ProductosForm />
+            <ProductosForm :item="producto" />
           </div>
           <div class="modal-footer">
             <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
@@ -136,7 +132,7 @@
 import ProductoService from "../services/ProductoService";
 import ProductosForm from "../components/ProductosForm";
 
-//import image from "../assets/images/coatex.jpg";
+import image from "../assets/coatex.jpg";
 
 export default {
   components: {
@@ -151,6 +147,7 @@ export default {
   data: function() {
     return {
       image: null,
+      isModalVisible: false,
     };
   },
 
@@ -167,6 +164,12 @@ export default {
         });
       console.log(1);
     },
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    },
   },
 };
 </script>
@@ -175,5 +178,8 @@ export default {
 .modal-dialog {
   max-width: 850px;
   margin: 2rem auto;
+}
+.modal {
+  display: block;
 }
 </style>

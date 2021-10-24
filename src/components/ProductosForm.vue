@@ -1,8 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-     
-      <form class="settings-form" @submit.prevent="onSubmit">
+      <form class="multipart/form-data" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
           <input
@@ -57,9 +56,8 @@
       </form>
     </div>
 
-    <div v-if="showImage" class="col-6">
-      
-      <img id="Previewimg" />
+    <div class="col-6">
+      <img id="Previewimg" :src="producto.foto" width="200" />
 
       <span>
         <input
@@ -79,45 +77,52 @@ import ProductoService from "@/services/ProductoService.js";
 import "../assets/js/app.js";
 export default {
   props: {
-    producto: {
+    item: {
       type: Object,
       default() {
         return {
-            nombre: "",
-            precio: null,
-            categoria: null,            
-            descripcion: null,
-            // foto: null,
+          nombre: "",
+          precio: "",
+          categoria: "",
+          descripcion: "",
         };
       },
     },
   },
-
-  data () {
-    return{
-     
+  data() {
+    return {
       showImage: false,
-    }
-   },
-
-
+      producto: this.item,
+      foto: "",
+    };
+  },
+  // watch: {
+  //   showModal() {
+  //     console.log("open");
+  //     if (this.item.id) {
+  //       ProductoService.getProducto(this.item.id)
+  //         .then((respuesta) => {
+  //           this.producto = respuesta.datos;
+  //           this.showImage = true;
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //         });
+  //     }
+  //   },
+  // },
+  // created() {
+  //   if (this.item.id) {
+  //     this.showImage = true;
+  //   }
+  // },
   methods: {
-      created() {
-      ProductoService
-      .getProductos()
-      .then(respuesta => {
-        this.producto = respuesta.data
-        this.showImage = false;
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    },
     selectFile(event) {
-      this.foto = event.target.value;
-      // this.id = event.target.value;
-      console.log(this.foto);
-      ProductoService.selectFile(this.foto)
+      this.producto.foto = event.target.files[0];
+      const reader = URL.createObjectURL(this.producto.foto);
+      console.log(reader);
+
+      ProductoService.selectFile(this.producto.id,{ "foto":this.producto.foto})
         .then((respuesta) => {
           console.log(respuesta);
         })
@@ -143,6 +148,7 @@ export default {
             this.showImage = true;
             this.$emit("producto-creado");
 
+            this.producto = respuesta.data.producto;
             console.log(respuesta.data);
           })
           .catch((error) => {
@@ -150,7 +156,6 @@ export default {
           });
       }
     },
-
   },
 };
 </script>
@@ -189,12 +194,10 @@ label {
   font-size: 1.1vw;
   padding: 2vh 2vw;
   margin-left: 1vw;
- width:25vw;
-  
- 
+  width: 25vw;
 }
 .modal-dialog {
-    max-width: 850px;
-    margin: 2rem auto;
+  max-width: 850px;
+  margin: 2rem auto;
 }
 </style>

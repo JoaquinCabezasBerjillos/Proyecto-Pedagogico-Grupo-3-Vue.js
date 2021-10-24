@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <SearchBoton :showForm="showForm" :producto="producto"/>
+    <SearchBoton :showForm="showForm" :item="producto" />
   </div>
   <div class="row g-4 mb-4">
     <div
@@ -8,8 +8,10 @@
       :key="producto.id"
       class="col-6 col-md-4 col-xl-3 col-xxl-3"
     >
-      <ProductoCard :producto="producto" @producto-borrado="actualizarListado"></ProductoCard>
-      
+      <ProductoCard
+        :producto="producto"
+        @producto-borrado="actualizarListado"
+      ></ProductoCard>
     </div>
   </div>
 </template>
@@ -24,9 +26,16 @@ export default {
     SearchBoton,
     ProductoCard,
   },
-   data(){
+  data() {
     return {
       productos: [],
+      producto: {
+        nombre: "",
+        precio: "",
+        categoria: "",
+        descripcion: "",
+      
+      },
       showForm: "productos",
     };
   },
@@ -42,7 +51,6 @@ export default {
 
   methods: {
     actualizarListado() {
-      this.producto = null;
       ProductoService.getProductos()
         .then((respuesta) => {
           this.productos = respuesta.data;
