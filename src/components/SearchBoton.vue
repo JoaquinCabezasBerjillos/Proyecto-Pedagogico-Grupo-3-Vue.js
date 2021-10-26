@@ -68,7 +68,13 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary">Guardar</button>
+            <button
+              @click="crearProducto"
+              type="button"
+              class="btn btn-primary"
+            >
+              Guardar
+            </button>
           </div>
         </div>
       </div>
@@ -79,6 +85,8 @@
 <script>
 import MascotasForm from "../components/MascotasForm";
 import ProductosForm from "../components/ProductosForm";
+import ProductoService from "../services/ProductoService";
+
 import "../assets/js/app.js";
 export default {
   components: {
@@ -91,6 +99,19 @@ export default {
       required: true,
     },
     showForm: String,
+  },
+  methods: {
+    crearProducto() {
+      ProductoService.createProducto(this.item)
+        .then((respuesta) => {
+          this.showImage = true;
+          this.$emit("producto-creado");
+          console.log(respuesta.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>

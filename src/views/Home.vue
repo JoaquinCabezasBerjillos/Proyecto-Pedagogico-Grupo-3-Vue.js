@@ -46,8 +46,9 @@
             <router-link :to="{ name: 'Register' }" class="nav-link-home"
               >Registrarse
             </router-link>
+            </li>
              <li class="nav-item-home">
-            <router-link  :to=" { name: 'login'}" class="nav-link-home">Iniciar Sesión
+            <router-link  :to=" { name: 'Login'}" class="nav-link-home">Iniciar Sesión
 
             </router-link>
           </li>
