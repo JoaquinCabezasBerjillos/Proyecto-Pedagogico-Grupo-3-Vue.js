@@ -46,7 +46,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="ModalForm">Alta {{ this.$route.name }}</h5>
+            <h5 class="modal-title" id="ModalForm">
+              Alta {{ this.$route.name }}
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -55,8 +57,8 @@
             ></button>
           </div>
           <div class="modal-body">
-            <ProductosForm v-if="showForm==='productos'" :producto="producto"/>
-            <MascotasForm v-if="showForm==='mascotas'" :mascota="mascota"/>
+            <ProductosForm v-if="showForm === 'productos'" :item="item" />
+            <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
           </div>
           <div class="modal-footer">
             <button
@@ -84,7 +86,11 @@ export default {
     ProductosForm,
   },
   props: {
-    showForm: String
+    item: {
+      type: Object,
+      required: true,
+    },
+    showForm: String,
   },
 };
 </script>
@@ -105,7 +111,7 @@ label {
   padding: 0rem 1rem !important;
 }
 .modal-dialog {
-    max-width: 850px;
-    margin: 2rem auto;
+  max-width: 850px;
+  margin: 2rem auto;
 }
 </style>

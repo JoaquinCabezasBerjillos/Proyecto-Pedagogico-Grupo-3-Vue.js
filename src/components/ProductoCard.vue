@@ -8,10 +8,7 @@
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0">
-        <router-link
-          :to="{ nombre: 'ProductoDetails', params: { id: producto.id } }"
-          >{{ producto.nombre }}</router-link
-        >
+       
       </h4>
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
@@ -51,11 +48,7 @@
           <!--//dropdown-toggle-->
           <ul class="dropdown-menu">
             <li>
-              <button
-                class="dropdown-item"
-                data-bs-toggle="modal"
-                data-bs-target="#ModalEditarProducto"
-              >
+              <button class="dropdown-item"  :to="{ name: 'ProductoForm', params: { id: producto.id } }">>
                 <svg
                   width="1em"
                   height="1em"
@@ -74,11 +67,7 @@
 
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <button
-                id="delete"
-                class="dropdown-item"
-                @click="borrarProducto"
-              >
+              <button id="delete" class="dropdown-item" @click="borrarProducto">
                 <svg
                   width="1em"
                   height="1em"
@@ -109,7 +98,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Editar Producto</h5>
+            <h5 class="modal-title" id="ProductosForm">Editar Producto</h5>
             <button
               type="button"
               class="btn-close"
@@ -118,11 +107,18 @@
             ></button>
           </div>
           <div class="modal-body">
-            <ProductosForm />
+            <!-- <ProductosForm @producto-creado="actualizarListado"></ProductosForm>  -->
+            <ProductosForm :item="producto" />
           </div>
           <div class="modal-footer">
-            <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-            <button type="button" class="btn btn-primary">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary">
               Guardar cambios
             </button>
           </div>
@@ -136,7 +132,7 @@
 import ProductoService from "../services/ProductoService";
 import ProductosForm from "../components/ProductosForm";
 
-//import image from "../assets/images/coatex.jpg";
+
 
 export default {
   components: {
@@ -150,13 +146,13 @@ export default {
   },
   data: function() {
     return {
-      image: null,
+      image: "",
+      // isModalVisible: false,
     };
   },
 
   methods: {
     borrarProducto() {
-      console.log(3);
       ProductoService.deleteProducto(this.producto.id)
         .then((respuesta) => {
           this.$emit("producto-borrado");
@@ -167,6 +163,12 @@ export default {
         });
       console.log(1);
     },
+    // showModal() {
+    //   this.isModalVisible = true;
+    // },
+  //   closeModal() {
+  //     this.isModalVisible = false;
+  //  },
   },
 };
 </script>
@@ -176,4 +178,16 @@ export default {
   max-width: 850px;
   margin: 2rem auto;
 }
+.modal {
+  display: block;
+}
+.btn-primary {
+  background: #053189;
+  color: white;
+}
+.btn-primary:hover {
+  background: #f98d0d;
+  color:#053189;
+}
+
 </style>

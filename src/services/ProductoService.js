@@ -15,6 +15,6 @@ export default {
     return apiCliente.patch("/api/productos/actualizar/" + id, producto);
   },
   selectFile(id, foto) {
-    return apiCliente.put("/api/foto/" + id, foto);
+    return apiCliente.put("/api/productos/foto/" + id, foto);
   },
 };
