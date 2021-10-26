@@ -60,7 +60,7 @@
             <ProductosForm v-if="showForm === 'productos'" :item="item" />
             <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
@@ -75,7 +75,7 @@
             >
               Guardar
             </button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -104,9 +104,8 @@ export default {
     crearProducto() {
       ProductoService.createProducto(this.item)
         .then((respuesta) => {
-          this.showImage = true;
           this.$emit("producto-creado");
-          console.log(respuesta.data);
+          this.item = respuesta.data.producto;
         })
         .catch((error) => {
           console.log(error);

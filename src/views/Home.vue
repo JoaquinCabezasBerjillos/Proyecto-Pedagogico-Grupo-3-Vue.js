@@ -1,17 +1,16 @@
 <template>
   <!-- HEADER-Barra de navegación -->
-  <div class="container-home" >
+  <div class="container-home">
     <nav class="navbar navbar-expand-lg relative" fixed-top>
       <div class="container-fluid">
-         <img
-            src="../assets/images/logosinfondo.png"
-            alt=""
-            width="120"
-            height="120"
-            class="d-inline-block align-text-top"
-          />
+        <img
+          src="../assets/images/logosinfondo.png"
+          alt=""
+          width="120"
+          height="120"
+          class="d-inline-block align-text-top"
+        />
         <a class="navbar-brand" href="#">
-         
           Centro Veterinario Victoria
         </a>
         <span class="navbar-text">
@@ -26,41 +25,43 @@
 
           <span>10:00h-13:30h </span>
         </span>
-  <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item-home">
-            <a class="nav-link-home active" aria-current="page" href="#quienes"
-              >Quienes somos</a
-            >
-          </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" link="#servicios">Servicios</a>
-          </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" href="link#productos">Productos</a>
-          </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" href="#mapa">Donde estamos</a>
-          </li>
-          <li class="nav-item-home">
-            <router-link :to="{ name: 'Register' }" class="nav-link-home"
-              >Registrarse
-            </router-link>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item-home">
+              <a
+                class="nav-link-home active"
+                aria-current="page"
+                href="#quienes"
+                >Quienes somos</a
+              >
             </li>
-             <li class="nav-item-home">
-            <router-link  :to=" { name: 'Login'}" class="nav-link-home">Iniciar Sesión
-
-            </router-link>
-          </li>
-        
-        </ul>
-      </div>
+            <li class="nav-item-home">
+              <a class="nav-link-home" link="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item-home">
+              <a class="nav-link-home" href="link#productos">Productos</a>
+            </li>
+            <li class="nav-item-home">
+              <a class="nav-link-home" href="#mapa">Donde estamos</a>
+            </li>
+            <li class="nav-item-home">
+              <router-link :to="{ name: 'Register' }" class="nav-link-home"
+                >Registrarse
+              </router-link>
+            </li>
+            <li class="nav-item-home">
+              <router-link :to="{ name: 'Login' }" class="nav-link-home"
+                >Iniciar Sesión
+              </router-link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   </div>
 
   <!-- SECCION ABOUT -->
-  <div class="container-principal" >
+  <div class="container-principal">
     <section class="action" id="quienes">
       <div class="container">
         <div class="left-text hidden-xs" id="quienes">
