@@ -50,7 +50,7 @@
             required=""
           ></textarea>
         </div>
-             </form>
+      </form>
     </div>
 
     <!-- <div v-if="showImage" class="col-6"> -->
@@ -88,8 +88,9 @@ export default {
       },
     },
   },
-  data() {
-    return {
+  
+  data () {
+    return{
       showImage: false,
       producto: this.item,
       // foto: "",
