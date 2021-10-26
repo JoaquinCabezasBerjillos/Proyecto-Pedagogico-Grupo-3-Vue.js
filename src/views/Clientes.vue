@@ -9,38 +9,9 @@
       class="col-6 col-md-4 col-xl-3 col-xxl-3"
     >
       <ClientesCard :cliente="cliente" @cliente-borrado="actualizarListado" />
-
-      <div
-        class="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body"><edit-clientes :cliente="cliente"></edit-clientes></div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal">Cerrar
-          </button>
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
-        </div>
-      </div>
     </div>
-      </div>
-    </div>
+    
+    <EditClientes :cliente="cliente"/>
   </div>
 </template>
 

@@ -1,44 +1,86 @@
 <template>
   <div class="row g-4 mb-4">
-    <div class="col-6">
-      <form class="settings-form" @submit.prevent="onSubmit">
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nombre"
-            v-model="cliente.nombre"
-            required=""
-          />
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Editar usuario</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="col-6">
+                <form class="settings-form" @submit.prevent="onSubmit">
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nombre"
+                      v-model="cliente.nombre"
+                      required=""
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="apellido"
+                      v-model="cliente.apellidos"
+                      required=""
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="movil" class="form-label">Móvil</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      id="movil"
+                      v-model="cliente.movil"
+                      required=""
+                    />
+                  </div>
+                  <div class="closed-button">
+                    <button
+                      type="submit"
+                      @click.prevent="info(cliente)"
+                      class="btn app-btn-primary"
+                    >
+                      Guardar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+              <button type="submit" @click="onSubmit()" class="btn btn-primary">
+                Guardar cambios
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="apellido" class="form-label">Apellido</label>
-          <input
-            type="text"
-            class="form-control"
-            id="apellido"
-            v-model="cliente.apellido"
-            required=""
-          />
-        </div>
-        <div class="mb-3">
-          <label for="movil" class="form-label">Móvil</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder=""
-            id="movil"
-            v-model="cliente.movil"
-            required=""
-          />
-        </div>
-        <!-- <div class="closed-button">
-          <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div> -->
-      </form>
-    </div>
-    </div>
+      </div>
+  </div>
+
 </template>
 
 <script>
@@ -47,30 +89,24 @@ import ClienteService from "@/services/ClienteService.js";
 import "../assets/js/app.js";
 
 export default {
+  
   props: {
     cliente: {
       type: Object,
       default() {
         return {
-          nombre: null,
-          apellido: null,
-          movil: null,
+          nombre: '',
+          apellido: '',
+          movil: '',
         };
       },
     },
   },
 
-
   methods: {
-      created() {
-      ClienteService
-      .getClientes(this.id)
-      .then(respuesta => {
-        this.cliente = respuesta.data
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    
+    info(cliente) {
+      console.log(cliente);
     },
   },
 };
