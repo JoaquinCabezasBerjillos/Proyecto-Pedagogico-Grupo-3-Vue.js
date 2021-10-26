@@ -110,8 +110,9 @@
           ></button>
         </div>
         <div class="modal-body"></div>
+          <!-- <MascotasForm @mascota-creada="actualizarListado"></MascotasForm> -->
           <MascotasForm :mascota="mascota"></MascotasForm>
-        <div class="closed-button">
+          <div class="closed-button">
           <button
             type="button"
             class="btn btn-secondary"

@@ -29,7 +29,7 @@
                   />
                 </div>
                 <div class="email mb-3">
-                  <label class="sr-only" for="signup-apellido">Apellido</label>
+                  <label class="sr-only" for="signup-apellido">Apellidos</label>
                   <input
                     id="signup-apellido"
                     name="signup-apellido"

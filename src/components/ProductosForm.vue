@@ -51,9 +51,6 @@
             required=""
           ></textarea>
         </div>
-        <div class="closed-button">
-          <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div>
       </form>
     </div>
 
@@ -95,7 +92,6 @@ export default {
 
   data () {
     return{
-     
       showImage: false,
     }
    },
