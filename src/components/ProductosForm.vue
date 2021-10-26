@@ -1,7 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
     <div class="col-6">
-      <form class="multipart/form-data" @submit.prevent="onSubmit">
+      <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
           <input
@@ -50,25 +50,22 @@
             required=""
           ></textarea>
         </div>
-        <div class="closed-button">
-          <button type="submit" class="btn app-btn-primary">Guardar</button>
-        </div>
-      </form>
+             </form>
     </div>
 
-    <div class="col-6">
-      <img id="Previewimg" :src="producto.foto" width="200" />
+    <!-- <div v-if="showImage" class="col-6"> -->
+    <img id="Previewimg" :src="producto.foto" width="200" />
 
-      <span>
-        <input
-          type="file"
-          accept="image/*"
-          @change="selectFile($event)"
-          id="file-input"
-        />
-      </span>
-    </div>
+    <span>
+      <input
+        type="file"
+        accept="image/*"
+        @change="selectFile($event)"
+        id="file-input"
+      />
+    </span>
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -85,6 +82,8 @@ export default {
           precio: "",
           categoria: "",
           descripcion: "",
+          // foto:"",
+          // id:"",
         };
       },
     },
@@ -93,7 +92,7 @@ export default {
     return {
       showImage: false,
       producto: this.item,
-      foto: "",
+      // foto: "",
     };
   },
   // watch: {
@@ -115,20 +114,34 @@ export default {
   //   if (this.item.id) {
   //     this.showImage = true;
   //   }
-  // },
+
   methods: {
+    created() {
+      ProductoService.getProductos()
+        .then((respuesta) => {
+          this.producto = respuesta.data;
+          this.showImage = false;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     selectFile(event) {
-      this.producto.foto = event.target.files[0];
+      // this.producto.foto = event.target.files[0];
+      this.producto.foto = event.target.value;
+      this.id = event.target.value;
       const reader = URL.createObjectURL(this.producto.foto);
       console.log(reader);
-
-      ProductoService.selectFile(this.producto.id,{ "foto":this.producto.foto})
+      console.log(this.foto);
+      ProductoService.selectFile(this.producto.id, { foto: this.producto.foto })
         .then((respuesta) => {
+        
           console.log(respuesta);
         })
         .catch((error) => {
           console.log(error);
         });
+      
     },
 
     onSubmit() {
@@ -147,8 +160,6 @@ export default {
           .then((respuesta) => {
             this.showImage = true;
             this.$emit("producto-creado");
-
-            this.producto = respuesta.data.producto;
             console.log(respuesta.data);
           })
           .catch((error) => {
@@ -175,12 +186,12 @@ label {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }
 #Previewimg {
-  background-color: #ffffff;
+ 
   width: 20vw;
-  height: 40.041667vh;
+  height: 41vh;
   border-radius: 3.1vh;
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
-  margin-top: 2vh;
+  margin-top: 4vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
 }
