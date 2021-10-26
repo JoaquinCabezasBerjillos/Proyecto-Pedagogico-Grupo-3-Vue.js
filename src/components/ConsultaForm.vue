@@ -14,7 +14,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Apellido</label>
+          <label for="nombre" class="form-label">Apellidos</label>
           <input
             type="text"
             class="form-control"
@@ -27,16 +27,22 @@
 
         <div class="mb-3">
 
-            <label for="nombre" class="form-label ">Número de Mascotas:</label>
+            <label for="nombre" class="form-label ">Nombre del Mascotas:</label>
         <input 
-            type="number"  
+            list="Nombre del Mascotas"  
             min="1" max="100"
             class="form-control controledit"
-            list="productos"
             id="nombre"
             v-model="producto.categoria"
-            required=""
-          />
+            required="" />
+          
+                  <datalist id="Nombre del Mascotas">
+                  <option value="Niro">
+                  <option value="Jacky">
+                  <option value="Saly">
+                  <option value="Roro">
+                  <option value="Wolf">
+                  </datalist>
 
         </div>
         
@@ -77,11 +83,11 @@
 </template>
 
 <script>
-import ProductoService from "@/services/ProductoService.js";
+import ConsultaService from "@/services/ConsultaService.js";
 import "../assets/js/app.js";
 export default {
   props: {
-    producto: {
+    consulta: {
       type: Object,
       default() {
         return {
@@ -101,38 +107,9 @@ export default {
     }),
  methods:{
 
-    selectFile(event) {
-      const data = new FormData();
-        data.append('photo', this.photo);
-        
-        axios.post("/api/photo", data);
-            // `files` is always an array because the file input may be in multiple mode
-            this.photo = event.target.files[0];
-        },
 
 
-    onSubmit() {
-      // if (this.producto.id) {
-      //   // Actualizar
-      //   ProductoService.updateProducto(this.producto.id, this.producto)
-      //     .then((respuesta) => {
-      //       console.log(respuesta.data);
-      //     })
-      //     .catch((error) => {
-      //       console.log(error);
-      //     });
-      // } else {
-        // Crear
-        ProductoService.createProducto(this.producto)
-          .then((respuesta) => {
-            this.$emit("producto-creado");
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-
-    },
+  
 
 
 
