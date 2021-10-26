@@ -7,9 +7,7 @@
       <a class="app-card-link-mask" href="#file-link"></a>
     </div>
     <div class="app-card-body p-3 has-card-actions">
-      <h4 class="app-doc-title truncate mb-0">
-       
-      </h4>
+      <h4 class="app-doc-title truncate mb-0"></h4>
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
           <li><span class="text-muted">Precio:</span> {{ producto.precio }}</li>
@@ -48,7 +46,7 @@
           <!--//dropdown-toggle-->
           <ul class="dropdown-menu">
             <li>
-              <button class="dropdown-item"  :to="{ name: 'ProductoForm', params: { id: producto.id } }">>
+              <button @click="showModal" class="dropdown-item">
                 <svg
                   width="1em"
                   height="1em"
@@ -94,7 +92,13 @@
       <!--//app-card-body-->
     </div>
     <!--//app-card-->
-    <div class="modal" id="ModalEditarProducto" tabindex="-1">
+
+    <div
+      v-show="isModalVisible"
+      class="modal"
+      id="ModalEditarProducto"
+      tabindex="-1"
+    >
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -102,7 +106,7 @@
             <button
               type="button"
               class="btn-close"
-              data-bs-dismiss="modal"
+              @click="showModal"
               aria-label="Close"
             ></button>
           </div>
@@ -111,14 +115,10 @@
             <ProductosForm :item="producto" />
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+            <button type="button" class="btn btn-secondary" @click="showModal">
               Cerrar
             </button>
-            <button type="submit" class="btn btn-primary">
+            <button @click="editarProducto" class="btn btn-primary">
               Guardar cambios
             </button>
           </div>
@@ -131,8 +131,6 @@
 <script>
 import ProductoService from "../services/ProductoService";
 import ProductosForm from "../components/ProductosForm";
-
-
 
 export default {
   components: {
@@ -147,7 +145,7 @@ export default {
   data: function() {
     return {
       image: "",
-      // isModalVisible: false,
+      isModalVisible: false,
     };
   },
 
@@ -163,12 +161,32 @@ export default {
         });
       console.log(1);
     },
-    // showModal() {
-    //   this.isModalVisible = true;
-    // },
-  //   closeModal() {
-  //     this.isModalVisible = false;
-  //  },
+    showModal() {
+      this.isModalVisible = !this.isModalVisible;
+    },
+    editarProducto() {
+      if (this.producto.id) {
+        // Actualizar
+        ProductoService.updateProducto(this.producto.id, this.producto)
+
+          .then((respuesta) => {
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        ProductoService.createProducto(this.producto)
+          .then((respuesta) => {
+            this.showImage = true;
+            this.$emit("producto-creado");
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
   },
 };
 </script>
@@ -187,7 +205,6 @@ export default {
 }
 .btn-primary:hover {
   background: #f98d0d;
-  color:#053189;
+  color: #053189;
 }
-
 </style>

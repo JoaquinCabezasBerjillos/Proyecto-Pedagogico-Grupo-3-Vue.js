@@ -244,7 +244,7 @@
                     ><img
                       src="../assets/images/logosinfondo.png"
                       alt="user profile"
-                    />{{ this.$store.state.user.name }}</a
+                    />{{ this.$store.state.user.nombre }}</a
                   >
                 </div>
                 <!--//app-user-dropdown-->

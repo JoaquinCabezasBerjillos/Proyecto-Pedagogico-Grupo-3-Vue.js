@@ -15,7 +15,7 @@
         <div class="mb-3">
           <label for="precio" class="form-label">Precio</label>
           <input
-            type="text"
+            type="number"
             class="form-control"
             id="precio"
             v-model="producto.precio"
@@ -79,7 +79,7 @@ export default {
       default() {
         return {
           nombre: "",
-          precio: "",
+          precio: l0,
           categoria: "",
           descripcion: "",
           // foto:"",
@@ -145,29 +145,7 @@ export default {
       
     },
 
-    onSubmit() {
-      if (this.producto.id) {
-        // Actualizar
-        ProductoService.updateProducto(this.producto.id, this.producto)
-
-          .then((respuesta) => {
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        ProductoService.createProducto(this.producto)
-          .then((respuesta) => {
-            this.showImage = true;
-            this.$emit("producto-creado");
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
+    
   },
 };
 </script>
