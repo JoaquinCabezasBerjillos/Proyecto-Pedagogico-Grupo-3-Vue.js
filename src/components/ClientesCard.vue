@@ -19,16 +19,10 @@
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0">
-        <router-link
-          :to="{ nombre: 'ClienteDetails', params: { id: cliente.id } }"
-          >{{ cliente.nombre }}</router-link
-        >
+        {{ cliente.nombre }}  {{ cliente.apellidos }}
       </h4>
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
-          <li>
-            <span class="text-muted">Apellido:</span> {{ cliente.apellido }}
-          </li>
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
         </ul>
       </div>
@@ -62,6 +56,7 @@
                 class="dropdown-item"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal"
+                @click="abrirModal()"
               >
                 <svg
                   width="1em"
@@ -105,16 +100,17 @@
       </div>
       <!--//app-card-actions-->
     </div>
+
     <!--//app-card-body-->
   </div>
 </template>
 
  <script>
 import ClienteService from "@/services/ClienteService.js";
-
+import EditClientes from "@/components/EditClientes.vue";
 export default {
   components: {
-    
+    EditClientes
   },
   props: {
     cliente: {
@@ -123,6 +119,9 @@ export default {
     },
   },
   methods: {
+    abrirModal() {
+      this.$emit("abrir-modal");
+    },
     borrarCliente() {
       ClienteService.deleteCliente(this.cliente.id)
         .then((respuesta) => {
@@ -132,6 +131,10 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    
+     info() {
+      console.log(this.cliente);
     },
   },
 };

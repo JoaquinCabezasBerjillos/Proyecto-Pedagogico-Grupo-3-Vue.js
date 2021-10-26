@@ -22,21 +22,33 @@
                     id="signup-name"
                     name="signup-name"
                     type="text"
-                    v-model="form.name"
+                    v-model="form.nombre"
                     class="form-control signup-name"
                     placeholder="Nombre*"
                     required="required"
                   />
                 </div>
                 <div class="email mb-3">
-                  <label class="sr-only" for="signup-apellido">Apellido</label>
+                  <label class="sr-only" for="signup-apellido">Apellidos</label>
                   <input
                     id="signup-apellido"
                     name="signup-apellido"
                     type="text"
-                    v-model="form.apellido"
+                    v-model="form.apellidos"
                     class="form-control signup-apellido"
                     placeholder="Apellido*"
+                    required="required"
+                  />
+                </div>
+                <div class="email mb-3">
+                  <label class="sr-only" for="signup-apellido">Movil</label>
+                  <input
+                    id="signup-apellido"
+                    name="signup-apellido"
+                    type="text"
+                    v-model="form.movil"
+                    class="form-control signup-apellido"
+                    placeholder="Movil*"
                     required="required"
                   />
                 </div>
@@ -159,8 +171,9 @@ export default {
   data() {
     return {
       form: {
-        name: null,
-        apellido: null,
+        nombre: null,
+        apellidos: null,
+        movil: null,
         email: null,
         password: null,
         confirm_password: null,
@@ -173,8 +186,8 @@ export default {
     register() {
       this.$store
         .dispatch("register", this.form)
-        .then(() => {
-          this.$router.push({ name: "AdminLayout" });
+        .then((resp) => {
+          console.log(resp.data)
         })
         .catch((err) => {
           this.errors = err.response.data.errors;

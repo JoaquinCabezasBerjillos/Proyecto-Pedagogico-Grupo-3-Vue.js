@@ -31,10 +31,7 @@ export default createStore({
     },
     register({ commit }, credentials) {
       return apiCliente
-      .post('/api/register', credentials)
-      .then(({ data }) => {
-        commit('SET_USER_DATA', data.data)
-      });
+      .post('/api/register', credentials);
     },
     logout ({ commit }) {
       return apiCliente
