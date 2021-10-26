@@ -1,14 +1,15 @@
 export default {
-    getConsulta() {
-      return apiCliente.get("/api/consulta");
+    getConsultas() {
+      return apiCliente.get("/api/consultas");
     },
     getConsulta(id) {
-      return apiCliente.get("/api/consulta/mostrar/" + id);
+      return apiCliente.get("/api/consultas/mostrar/" + id);
     },
     
     updateConsulta(id, consulta) {
-      return apiCliente.patch("/api/consulta/actualizar/" + id, consulta);
+      return apiCliente.patch("/api/consultas/actualizar/" + id, consulta);
     },
-    
+
+   
   };
   

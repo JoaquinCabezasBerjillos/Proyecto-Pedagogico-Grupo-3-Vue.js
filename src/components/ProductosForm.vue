@@ -75,7 +75,6 @@
 
 <script>
 import ProductoService from "@/services/ProductoService.js";
-
 import "../assets/js/app.js";
 export default {
   props: {

@@ -2,6 +2,7 @@
   <div class="row g-4 mb-4">
     <div class="col-6">
       <h4> Consulta Vista </h4>
+      <br>
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label" >Nombre</label>
@@ -9,7 +10,7 @@
             type="text"
             class="form-control"
             id="nombre"
-            v-model="producto.nombre"
+            v-model="consulta.nombre"
             required=""
           />
         </div>
@@ -19,7 +20,7 @@
             type="text"
             class="form-control"
             id="nombre"
-            v-model="producto.Apellido"
+            v-model="consulta.apellido"
             required=""
           />
        
@@ -30,19 +31,18 @@
             <label for="nombre" class="form-label ">Nombre del Mascotas:</label>
         <input 
             list="Nombre del Mascotas"  
-            min="1" max="100"
             class="form-control controledit"
             id="nombre"
-            v-model="producto.categoria"
+            v-model="consulta.tipo"
             required="" />
           
-                  <datalist id="Nombre del Mascotas">
-                  <option value="Niro">
-                  <option value="Jacky">
-                  <option value="Saly">
-                  <option value="Roro">
-                  <option value="Wolf">
-                  </datalist>
+        <datalist id="Nombre del Mascotas">
+        <option> Niro </option>
+        <option> Jacky </option>
+        <option> Saly </option>
+        <option> Roro </option>
+        <option> Wolf </option>
+        </datalist>
 
         </div>
         
@@ -53,9 +53,9 @@
         <input 
       type="date" id="start" 
        name="trip-start"
-       value="2021-11-01"
+       value="2021-11-01" 
        min="2021-10-01" max="2028-12-31"
-       class="form-control"
+       class="form-control" 
        >
        
          </div>
@@ -66,10 +66,10 @@
           <label for="nombre" class="form-label">Historial medico</label>
           <textarea
             class="form-control"
-            v-model="producto.description"
+            v-model="consulta.diagnostico"
             placeholder="Escriba el historial medico si existe"
             required=""
-          ></textarea>
+          > </textarea>
         </div>
 
         <div class="closed-button">
@@ -91,26 +91,22 @@ export default {
       type: Object,
       default() {
         return {
-          nombre: null,
-          precio: null,
-          categoria: null,
-          descripcion: null,
+          nombre:"",
+          fecha: null,
+          diagnostico: null,
+          tipo: null,
 
       }
       }
 
     }
     },
-   data: () => ({
-        photo: null,
-        
-    }),
+   
  methods:{
 
 
 
   
-
 
 
  }
@@ -131,7 +127,9 @@ label {
   
  } */
 .controledit{
-  width: 5vw;
+  width: 6.5vw;
+  height: 2.5vw;;
+  margin-left: 190px;
 }
 .app-btn-primary {
   background: #053189;
