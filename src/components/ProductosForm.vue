@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <div class="col-6">
+    <div v-bind:class="{ 'col-12': !showImage, 'col-6': showImage }">
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -52,20 +52,24 @@
         </div>
       </form>
     </div>
+    <div v-show="showImage" class="col-6">
+      <img id="Previewimg" :src="producto.foto" width="200" />
 
-    <!-- <div v-if="showImage" class="col-6"> -->
-    <img id="Previewimg" :src="producto.foto" width="200" />
-
-    <span>
-      <input
-        type="file"
-        accept="image/*"
-        @change="selectFile($event)"
-        id="file-input"
-      />
-    </span>
+      <span>
+        <input
+          type="file"
+          accept="image/*"
+          @change="selectFile($event)"
+          id="file-input"
+        />
+      </span>
+    </div>
   </div>
-  <!-- </div> -->
+  <div class="row">
+    <button @click="crearProducto" type="button" class="btn btn-primary">
+      Guardar
+    </button>
+  </div>
 </template>
 
 <script>
@@ -82,18 +86,16 @@ export default {
           precio: l0,
           categoria: "",
           descripcion: "",
-          // foto:"",
-          // id:"",
+          foto: null,
         };
       },
     },
   },
-  
-  data () {
-    return{
-      showImage: false,
+
+  data() {
+    return {
       producto: this.item,
-      // foto: "",
+      showImage: false,
     };
   },
   // watch: {
@@ -117,35 +119,31 @@ export default {
   //   }
 
   methods: {
-    created() {
-      ProductoService.getProductos()
+    crearProducto() {
+      console.log(1);
+      ProductoService.createProducto(this.item)
         .then((respuesta) => {
-          this.producto = respuesta.data;
-          this.showImage = false;
+          this.showImage = true;
+          this.$emit("producto-creado");
+          this.producto = respuesta.data.producto;
         })
         .catch((error) => {
           console.log(error);
         });
     },
     selectFile(event) {
-      // this.producto.foto = event.target.files[0];
-      this.producto.foto = event.target.value;
-      this.id = event.target.value;
-      const reader = URL.createObjectURL(this.producto.foto);
-      console.log(reader);
-      console.log(this.foto);
-      ProductoService.selectFile(this.producto.id, { foto: this.producto.foto })
+      this.producto.foto = event.target.files[0];
+
+      let data = new FormData();
+      data.append("image", this.producto.foto);
+      ProductoService.selectFile(this.producto.id, { foto: data })
         .then((respuesta) => {
-        
           console.log(respuesta);
         })
         .catch((error) => {
           console.log(error);
         });
-      
     },
-
-    
   },
 };
 </script>
@@ -165,7 +163,6 @@ label {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }
 #Previewimg {
- 
   width: 20vw;
   height: 41vh;
   border-radius: 3.1vh;

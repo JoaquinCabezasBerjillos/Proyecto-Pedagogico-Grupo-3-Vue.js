@@ -113,6 +113,7 @@
           <div class="modal-body">
             <!-- <ProductosForm @producto-creado="actualizarListado"></ProductosForm>  -->
             <ProductosForm :item="producto" />
+            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" @click="showModal">
