@@ -10,6 +10,8 @@ import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
 import Mascotas from "../views/Mascotas.vue";
 import Clientes from "../views/Clientes.vue";
+import Perfil from "../views/Perfil.vue";
+import Historial from "../views/Historial.vue";
 import NotFound from "../views/NotFound.vue";
 
 
@@ -59,6 +61,18 @@ const routes = [
           path: "/pedidos",
           name: "Pedidos",
           component:Pedidos,
+          meta: { requiresAuth: true},
+        },
+        {
+          path: "/perfil",
+          name: "Perfil",
+          component:Perfil,
+          meta: { requiresAuth: true},
+        },
+        {
+          path: "/historial",
+          name: "Historial",
+          component:Historial,
           meta: { requiresAuth: true},
         },
       

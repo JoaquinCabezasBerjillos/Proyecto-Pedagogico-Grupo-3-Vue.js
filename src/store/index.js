@@ -13,14 +13,18 @@ export default createStore({
         "Authorization"
       ] = `Bearer ${data.token}`;
     },
-    LOGOUT (state) {
+    LOGOUT(state) {
       // state.user = null
       // localStorage.removeItem('user')
       // localStorage.removeItem('token')
       // apiClient.defaults.headers.common['Authorization'] = null
-      localStorage.removeItem('user')
-      localStorage.removeItem('token')
-      location.reload()
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      location.reload();
+    },
+    REFRESH_USER(state, data) {
+      state.user = data.user;
+      localStorage.setItem("user", JSON.stringify(data.user));
     },
   },
   actions: {
@@ -30,16 +34,20 @@ export default createStore({
       });
     },
     register({ commit }, credentials) {
-      return apiCliente
-      .post('/api/register', credentials);
+      return apiCliente.post("/api/register", credentials);
     },
-    logout ({ commit }) {
-      return apiCliente
-        .get('/api/logout')
-        .then(() => {
-          commit('LOGOUT')
-        })
-    }
+    logout({ commit }) {
+      return apiCliente.get("/api/logout").then(() => {
+        commit("LOGOUT");
+      });
+    },
+
+    getAuthUser({ commit }) {
+      return apiCliente.get("/api/getAuthUser").then(({ data }) => {
+        commit("REFRESH_USER", data);
+      });
+    },
   },
+
   modules: {},
 });

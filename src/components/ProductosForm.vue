@@ -29,7 +29,7 @@
             class="form-control"
             list="productos"
             placeholder="Seleccione tipo de producto"
-            id="nombre"
+            id="categoria"
             v-model="producto.categoria"
             required=""
           />
@@ -47,6 +47,7 @@
             id="descripcion"
             v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
+            
             required=""
           ></textarea>
         </div>
@@ -56,7 +57,7 @@
       <div
         id="Previewimg"
         :style="{ 'background-image': `url(${producto.foto})` }"
-        width="200"
+       
       ></div>
 
       <span>
@@ -89,7 +90,7 @@ export default {
       default() {
         return {
           nombre: "",
-          precio: l0,
+          precio: "",
           categoria: "",
           descripcion: "",
           foto: null,
@@ -214,6 +215,7 @@ label {
   margin-top: 4vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
+  background-image: cover ;
 }
 #file-input {
   overflow: hidden;

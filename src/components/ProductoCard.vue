@@ -10,6 +10,10 @@
       <h4 class="app-doc-title truncate mb-0"></h4>
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
+
+           <li><span class="text-muted">Nombre:</span> {{ producto.nombre }}</li>
+          
+          
           <li><span class="text-muted">Precio:</span> {{ producto.precio }}</li>
           <li>
             <span class="text-muted">Categoría:</span> {{ producto.categoria }}
@@ -160,7 +164,7 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-      console.log(1);
+    
     },
     showModal() {
       this.isModalVisible = !this.isModalVisible;
