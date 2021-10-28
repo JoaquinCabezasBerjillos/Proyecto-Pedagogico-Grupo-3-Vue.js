@@ -111,7 +111,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <!-- <ProductosForm @producto-creado="actualizarListado"></ProductosForm>  -->
+            
             <ProductosForm :item="producto" />
             
           </div>
