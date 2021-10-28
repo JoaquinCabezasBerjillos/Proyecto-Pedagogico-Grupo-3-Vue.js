@@ -122,10 +122,6 @@ label {
 }
 
 
- /* .row{
-   background-image: url("https://pandaveterinaria.com/wp-content/uploads/2019/05/Enfermedades-en-perros-y-gatos.jpg");
-  
- } */
 .controledit{
   width: 6.5vw;
   height: 2.5vw;;
