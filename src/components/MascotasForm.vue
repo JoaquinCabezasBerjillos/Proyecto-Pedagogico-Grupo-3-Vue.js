@@ -32,7 +32,7 @@
             v-model="mascota.tipo"
             required=""
           />
-          <div class="mb-3">
+          <!-- <div class="mb-3">
             <label for="categoria" class="form-label">Cliente</label>
               <input
                 type="text"
@@ -48,7 +48,7 @@
                 <option>Cliente 3</option>
                 <option>Cliente 4</option>
               </datalist>
-          </div>
+          </div> -->
         </div>
       </form>
     </div>

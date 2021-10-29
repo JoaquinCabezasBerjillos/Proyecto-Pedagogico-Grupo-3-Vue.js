@@ -112,7 +112,6 @@
         <div class="modal-body"></div>
           <!-- <MascotasForm @mascota-creada="actualizarListado"></MascotasForm> -->
           <MascotasForm :item="mascota"></MascotasForm>
-          <EditMascotas />
           <div class="closed-button">
           <button
             type="button"
