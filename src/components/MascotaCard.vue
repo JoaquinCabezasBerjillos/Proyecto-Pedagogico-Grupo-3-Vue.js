@@ -63,7 +63,7 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <button class="dropdown-item" @click="borrarMascota()"
+              <button id="delete" class="dropdown-item" @click="borrarMascota()"
                 ><svg
                   width="1em"
                   height="1em"
@@ -111,7 +111,8 @@
         </div>
         <div class="modal-body"></div>
           <!-- <MascotasForm @mascota-creada="actualizarListado"></MascotasForm> -->
-          <MascotasForm :mascota="mascota"></MascotasForm>
+          <MascotasForm :item="mascota"></MascotasForm>
+          <EditMascotas />
           <div class="closed-button">
           <button
             type="button"
@@ -120,7 +121,7 @@
           >
             Cerrar
           </button>
-          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          <button @click="editarMascota" class="btn btn-primary">Guardar cambios</button>
         </div>
       </div>
     </div>

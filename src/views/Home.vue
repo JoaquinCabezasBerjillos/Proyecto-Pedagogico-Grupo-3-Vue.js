@@ -48,23 +48,15 @@
               >Donde estamos
             </a>
           </li>
-          <li class="nav-item">
-            <router-link
-              :to="{ name: 'Register' }"
-              class="nav-link  active"
-              aria-current="page"
-              href="#"
-              >Registrarse</router-link
-            >
-          </li>
-          <li class="nav-item">
-            <router-link
-              :to="{ name: 'Login' }"
-              class="nav-link active"
-              aria-current="page"
-              href="#"
-              >Iniciar sesión</router-link
-            >
+          <li class="nav-item-home">
+            <router-link :to="{ name: 'Register' }" class="nav-link-home"
+              >Registrarse
+            </router-link>
+            </li>
+             <li class="nav-item-home">
+            <router-link  :to=" { name: 'Login'}" class="nav-link-home">Iniciar Sesión
+
+            </router-link>
           </li>
         </ul>
       </div>
