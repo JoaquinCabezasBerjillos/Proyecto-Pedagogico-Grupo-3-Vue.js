@@ -186,9 +186,12 @@ export default {
     register() {
       this.$store
         .dispatch("register", this.form)
-        .then((resp) => {
-          console.log(resp.data)
+         .then(() => {
+          this.$router.push({ name: "Login" });
         })
+        // .then((resp) => {
+        //   console.log(resp.data)
+        // })
         .catch((err) => {
           this.errors = err.response.data.errors;
         });

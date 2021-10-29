@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <div class="col-6">
+    <div v-bind:class="{ 'col-12': !showImage, 'col-6': showImage }">
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -29,7 +29,7 @@
             class="form-control"
             list="productos"
             placeholder="Seleccione tipo de producto"
-            id="nombre"
+            id="categoria"
             v-model="producto.categoria"
             required=""
           />
@@ -47,29 +47,40 @@
             id="descripcion"
             v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
+            
             required=""
           ></textarea>
         </div>
       </form>
     </div>
+    <div v-show="showImage" class="col-6">
+      <div
+        id="Previewimg"
+        :style="{ 'background-image': `url(${producto.foto})` }"
+       
+      ></div>
 
-    <!-- <div v-if="showImage" class="col-6"> -->
-    <img id="Previewimg" :src="producto.foto" width="200" />
-
-    <span>
-      <input
-        type="file"
-        accept="image/*"
-        @change="selectFile($event)"
-        id="file-input"
-      />
-    </span>
+      <span>
+        <input
+          type="file"
+          multiple
+          :name="uploadFieldName"
+          @change="filesChange($event.target.name, $event.target.files)"
+          accept="image/*"
+        />
+      </span>
+    </div>
   </div>
-  <!-- </div> -->
+  <div class="row">
+    <button @click="crearProducto" type="button" class="btn btn-primary">
+      Guardar
+    </button>
+  </div>
 </template>
 
 <script>
 import ProductoService from "@/services/ProductoService.js";
+import { uploadFile } from "@/services/file-upload.js";
 
 import "../assets/js/app.js";
 export default {
@@ -79,73 +90,102 @@ export default {
       default() {
         return {
           nombre: "",
-          precio: l0,
+          precio: "",
           categoria: "",
           descripcion: "",
-          // foto:"",
-          // id:"",
+          foto: null,
         };
       },
     },
   },
-  
-  data () {
-    return{
-      showImage: false,
+
+  data() {
+    return {
       producto: this.item,
-      // foto: "",
+      showImage: false,
+      uploadFieldName: "photos",
+      previewImage: null,
     };
   },
-  // watch: {
-  //   showModal() {
-  //     console.log("open");
-  //     if (this.item.id) {
-  //       ProductoService.getProducto(this.item.id)
-  //         .then((respuesta) => {
-  //           this.producto = respuesta.datos;
-  //           this.showImage = true;
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //         });
-  //     }
-  //   },
-  // },
-  // created() {
-  //   if (this.item.id) {
-  //     this.showImage = true;
-  //   }
 
   methods: {
-    created() {
-      ProductoService.getProductos()
+    crearProducto() {
+      console.log(1);
+      ProductoService.createProducto(this.item)
         .then((respuesta) => {
-          this.producto = respuesta.data;
-          this.showImage = false;
+          this.showImage = true;
+          this.$emit("producto-creado");
+          this.producto = respuesta.data.producto;
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    selectFile(event) {
-      // this.producto.foto = event.target.files[0];
-      this.producto.foto = event.target.value;
-      this.id = event.target.value;
-      const reader = URL.createObjectURL(this.producto.foto);
-      console.log(reader);
-      console.log(this.foto);
-      ProductoService.selectFile(this.producto.id, { foto: this.producto.foto })
+    save(formData) {
+      // upload data to the server
+      console.log(formData);
+      uploadFile(formData)
+        .then((x) => {
+          console.log(x);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    filesChange(fieldName, fileList) {
+      // handle file changes
+      const formData = new FormData();
+
+      if (!fileList.length) return;
+
+      // append the files to FormData
+      Array.from(Array(fileList.length).keys()).map((x) => {
+        formData.append(fieldName, fileList[x], fileList[x].name);
+      });
+
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.producto.foto = e.target.result;
+        console.log(this.previewImage);
+      };
+      reader.readAsDataURL(fileList[0]);
+      // save it
+      this.save(formData);
+    },
+    selectFile(fieldName, fileList) {
+      console.log(fieldName, fileList);
+      // handle file changes
+      const formData = new FormData();
+
+      if (!fileList.length) return;
+
+      // append the files to FormData
+      Array.from(Array(fileList.length).keys()).map((x) => {
+        formData.append(fieldName, fileList[x], fileList[x].name);
+      });
+
+      // save it
+      ProductoService.uploadFile(formData)
         .then((respuesta) => {
-        
+          console.log(respuesta.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      /* this.producto.foto = event.target.files[0];
+      
+
+      let data = new FormData();
+      data.append("image", this.producto.foto);
+      ProductoService.selectFile(this.producto.id, { foto: data })
+        .then((respuesta) => {
           console.log(respuesta);
         })
         .catch((error) => {
           console.log(error);
-        });
-      
+        }); */
     },
-
-    
   },
 };
 </script>
@@ -156,16 +196,18 @@ export default {
 label {
   font-size: 1rem !important;
 }
-.app-btn-primary {
+
+.btn-primary {
   background: #053189;
   color: #fff;
   border-color: #053189;
+  width: 15%;
+  justify-content: flex-end !important;
 }
 .form-control {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
 }
 #Previewimg {
- 
   width: 20vw;
   height: 41vh;
   border-radius: 3.1vh;
@@ -173,6 +215,7 @@ label {
   margin-top: 4vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
+  background-image: cover ;
 }
 #file-input {
   overflow: hidden;

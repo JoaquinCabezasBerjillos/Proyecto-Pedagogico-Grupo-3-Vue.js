@@ -1,46 +1,52 @@
 <template>
   <!-- HEADER-Barra de navegación -->
-  <div class="container-home" >
-    <nav class="navbar navbar-expand-lg relative" fixed-top>
-      <div class="container-fluid">
-         <img
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <div style="width: 100%;" class="d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+          <img
             src="../assets/images/logosinfondo.png"
             alt=""
             width="120"
             height="120"
             class="d-inline-block align-text-top"
           />
-        <a class="navbar-brand" href="#">
-         
-          Centro Veterinario Victoria
-        </a>
-        <span class="navbar-text">
-          <h4>
-            <span>Teléfono: </span>954 240 228 <span> Móvil: 625 46 85 74</span>
-          </h4>
 
-          <h4><span>Lunes-Viernes</span></h4>
-
-          <span>10:00h-13:30h y de 18:00h-21:00h </span>
-          <h4><span>Sábados</span></h4>
-
-          <span>10:00h-13:30h </span>
-        </span>
-  <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mb-2 mb-lg-0">
-          <li class="nav-item-home">
-            <a class="nav-link-home active" aria-current="page" href="#quienes"
+          <a class="navbar-brand" href="#">Centro Veterinario Victoria</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item-home ">
+            <a class="nav-link active" aria-current="page" href="#"
               >Quienes somos</a
             >
           </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" link="#servicios">Servicios</a>
+          <li class="nav-item home">
+            <a class="nav-link" href="#">Servicios</a>
           </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" href="link#productos">Productos</a>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              >Productos</a
+            >
           </li>
-          <li class="nav-item-home">
-            <a class="nav-link-home" href="#mapa">Donde estamos</a>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              >Donde estamos
+            </a>
           </li>
           <li class="nav-item-home">
             <router-link :to="{ name: 'Register' }" class="nav-link-home"
@@ -52,15 +58,14 @@
 
             </router-link>
           </li>
-        
         </ul>
       </div>
-      </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 
   <!-- SECCION ABOUT -->
-  <div class="container-principal" >
+  <div class="contenedor">
+    
     <section class="action" id="quienes">
       <div class="container">
         <div class="left-text hidden-xs" id="quienes">
@@ -276,26 +281,24 @@
         </div>
       </div>
     </section>
-    <div class="sub-footer">
-      <div class="container">
-        <div class="footer">
-          <div class="copyright">
-            <span>
-              <a href="#/">
-                Aviso Legal y Política de privacidad&nbsp;|&nbsp;Directiva de
-                Cookies</a
-              >
-            </span>
-          </div>
-        </div>
-
+  </div>
+  <div class="sub-footer">
+    <div class="container">
+      <div class="footer">
         <div class="copyright">
           <span>
             <a href="#/">
-              Copyright © 2021 Grupo-3 Don Bosco-Factoría F5</a
-            ></span
-          >
+              Aviso Legal y Política de privacidad&nbsp;|&nbsp;Directiva de
+              Cookies</a
+            >
+          </span>
         </div>
+      </div>
+
+      <div class="copyright">
+        <span>
+          <a href="#/"> Copyright © 2021 Grupo-3 Don Bosco-Factoría F5</a></span
+        >
       </div>
     </div>
   </div>
@@ -307,7 +310,5 @@ export default {};
 
 <style scoped>
 @import "../assets/css/home/home.css";
-@import "../assets/css/home/tienda.css";
-@import "../assets/css/home/animate.css";
-@import "../assets/css/home/animate.min.css";
+
 </style>

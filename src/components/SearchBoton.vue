@@ -60,7 +60,7 @@
             <ProductosForm v-if="showForm === 'productos'" :item="item" />
             <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
@@ -68,8 +68,14 @@
             >
               Cerrar
             </button>
-            <button type="button" class="btn btn-primary">Guardar</button>
-          </div>
+            <button
+              @click="crearProducto"
+              type="button"
+              class="btn btn-primary"
+            >
+              Guardar
+            </button>
+          </div> -->
         </div>
       </div>
     </div>
@@ -79,6 +85,8 @@
 <script>
 import MascotasForm from "../components/MascotasForm";
 import ProductosForm from "../components/ProductosForm";
+import ProductoService from "../services/ProductoService";
+
 import "../assets/js/app.js";
 export default {
   components: {
@@ -91,6 +99,18 @@ export default {
       required: true,
     },
     showForm: String,
+  },
+  methods: {
+    crearProducto() {
+      ProductoService.createProducto(this.item)
+        .then((respuesta) => {
+          this.$emit("producto-creado");
+          this.item = respuesta.data.producto;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
