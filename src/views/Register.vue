@@ -43,9 +43,9 @@
                 <div class="email mb-3">
                   <label class="sr-only" for="signup-apellido">Movil</label>
                   <input
-                    id="signup-apellido"
-                    name="signup-apellido"
-                    type="text"
+                    id="signup-movil"
+                    name="signup-movil"
+                    type="number"
                     v-model="form.movil"
                     class="form-control signup-apellido"
                     placeholder="Movil*"

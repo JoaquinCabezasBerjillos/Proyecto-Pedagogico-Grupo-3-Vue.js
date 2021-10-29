@@ -66,15 +66,16 @@ a:hover {
 .navbar-brand {
   color: white !important;
   font-size: 2rem;
+
 }
-.nav-item :hover {
+
+.nav-item-home :hover {
   color: #f98d0d !important ;
 }
 .nav-link {
   color: white !important;
 }
-
-
+ 
 .navbar-text h4 {
   color: white;
 }
@@ -83,9 +84,7 @@ a:hover {
   color: white;
 }
 
-.telefono {
-  display: inline-block;
-}
+
 /* CONTENEDOR PRINCIPAL */
 .contenedor {
   padding-right: 15px;

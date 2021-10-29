@@ -13,7 +13,7 @@
             class="d-inline-block align-text-top"
           />
 
-          <a class="navbar-brand" href="#">Centro Veterinario Victoria</a>
+          <a class="navbar-brand" >Centro Veterinario Victoria</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -29,36 +29,38 @@
       </div>
       
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="menu-home">
+        <ul class="navbar-nav  mb-2 mb-lg-0">
           <li class="nav-item-home ">
             <a class="nav-link active" aria-current="page" href="#"
               >Quienes somos</a
             >
           </li>
-          <li class="nav-item home">
+          <li class="nav-item-home">
             <a class="nav-link" href="#">Servicios</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item-home">
             <a class="nav-link active" aria-current="page" href="#"
               >Productos</a
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item-home">
             <a class="nav-link active" aria-current="page" href="#"
               >Donde estamos
             </a>
           </li>
           <li class="nav-item-home">
-            <router-link :to="{ name: 'Register' }" class="nav-link-home"
+            <router-link :to="{ name: 'Register' }" class="nav-link-home" style="color: white; :hover  color: #f98d0d !important ;"
               >Registrarse
             </router-link>
             </li>
              <li class="nav-item-home">
-            <router-link  :to=" { name: 'Login'}" class="nav-link-home">Iniciar Sesión
+            <router-link  :to=" { name: 'Login'}" class="nav-link-home" style="color: white;" >Iniciar Sesión
 
             </router-link>
           </li>
         </ul>
+        </div>
       </div>
     </div>
   </nav>
