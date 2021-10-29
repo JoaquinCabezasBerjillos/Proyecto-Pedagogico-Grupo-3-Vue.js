@@ -41,13 +41,13 @@
                   />
                 </div>
                 <div class="email mb-3">
-                  <label class="sr-only" for="signup-apellido">Movil</label>
+                  <label class="sr-only" for="signup-movil">Movil</label>
                   <input
                     id="signup-movil"
                     name="signup-movil"
                     type="number"
                     v-model="form.movil"
-                    class="form-control signup-apellido"
+                    class="form-control signup-movil"
                     placeholder="Movil*"
                     required="required"
                   />
