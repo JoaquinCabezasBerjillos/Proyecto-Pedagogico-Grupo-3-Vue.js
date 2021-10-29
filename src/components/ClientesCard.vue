@@ -24,6 +24,7 @@
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
+          <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
       </div>
       <!--//app-doc-meta-->
