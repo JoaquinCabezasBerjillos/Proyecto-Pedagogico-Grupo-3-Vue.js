@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "../views/Home.vue";
 import AdminLayout from "../layout/Admin.vue";
-import User from "../layout/User.vue";
+
 import Consulta from "../views/Consulta.vue";
 import Productos from "../views/Productos.vue";
 import Pedidos from "../views/Pedidos.vue";
@@ -11,7 +11,7 @@ import Register from "../views/Register.vue";
 import Reset from "../views/Reset.vue";
 import Mascotas from "../views/Mascotas.vue";
 import Clientes from "../views/Clientes.vue";
-import Usuarios from "../views/Usuarios.vue";
+
 import Perfil from "../views/Perfil.vue";
 import Historial from "../views/Historial.vue";
 import NotFound from "../views/NotFound.vue";
@@ -24,20 +24,7 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/user",
-    name: "User",
-    component: User,
-    meta: { requiresAuth: true},
-
-    children: [
-      {
-        path: "/usuarios",
-        name: "Usuarios",
-        component: Usuarios,
-      },
-    ]
-  },
+  
   {
     // ruta protegida
     path: "/admin",
