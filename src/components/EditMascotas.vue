@@ -9,7 +9,7 @@
             type="text"
             class="form-control"
             id="nombre"
-            v-model="mascota.nombre"
+            v-model="mascotas.nombre"
             required=""
           />
         </div>
@@ -19,7 +19,7 @@
             type="text"
             class="form-control"
             id="chip"
-            v-model="mascota.chip"
+            v-model="mascotas.chip"
             required=""
           />
         </div>
@@ -30,12 +30,9 @@
             class="form-control"
             placeholder=""
             id="tipo"
-            v-model="mascota.tipo"
+            v-model="mascotas.tipo"
             required=""
           />
-        </div>
-        <div class="closed-button">
-          <button type="submit" class="btn app-btn-primary">Guardar</button>
         </div>
       </form>
     </div>
