@@ -8,10 +8,10 @@
       :key="cliente.id"
       class="col-6 col-md-4 col-xl-3 col-xxl-3"
     >
-      <ClientesCard :cliente="cliente" @cliente-borrado="actualizarListado" />
+      <ClientesCard :cliente="cliente" @editar-cliente="editarCliente" />
     </div>
-    
-    <EditClientes :cliente="cliente"/>
+
+    <EditClientes :cliente="clienteEditar" @cliente-editado="actualizarListado"/>
   </div>
 </template>
 
@@ -32,6 +32,7 @@ export default {
  
     return {
       clientes: [],
+      clienteEditar: {}
     };
   },
   created() {
@@ -55,30 +56,9 @@ export default {
           console.log(error);
         });
     },
-
-    onSubmit() {
-      if (this.cliente.id) {
-        // Actualizar
-       ClienteService.updateCliente(this.cliente.id, this.cliente)
-
-          .then((respuesta) => {
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        ClienteService.createCliente(this.cliente)
-          .then((respuesta) => {
-            this.$emit("usuario-actualizado");
-
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
+    editarCliente(cliente) {
+      this.clienteEditar = cliente
+    }
   },
 };
 </script>
