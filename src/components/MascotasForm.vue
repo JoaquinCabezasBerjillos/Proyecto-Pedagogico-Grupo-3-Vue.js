@@ -50,43 +50,59 @@
       </span>
     </div>
   </div>
+  <div>
+    <button @click="crearMascota" type="button" class="btn btn-primary">
+      Guardar
+    </button>
+  </div>
 </template>
 
 <script>
 import MascotaService from "@/services/MascotaService.js";
+
 import "../assets/js/app.js";
+
 export default {
   props: {
-    mascota: {
+    item: {
       type: Object,
       default() {
         return {
-          nombre: null,
-          chip: null,
-          tipo: null,
-          // foto: null,
+          nombre: "",
+          chip: "",
+          foto: null,
+          tipo: "",
         };
       },
     },
   },
 
-  created() {
-    console.log(this.mascota)
-    this.showImage = false;
-  },
-
-  data: () => ({
-    photo: null,
-    id: null,
-    showImage: false,
-  }),
+  data() {
+      return {
+        mascota: this.item,
+        showImage: false,
+      };
+    },
 
   methods: {
+    crearMascota() {
+      console.log(1);
+      MascotaService.createMascota(this.item)
+        .then((respuesta) => {
+          this.showImage = true;
+          this.$emit("mascota-creada");
+          this.mascota = respuesta.data.mascota;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     selectFile(event) {
-      this.photo = event.target.value;
-      this.id = event.target.value;
-      console.log(this.photo);
-      MascotaService.selectFile(this.photo)
+      this.mascota.foto = event.target.files[0];
+
+      let data = new FormData();
+      data.append("image", this.mascota.foto);
+      MascotaService.selectFile(this.mascota.id, { foto: data })
         .then((respuesta) => {
           console.log(respuesta);
         })
@@ -94,33 +110,49 @@ export default {
           console.log(error);
         });
     },
-
-    onSubmit() {
-      if (this.mascota.id) {
-        // Actualizar
-        MascotaService.updateMascota(this.mascota.id, this.mascota)
-
-          .then((respuesta) => {
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      } else {
-        MascotaService.createMascota(this.mascota)
-          .then((respuesta) => {
-            this.showImage = true;
-            this.$emit("mascota-creado");
-
-            console.log(respuesta.data);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
-    },
   },
 };
+
+//   methods: {
+//     selectFile(event) {
+//       this.photo = event.target.value;
+//       this.id = event.target.value;
+//       console.log(this.photo);
+//       MascotaService.selectFile(this.photo)
+//         .then((respuesta) => {
+//           console.log(respuesta);
+//         })
+//         .catch((error) => {
+//           console.log(error);
+//         });
+//     },
+
+//     onSubmit() {
+//       if (this.mascota.id) {
+//         // Actualizar
+//         MascotaService.updateMascota(this.mascota.id, this.mascota)
+
+//           .then((respuesta) => {
+//             console.log(respuesta.data);
+//           })
+//           .catch((error) => {
+//             console.log(error);
+//           });
+//       } else {
+//         MascotaService.createMascota(this.mascota)
+//           .then((respuesta) => {
+//             this.showImage = true;
+//             this.$emit("mascota-creado");
+
+//             console.log(respuesta.data);
+//           })
+//           .catch((error) => {
+//             console.log(error);
+//           });
+//       }
+//     },
+//   },
+// };
 </script>
 
 <style scoped>
