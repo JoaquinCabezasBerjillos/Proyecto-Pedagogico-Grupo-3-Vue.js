@@ -32,6 +32,23 @@
             v-model="mascota.tipo"
             required=""
           />
+          <div class="mb-3">
+            <label for="categoria" class="form-label">Cliente</label>
+              <input
+                type="text"
+                class="form-control"
+                list="cliente"
+                placeholder="Seleccione cliente"
+                id="categoria"
+                required=""
+               />
+              <datalist id="cliente">
+                <option>Cliente 1</option>
+                <option>Cliente 2</option>
+                <option>Cliente 3</option>
+                <option>Cliente 4</option>
+              </datalist>
+          </div>
         </div>
       </form>
     </div>
