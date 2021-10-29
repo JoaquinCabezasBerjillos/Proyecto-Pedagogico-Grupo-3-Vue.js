@@ -29,7 +29,7 @@
             class="form-control"
             list="productos"
             placeholder="Seleccione tipo de producto"
-            id="nombre"
+            id="categoria"
             v-model="producto.categoria"
             required=""
           />
@@ -47,20 +47,26 @@
             id="descripcion"
             v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
+            
             required=""
           ></textarea>
         </div>
       </form>
     </div>
     <div v-show="showImage" class="col-6">
-      <img id="Previewimg" :src="producto.foto" width="200" />
+      <div
+        id="Previewimg"
+        :style="{ 'background-image': `url(${producto.foto})` }"
+       
+      ></div>
 
       <span>
         <input
           type="file"
+          multiple
+          :name="uploadFieldName"
+          @change="filesChange($event.target.name, $event.target.files)"
           accept="image/*"
-          @change="selectFile($event)"
-          id="file-input"
         />
       </span>
     </div>
@@ -74,6 +80,7 @@
 
 <script>
 import ProductoService from "@/services/ProductoService.js";
+import { uploadFile } from "@/services/file-upload.js";
 
 import "../assets/js/app.js";
 export default {
@@ -83,7 +90,7 @@ export default {
       default() {
         return {
           nombre: "",
-          precio: l0,
+          precio: "",
           categoria: "",
           descripcion: "",
           foto: null,
@@ -96,27 +103,10 @@ export default {
     return {
       producto: this.item,
       showImage: false,
+      uploadFieldName: "photos",
+      previewImage: null,
     };
   },
-  // watch: {
-  //   showModal() {
-  //     console.log("open");
-  //     if (this.item.id) {
-  //       ProductoService.getProducto(this.item.id)
-  //         .then((respuesta) => {
-  //           this.producto = respuesta.datos;
-  //           this.showImage = true;
-  //         })
-  //         .catch((error) => {
-  //           console.log(error);
-  //         });
-  //     }
-  //   },
-  // },
-  // created() {
-  //   if (this.item.id) {
-  //     this.showImage = true;
-  //   }
 
   methods: {
     crearProducto() {
@@ -131,8 +121,60 @@ export default {
           console.log(error);
         });
     },
-    selectFile(event) {
-      this.producto.foto = event.target.files[0];
+    save(formData) {
+      // upload data to the server
+      console.log(formData);
+      uploadFile(formData)
+        .then((x) => {
+          console.log(x);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    filesChange(fieldName, fileList) {
+      // handle file changes
+      const formData = new FormData();
+
+      if (!fileList.length) return;
+
+      // append the files to FormData
+      Array.from(Array(fileList.length).keys()).map((x) => {
+        formData.append(fieldName, fileList[x], fileList[x].name);
+      });
+
+      let reader = new FileReader();
+      reader.onload = (e) => {
+        this.producto.foto = e.target.result;
+        console.log(this.previewImage);
+      };
+      reader.readAsDataURL(fileList[0]);
+      // save it
+      this.save(formData);
+    },
+    selectFile(fieldName, fileList) {
+      console.log(fieldName, fileList);
+      // handle file changes
+      const formData = new FormData();
+
+      if (!fileList.length) return;
+
+      // append the files to FormData
+      Array.from(Array(fileList.length).keys()).map((x) => {
+        formData.append(fieldName, fileList[x], fileList[x].name);
+      });
+
+      // save it
+      ProductoService.uploadFile(formData)
+        .then((respuesta) => {
+          console.log(respuesta.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      /* this.producto.foto = event.target.files[0];
+      
 
       let data = new FormData();
       data.append("image", this.producto.foto);
@@ -142,7 +184,7 @@ export default {
         })
         .catch((error) => {
           console.log(error);
-        });
+        }); */
     },
   },
 };
@@ -154,10 +196,13 @@ export default {
 label {
   font-size: 1rem !important;
 }
-.app-btn-primary {
+
+.btn-primary {
   background: #053189;
   color: #fff;
   border-color: #053189;
+  width: 15%;
+  justify-content: flex-end !important;
 }
 .form-control {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
@@ -170,6 +215,7 @@ label {
   margin-top: 4vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
+  background-image: cover ;
 }
 #file-input {
   overflow: hidden;
