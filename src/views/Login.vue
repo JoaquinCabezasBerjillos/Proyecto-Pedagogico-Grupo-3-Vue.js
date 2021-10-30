@@ -10,12 +10,12 @@
           </div>
         </div>
       </div>
-      <!--//auth-background-overlay-->
+
       <div class="col-12 col-md-7 col-lg-6 auth-main-col text-center p-5">
         <div class="d-flex flex-column align-content-end">
           <div class="app-auth-body mx-auto">
             <div class="app-auth-branding mb-4">
-              <a class="app-logo" href="#"
+              <a class="app-logo" href=""
                 ><img
                   class="logo-icon me-2"
                   src="../assets/images/logosinfondo.png"
@@ -24,16 +24,18 @@
             </div>
             <h2 class="auth-heading text-center mb-5">Iniciar sesión</h2>
             <div class="auth-form-container text-start">
-              <form @submit.prevent="login" class="auth-form login-form">
+              <form @submit.prevent="login" class="form-floating">
                 <div class="email mb-3">
-                  <label class="sr-only" for="signin-email">Email</label>
+                  <label class="sr-only" for="floatingInputInvalid"
+                    >Email</label
+                  >
                   <input
-                    id="signin-email"
+                    id="floatingInputInvalid"
                     name="signin-email"
                     type="email"
                     v-model="form.email"
-                    class="form-control signin-email"
-                    placeholder="Email* "
+                    class="form-control is-inavalid"
+                    placeholder="Email@ejemplo.com* "
                     required="required"
                   />
                 </div>
@@ -49,27 +51,23 @@
                     placeholder="Contraseña*"
                     required="required"
                   />
+                  <div class="col">
+                    <label for="password"></label>
+                    <!-- checkbox que nos permite activar o desactivar la opcion -->
+                    <div style="margin-top:15px;">
+                      <input
+                        style="margin-left:20px;"
+                        type="checkbox"
+                        id="mostrar_contrasena"
+                        title="clic para mostrar contraseña"
+                      />
+                      &nbsp;&nbsp;Mostrar Contraseña
+                    </div>
+                  </div>
                   <div class="extra mt-3 row justify-content-between">
                     <div class="col-6">
-                      <div class="form-check">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="RememberPassword"
-                        />
-                        <label class="form-check-label" for="RememberPassword">
-                          Recuérdame
-                        </label>
-                      </div>
+                      <div class="form-check"></div>
                     </div>
-                    <!--//col-6-->
-                    <div class="col-6">
-                      <div class="forgot-password text-end">
-                        <a href="reset-password.html">Olvidó su contraseña?</a>
-                      </div>
-                    </div>
-                    <!--//col-6-->
                   </div>
                   <!--//extra-->
                 </div>
@@ -86,7 +84,7 @@
               <div class="auth-option text-center pt-5">
                 Todavía no tiene cuenta con nosotros? Entre<a
                   class="text-link"
-                  href="#"
+                  href=""
                   >aqui</a
                 >.
               </div>
@@ -96,17 +94,7 @@
           <!--//auth-body-->
 
           <footer class="app-auth-footer">
-            <div>
-              <small class="copyright"
-                >Diseñado<i class="fas fa-heart" style="color: #fb866a;"></i> by
-                <a
-                  class="app-link"
-                  href="http://themes.3rdwavemedia.com"
-                  target="_blank"
-                  >Equipo 3</a
-                ></small
-              >
-            </div>
+            Diseñado por Equipo 3- Factoría F5- Fundación Don Bosco.
           </footer>
           <!--//app-auth-footer-->
         </div>

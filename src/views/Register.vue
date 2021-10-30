@@ -5,7 +5,7 @@
         <div class="d-flex flex-column align-content-end">
           <div class="app-auth-body mx-auto">
             <div class="app-auth-branding mb-4">
-              <a class="app-logo" href="#"
+              <a class="app-logo" href=""
                 ><img
                   class="logo-icon me-2"
                   src="../assets/images/logosinfondo.png"
@@ -101,10 +101,10 @@
                       id="RememberPassword"
                     />
                     <label class="form-check-label" for="RememberPassword">
-                      Estoy de acuerdo<a href="#" class="app-link"
+                      Estoy de acuerdo<a href="" class="app-link"
                         >Términos de uso</a
                       >
-                      y <a href="#" class="app-link">Política de Privacidad</a>.
+                      y <a href="" class="app-link">Política de Privacidad</a>.
                     </label>
                   </div>
                 </div>
@@ -130,18 +130,8 @@
           </div>
           <!--//auth-body-->
 
-          <footer class="app-auth-footer">
-            <div class="container text-center py-3">
-              <small class="copyright"
-                >Diseñado<i class="fas fa-heart" style="color: #fb866a;"></i>por
-                <a
-                  class="app-link"
-                  href="http://themes.3rdwavemedia.com"
-                  target="_blank"
-                  >Equipo 3</a
-                ></small
-              >
-            </div>
+       <footer class="app-auth-footer">
+            Diseñado por Equipo 3- Factoría F5- Fundación Don Bosco.
           </footer>
           <!--//app-auth-footer-->
         </div>
