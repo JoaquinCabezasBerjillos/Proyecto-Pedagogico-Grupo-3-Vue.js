@@ -23,33 +23,28 @@
           />
         </div>
         <div class="mb-3">
-          <label for="nombre" class="form-label">Tipo</label>
-          <input
+          <label for="tipo" class="form-label">Tipo Mascota</label>
+          <select
             type="text"
-            class="form-control"
-            list="mascotas" 
-            id="nombre"
+            class="form-select"
+            list="mascotas"
+            placeholder="Seleccione tipo de producto"
+            id="tipo"
             v-model="mascota.tipo"
             required=""
-          />
-          <!-- <div class="mb-3">
-            <label for="categoria" class="form-label">Cliente</label>
-              <input
-                type="text"
-                class="form-control"
-                list="cliente"
-                placeholder="Seleccione cliente"
-                id="categoria"
-                required=""
-               />
-              <datalist id="cliente">
-                <option>Cliente 1</option>
-                <option>Cliente 2</option>
-                <option>Cliente 3</option>
-                <option>Cliente 4</option>
-              </datalist>
-          </div> -->
+          >
+            <option selected value="option-1">Perro</option>
+            <option value="option-2">Gato</option>
+            <option value="option-3">Otros</option>
+            
+          </select>
         </div>
+        <div class="mb-3">
+            <label for="cliente" class="form-label">Cliente</label>
+              <select v-model="clientes" id="clientes" class="form-select">
+                <option v-for="cliente in clientes" :value="cliente">{{clientes.nombre}}</option>  
+              </select>
+          </div>
       </form>
     </div>
 
@@ -76,6 +71,7 @@
 
 <script>
 import MascotaService from "@/services/MascotaService.js";
+import ClienteService from "@/services/ClienteService.js";
 
 import "../assets/js/app.js";
 
@@ -87,11 +83,32 @@ export default {
         return {
           nombre: "",
           chip: "",
-          foto: null,
+          foto: "",
           tipo: "",
         };
       },
     },
+    clientes: {
+      type: Object,
+      default() {
+        return {
+          nombre: "",
+          apellidos: "",
+          movil: "",
+          email: "",
+        };
+      },
+    },
+  },
+
+  created(){
+    ClienteService.getClientes(this.clientes)
+    .then((respuesta) => {
+      console.log(respuesta.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
   },
 
   data() {
@@ -130,46 +147,6 @@ export default {
   },
 };
 
-//   methods: {
-//     selectFile(event) {
-//       this.photo = event.target.value;
-//       this.id = event.target.value;
-//       console.log(this.photo);
-//       MascotaService.selectFile(this.photo)
-//         .then((respuesta) => {
-//           console.log(respuesta);
-//         })
-//         .catch((error) => {
-//           console.log(error);
-//         });
-//     },
-
-//     onSubmit() {
-//       if (this.mascota.id) {
-//         // Actualizar
-//         MascotaService.updateMascota(this.mascota.id, this.mascota)
-
-//           .then((respuesta) => {
-//             console.log(respuesta.data);
-//           })
-//           .catch((error) => {
-//             console.log(error);
-//           });
-//       } else {
-//         MascotaService.createMascota(this.mascota)
-//           .then((respuesta) => {
-//             this.showImage = true;
-//             this.$emit("mascota-creado");
-
-//             console.log(respuesta.data);
-//           })
-//           .catch((error) => {
-//             console.log(error);
-//           });
-//       }
-//     },
-//   },
-// };
 </script>
 
 <style scoped>

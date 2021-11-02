@@ -34,6 +34,9 @@
             required=""
           />
         </div>
+        <button @click="editarMascota" class="btn btn-primary">
+          Guardar cambios
+        </button>
       </form>
     </div>
     </div>
@@ -51,8 +54,8 @@ export default {
       default() {
         return {
           nombre: "",
-          chip: null,
-          tipo: null,
+          chip: "",
+          tipo: "",
         };
       },
     },

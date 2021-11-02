@@ -1,6 +1,7 @@
 <template>
   <div class="row g-4 mb-4">
     <SearchBoton :showForm="showForm" :item="mascota" />
+    <!-- <MascotasForm :item="mascota"></MascotasForm> -->
     <div
       v-for="mascota in mascotas"
       :key="mascota.id"
@@ -18,11 +19,13 @@
 import SearchBoton from "@/components/SearchBoton.vue";
 import MascotaCard from "@/components/MascotaCard.vue";
 import MascotaService from "@/services/MascotaService.js";
+import MascotasForm from "@/components/MascotasForm.vue";
 
 export default {
     components: {
         MascotaCard,
         SearchBoton,
+        MascotasForm,
     },
     data () {
       return {

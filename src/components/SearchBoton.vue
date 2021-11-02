@@ -56,26 +56,10 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body">            
             <ProductosForm v-if="showForm === 'productos'" :item="item" />
             <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
           </div>
-          <!-- <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cerrar
-            </button>
-            <button
-              @click="crearProducto"
-              type="button"
-              class="btn btn-primary"
-            >
-              Guardar
-            </button>
-          </div> -->
         </div>
       </div>
     </div>

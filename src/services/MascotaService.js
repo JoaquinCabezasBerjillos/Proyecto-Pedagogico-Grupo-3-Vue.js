@@ -5,15 +5,15 @@ export default {
         return apiCliente.get('/api/mascotas')
     },
     getMascota(id) {
-        return apiCliente.get('/api/mascotas/mostrar/'+id)
+        return apiCliente.get('/api/mascotas/'+id)
     },
     deleteMascota(id) {
-        return apiCliente.delete('/api/mascotas/borrar/'+id)
+        return apiCliente.delete('/api/mascotas/'+id)
     },
     createMascota(mascota) {
-        return apiCliente.post('/api/mascotas/crear/', mascota)
+        return apiCliente.post('/api/mascotas/', mascota)
     },
     updateMascota(id, mascota) {
-        return apiCliente.put('/api/mascotas/actualizar/'+id, mascota)
+        return apiCliente.put('/api/mascotas/'+id, mascota)
     },
 }
