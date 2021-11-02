@@ -24,22 +24,21 @@
         </div>
         <div class="mb-3">
           <label for="categoria" class="form-label">Categoría</label>
-          <input
+          <select
             type="text"
-            class="form-control"
+            class="form-select"
             list="productos"
             placeholder="Seleccione tipo de producto"
             id="categoria"
             v-model="producto.categoria"
             required=""
-          />
-          <datalist id="productos">
-            <option>Medicamento</option>
-            <option>Alimentación</option>
-            <option>Vacunas</option>
-            <option>Otros</option>
-          </datalist>
-          
+          >
+            <option selected value="option-1">Todos</option>
+            <option value="option-2">Medicamento</option>
+            <option value="option-3">Alimentación</option>
+            <option value="option-4">Vacunas</option>
+            <option value="option-5">Otros</option>
+          </select>
         </div>
         <div class="mb-3">
           <label for="descripcion" class="form-label">Descripción</label>
@@ -48,7 +47,6 @@
             id="descripcion"
             v-model="producto.descripcion"
             placeholder="Breve descripción del Producto"
-            
             required=""
           ></textarea>
         </div>
@@ -58,10 +56,10 @@
       <div
         id="Previewimg"
         :style="{ 'background-image': `url(${producto.foto})` }"
-       
       ></div>
 
       <span>
+        <label for="fileinput"><span>Añadir imagen</span></label>
         <input
           type="file"
           multiple
@@ -173,8 +171,6 @@ export default {
         .catch((error) => {
           console.log(error);
         });
-
-     
     },
   },
 };
@@ -205,19 +201,33 @@ label {
   margin-top: 4vh;
   margin-left: 3vw;
   margin-bottom: 2vh;
-  background-image: cover ;
+  background-image: cover;
 }
-#file-input {
+input[type="file"]#fileinput {
+  position: absolute;
+  z-index: -1;
   overflow: hidden;
+  opacity: 0;
+
+  width: 0.1px;
+  height: 0.1px;
+}
+label[for="fileinput"] {
   background-color: #053189;
   color: #ffffff;
   border-radius: 1vh;
   cursor: pointer;
   border-color: #053189;
   font-size: 1.1vw;
-  padding: 2vh 2vw;
-  margin-left: 1vw;
-  width: 25vw;
+  font-weight: 600;
+  font-family: Montserrat;
+  color: #ffffff;
+  background-color: #053189;
+  display: inline-block;
+  cursor: pointer;
+  padding: 2vh 2vw !important;
+  width: fit-content;
+  margin-left: 8vw;
 }
 .modal-dialog {
   max-width: 850px;

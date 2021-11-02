@@ -1,10 +1,10 @@
 <template>
   <!-- HEADER-Barra de navegación -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <div style="width: 100%;" class="d-flex justify-content-between">
-        <div class="d-flex align-items-center">
+      <div class="d-flex ">
+        <div class="d-flex justify-content-between align-items-center">
           <img
             src="../assets/images/logosinfondo.png"
             alt=""
@@ -13,7 +13,7 @@
             class="d-inline-block align-text-top"
           />
 
-          <a class="navbar-brand" >Centro Veterinario Victoria</a>
+          <a class="navbar-brand" href="#" Fixed top>Centro Veterinario Victoria</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -27,40 +27,61 @@
           </button>
         </div>
       </div>
-      
+
+      <div class="horarios">
+      <span class="navbar-text">
+               <h4>
+                 <span>Tel: 954 240 228</span>
+                 </h4>
+                   <h4>
+                 <span>Móvil: 625 46 85 74</span>
+              </h4>
+
+        <h4>
+          <span>Lunes-Viernes</span>
+        </h4>
+
+        <span>10:00h-13:30h y de 18:00h-21:00h </span>
+        <h4><span>Sábados</span></h4>
+
+        <span>10:00h-13:30h </span>
+
+      </span>
+      </div>
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="menu-home">
-        <ul class="navbar-nav  mb-2 mb-lg-0">
+       
+          <ul class="navbar-nav  mb-2 mb-lg-12">
           <li class="nav-item-home ">
-            <a class="nav-link active" aria-current="page" href="#"
+            <a class="nav-link-home active" aria-current="page" href=""
               >Quienes somos</a
             >
           </li>
           <li class="nav-item-home">
-            <a class="nav-link" href="#">Servicios</a>
+            <a class="nav-link-home active" href="#">Servicios</a>
           </li>
           <li class="nav-item-home">
-            <a class="nav-link active" aria-current="page" href="#"
+            <a class="nav-link-home active" aria-current="page" href=""
               >Productos</a
             >
           </li>
           <li class="nav-item-home">
-            <a class="nav-link active" aria-current="page" href="#"
+            <a class="nav-link-home active" aria-current="page" href=""
               >Donde estamos
             </a>
           </li>
           <li class="nav-item-home">
-            <router-link :to="{ name: 'Register' }" class="nav-link-home" style="color: white; :hover  color: #f98d0d !important ;"
+            <router-link :to="{ name: 'Register' }" class="nav-link-home active" style="color: white; :hover  color: #f98d0d !important ;"
               >Registrarse
             </router-link>
             </li>
              <li class="nav-item-home">
-            <router-link  :to=" { name: 'Login'}" class="nav-link-home" style="color: white;" >Iniciar Sesión
+            <router-link  :to=" { name: 'Login'}" class="nav-link-home active" style="color: white;">Iniciar Sesión
 
             </router-link>
           </li>
         </ul>
-        </div>
+       
       </div>
     </div>
   </nav>
@@ -69,7 +90,7 @@
   <div class="contenedor">
     
     <section class="action" id="quienes">
-      <div class="container">
+    
         <div class="left-text hidden-xs" id="quienes">
           <h4>Quienes somos</h4>
           <p>
@@ -88,7 +109,7 @@
             alt="Foto descriptiva de la fachade de la clínica veterinaria"
           />
         </div>
-      </div>
+      
     </section>
     <!-- SECCION SERVICIOS GALERIA -->
     <section class="gallery" id="servicios">
