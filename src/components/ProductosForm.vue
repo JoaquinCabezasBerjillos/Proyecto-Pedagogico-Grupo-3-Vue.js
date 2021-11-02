@@ -39,6 +39,7 @@
             <option>Vacunas</option>
             <option>Otros</option>
           </datalist>
+          
         </div>
         <div class="mb-3">
           <label for="descripcion" class="form-label">Descripción</label>
@@ -173,18 +174,7 @@ export default {
           console.log(error);
         });
 
-      /* this.producto.foto = event.target.files[0];
-      
-
-      let data = new FormData();
-      data.append("image", this.producto.foto);
-      ProductoService.selectFile(this.producto.id, { foto: data })
-        .then((respuesta) => {
-          console.log(respuesta);
-        })
-        .catch((error) => {
-          console.log(error);
-        }); */
+     
     },
   },
 };

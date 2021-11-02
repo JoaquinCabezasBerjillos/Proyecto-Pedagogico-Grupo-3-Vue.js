@@ -1,5 +1,3 @@
-
-
 export default {
     getMascotas() {
         return apiCliente.get('/api/mascotas')
