@@ -66,7 +66,7 @@
             class="btn btn-primary"
             data-bs-dismiss="modal"
           >
-            Guardar cambios
+            Guardar
           </button>
         </div>
       </div>
@@ -120,6 +120,11 @@ export default {
 
 label {
   font-size: 1rem !important;
+}
+
+.btn-primary{
+  background-color: #053189;
+  color: #ffffff;
 }
 
 .form-control {
