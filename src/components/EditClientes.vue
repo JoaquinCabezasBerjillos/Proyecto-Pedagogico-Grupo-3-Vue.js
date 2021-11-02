@@ -93,12 +93,6 @@ export default {
     },
   },
 
-  data() {
-    return {
-      
-    };
-  },
-
   methods: {
     editarCliente() {
       // Actualizar
@@ -127,28 +121,12 @@ label {
   color: #ffffff;
 }
 
+.btn-primary:hover {
+  background: #f98d0d;
+  color: #053189;
+}
+
 .form-control {
   border: 0.1vh solid rgba(81, 98, 111, 0.5);
-}
-#Previewimg {
-  background-color: #ffffff;
-  width: 25vw;
-  height: 40.041667vh;
-  border-radius: 3.1vh;
-  border: 0.1vh solid rgba(81, 98, 111, 0.5);
-  margin-top: 6vh;
-  margin-left: 3vw;
-  margin-bottom: 2vh;
-}
-#file-input {
-  overflow: hidden;
-  background-color: #053189;
-  color: #ffffff;
-  border-radius: 1vh;
-  cursor: pointer;
-  border-color: #053189;
-  font-size: 1.1vw;
-  padding: 2vh 2vw;
-  margin-left: 2vw;
 }
 </style>
