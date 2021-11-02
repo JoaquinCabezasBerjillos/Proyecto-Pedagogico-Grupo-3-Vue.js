@@ -42,10 +42,8 @@
           <!--//dropdown-toggle-->
           <ul class="dropdown-menu">
             <li>
-              <button
+              <button @click="showModal"
                 class="dropdown-item"
-                data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
                 ><svg
                   width="1em"
                   height="1em"
@@ -109,19 +107,25 @@
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body"></div>
-          <!-- <MascotasForm @mascota-creada="actualizarListado"></MascotasForm> -->
-          <MascotasForm :item="mascota"></MascotasForm>
-          <div class="closed-button">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cerrar
-          </button>
-          <button @click="editarMascota" class="btn btn-primary">Guardar cambios</button>
+        <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="ModalForm">
+              Alta {{ this.$route.name }}
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">            
+            <ProductosForm v-if="showForm === 'productos'" :item="item" />
+            <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
+          </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -129,13 +133,9 @@
 
 <script>
 import MascotaService from '@/services/MascotaService.js';
-import EditMascotas from "@/components/EditMascotas.vue";
-import MascotasForm from "@/components/MascotasForm.vue";
 
 export default {
   components: {
-    EditMascotas,
-    MascotasForm,
   },
 	props: {
       mascota: {
@@ -153,6 +153,32 @@ export default {
             console.log(error);
         });
       },
+      showModal() {
+      this.isModalVisible = !this.isModalVisible;
+    },
+    editarMascota() {
+      if (this.masscota.id) {
+        // Actualizar
+        MascotaService.updateMascota(this.mascota.id, this.mascota)
+
+          .then((respuesta) => {
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      } else {
+        MascotaService.createMascota(this.mascota)
+          .then((respuesta) => {
+            this.showImage = true;
+            this.$emit("mascota-creada");
+            console.log(respuesta.data);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    },
     },
 };
 </script>
