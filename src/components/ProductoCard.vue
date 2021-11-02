@@ -1,10 +1,10 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
     <div class="app-card-thumb-holder p-3">
-      <div class="app-card-thumb">
-        <img class="thumb-image" src="assets/images/doc-thumb-2.jpg" alt="" />
-      </div>
-      <a class="app-card-link-mask" href="#file-link"></a>
+      
+       
+     
+    <img class="thumb-image" src="assets/images/coatex.jpg" alt="" />
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0"></h4>
@@ -197,6 +197,10 @@ export default {
 </script>
 
 <style scoped>
+.app-card-thumb-holder
+{
+ background: url("../assets/images/background/coatex.jpg") !important;
+}
 .modal-dialog {
   max-width: 850px;
   margin: 2rem auto;
