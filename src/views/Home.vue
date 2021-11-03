@@ -58,9 +58,8 @@
        
           <ul class="navbar-nav  mb-2 mb-lg-12">
           <li class="nav-item-home ">
-            <a class="nav-link-home active" aria-current="page" href=""
-              >Nosotros</a
-            >
+            <a @click="this.$router.options.pushWithAnchor('Nosotros', '#quienes')"     class="nav-link-home active" aria-current="page" 
+              >Nosotros</a            >
           </li>
           <li class="nav-item-home">
             <a class="nav-link-home active" href="#">Servicios</a>
@@ -97,7 +96,7 @@
     <section class="action" id="quienes">
     
         <div class="left-text hidden-xs" id="quienes">
-          <h4>Quienes somos</h4>
+          <h4>Nosotros</h4>
           <p>
             En el <strong>Centro Veterinario Victoria</strong> trabajamos para
             ser la mejor clínica veterinaria de Andalucía, capacitada para dar

@@ -26,6 +26,10 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
+        <router-link to="/Consulta">
+        <button type="button" class="btn btn-primary">
+      Crear Consulta
+    </button></router-link>
       </div>
       <!--//app-doc-meta-->
 

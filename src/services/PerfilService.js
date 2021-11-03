@@ -3,7 +3,7 @@ export default {
       return apiCliente.get("/api/users");
     },
     getUser(id) {
-      return apiCliente.get("/api/users/mostrar/" + id);
+      return apiCliente.get("/api/users/" + id);
     },
     uploadFile(formData) {
       return apiCliente.post("/api/users/foto/", formData);
