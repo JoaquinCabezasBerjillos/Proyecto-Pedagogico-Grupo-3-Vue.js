@@ -208,26 +208,18 @@ input[type="file"]#fileinput {
   z-index: -1;
   overflow: hidden;
   opacity: 0;
-
   width: 0.1px;
   height: 0.1px;
 }
 label[for="fileinput"] {
-  background-color: #053189;
-  color: #ffffff;
-  border-radius: 1vh;
-  cursor: pointer;
-  border-color: #053189;
   font-size: 1.1vw;
   font-weight: 600;
-  font-family: Montserrat;
   color: #ffffff;
   background-color: #053189;
   display: inline-block;
   cursor: pointer;
   padding: 2vh 2vw !important;
   width: fit-content;
-  margin-left: 8vw;
 }
 .modal-dialog {
   max-width: 850px;
