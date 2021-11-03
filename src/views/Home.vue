@@ -97,7 +97,7 @@
     <section class="action" id="quienes">
     
         <div class="left-text hidden-xs" id="quienes">
-          <h4>Quienes somos</h4>
+          <h4>Nosotros</h4>
           <p>
             En el <strong>Centro Veterinario Victoria</strong> trabajamos para
             ser la mejor clínica veterinaria de Andalucía, capacitada para dar
