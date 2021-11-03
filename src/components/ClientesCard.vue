@@ -26,10 +26,11 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
-        <router-link to="/Consulta">
-        <button type="button" class="btn btn-primary">
+        <router-link class="btn btn-primary" :to="{name: 'consulta', params: {id: cliente.id }}">
+       
       Crear Consulta
-    </button></router-link>
+       
+  </router-link>
       </div>
       <!--//app-doc-meta-->
 
@@ -138,4 +139,13 @@ export default {
 </script>
 
 <style>
+.btn-primary {
+  background: #053189;
+  color: white;
+}
+.btn-primary:hover {
+  background: #f98d0d;
+  color: #053189;
+}
+
 </style>
