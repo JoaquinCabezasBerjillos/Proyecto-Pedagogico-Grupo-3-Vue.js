@@ -58,9 +58,8 @@
        
           <ul class="navbar-nav  mb-2 mb-lg-12">
           <li class="nav-item-home ">
-            <a class="nav-link-home active" aria-current="page" href=""
-              >Nosotros</a
-            >
+            <a @click="this.$router.options.pushWithAnchor('Nosotros', '#quienes')"     class="nav-link-home active" aria-current="page" 
+              >Nosotros</a            >
           </li>
           <li class="nav-item-home">
             <a class="nav-link-home active" href="#">Servicios</a>
