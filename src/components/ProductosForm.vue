@@ -109,7 +109,6 @@ export default {
 
   methods: {
     crearProducto() {
-      console.log(1);
       ProductoService.createProducto(this.item)
         .then((respuesta) => {
           this.showImage = true;
