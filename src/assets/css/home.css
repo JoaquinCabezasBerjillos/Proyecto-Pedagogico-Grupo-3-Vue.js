@@ -102,8 +102,6 @@ a:hover {
   font-size:5rem !important;
 }
 
-
-
 .menuhum{ 
 width: 36px;
 height: 5px;
@@ -322,13 +320,7 @@ figure.effect-marley:hover p {
   color: #f98d0d;
 }
 
-/* @media (min-width: 768px){
-  contenedor { 
-    width: 750px;
-
-}
-} */
- @media only screen and (min-width: 481px) and (max-width: 768px) {
+ @media only screen and (min-width: 480px) and (max-width: 768px) {
   .horarios {width: 80%;}
   .action {
     display: flex;
