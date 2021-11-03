@@ -1,7 +1,7 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
-    <div class="app-card-thumb-holder p-3">
-    <img class="thumb-image" src="assets/images/coatex.jpg" alt="" />
+    <div class="app-card-thumb-holder p-3">           
+    <img  :style="{ 'background-image': `url(${producto.foto})` }" class="thumb-image"  alt="imagen del envase del producto"/>
     </div>
     <div class="app-card-body p-3 has-card-actions">
       <h4 class="app-doc-title truncate mb-0"></h4>
@@ -182,7 +182,7 @@ export default {
         ProductoService.createProducto(this.producto)
           .then((respuesta) => {
             this.showImage = true;
-            this.$emit("producto-creado");
+            this.$emit("producto-actualizado");
             console.log(respuesta.data);
           })
           .catch((error) => {

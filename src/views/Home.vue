@@ -16,6 +16,7 @@
           <a class="navbar-brand" href="#" Fixed top>Centro Veterinario Victoria</a>
           <button
             class="navbar-toggler"
+            id="editbutton"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -23,7 +24,11 @@
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon">
+              <div class="menuhum"></div>
+              <div class="menuhum"></div>
+              <div class="menuhum"></div>
+            </span>
           </button>
         </div>
       </div>
@@ -54,7 +59,7 @@
           <ul class="navbar-nav  mb-2 mb-lg-12">
           <li class="nav-item-home ">
             <a class="nav-link-home active" aria-current="page" href=""
-              >Quienes somos</a
+              >Nosotros</a
             >
           </li>
           <li class="nav-item-home">
@@ -67,7 +72,7 @@
           </li>
           <li class="nav-item-home">
             <a class="nav-link-home active" aria-current="page" href=""
-              >Donde estamos
+              >Contacto
             </a>
           </li>
           <li class="nav-item-home">
@@ -102,8 +107,8 @@
             nuestro amigo felino.
           </p>
         </div>
-        <div class="right-image hidden-xs">
-          <img
+        <div class="right-image hidden-xs" >
+          <img 
             src="../assets/images/background/clinica.jpg"
             class="img-fluid"
             alt="Foto descriptiva de la fachade de la clínica veterinaria"
