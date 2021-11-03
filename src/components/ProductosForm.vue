@@ -33,11 +33,10 @@
             v-model="producto.categoria"
             required=""
           >
-            <option selected value="option-1">Todos</option>
-            <option value="option-2">Medicamento</option>
-            <option value="option-3">Alimentación</option>
-            <option value="option-4">Vacunas</option>
-            <option value="option-5">Otros</option>
+            <option value="Medicamento">Medicamento</option>
+            <option value="Alimentacion">Alimentación</option>
+            <option value="Vacunas">Vacunas</option>
+            <option value="Otros">Otros</option>
           </select>
         </div>
         <div class="mb-3">
@@ -59,7 +58,6 @@
       ></div>
 
       <span>
-       
         <input
           type="file"
           multiple
