@@ -15,7 +15,7 @@
     <div class="col-12 col-lg-4">
       <div class="row g-4">
         <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre Cliente</label>
+          <label for="nombre" class="form-label">Nombre Cliente:</label>
 
           <input
             class="form-control"
@@ -24,7 +24,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="apellido" class="form-label">Apellidos</label>
+          <label for="apellido" class="form-label">Apellidos:</label>
 
           <input
             class="form-control"
@@ -33,7 +33,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="movil" class="form-label">Móvil</label>
+          <label for="movil" class="form-label">Móvil:</label>
 
           <input
             class="form-control"
@@ -63,7 +63,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="tipo" class="form-label">Tipo Mascota</label>
+          <label for="tipo" class="form-label">Tipo Mascota:</label>
           <input
             class="form-control"
             id="tipo"
@@ -73,7 +73,7 @@
 
       <div class="row g-4">
         <div class="mb-3">
-          <label for="categoria" class="form-label">Categoría</label>
+          <label for="categoria" class="form-label">Categoría:</label>
 
           <input
             class="form-control"
@@ -82,7 +82,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="receta" class="form-label">Receta</label>
+          <label for="receta" class="form-label">Receta:</label>
 
           <input
             class="form-control"
@@ -91,7 +91,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="producto" class="form-label">Dosis</label>
+          <label for="producto" class="form-label">Dosis:</label>
 
           <input
             class="form-control"
