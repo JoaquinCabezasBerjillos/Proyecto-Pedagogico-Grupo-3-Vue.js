@@ -59,7 +59,7 @@
       ></div>
 
       <span>
-        <label for="fileinput"><span>Añadir imagen</span></label>
+       
         <input
           type="file"
           multiple
@@ -104,6 +104,7 @@ export default {
       showImage: false,
       uploadFieldName: "photos",
       previewImage: null,
+     
     };
   },
 
@@ -210,16 +211,7 @@ input[type="file"]#fileinput {
   width: 0.1px;
   height: 0.1px;
 }
-label[for="fileinput"] {
-  font-size: 1.1vw;
-  font-weight: 600;
-  color: #ffffff;
-  background-color: #053189;
-  display: inline-block;
-  cursor: pointer;
-  padding: 2vh 2vw !important;
-  width: fit-content;
-}
+
 .modal-dialog {
   max-width: 850px;
   margin: 2rem auto;
