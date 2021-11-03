@@ -102,8 +102,6 @@ a:hover {
   font-size:5rem !important;
 }
 
-
-
 .menuhum{ 
 width: 36px;
 height: 5px;
@@ -321,7 +319,6 @@ figure.effect-marley:hover p {
 .copyright a:hover {
   color: #f98d0d;
 }
-
 
  @media only screen and (min-width: 480px) and (max-width: 768px) {
   .horarios {width: 80%;}
