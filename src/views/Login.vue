@@ -51,9 +51,8 @@
                     placeholder="Contraseña*"
                     required="required"
                   />
-                  <div class="col">
+                  <!-- <div class="col">
                     <label for="password"></label>
-                    <!-- checkbox que nos permite activar o desactivar la opcion -->
                     <div style="margin-top:15px;">
                       <input
                         style="margin-left:20px;"
@@ -62,8 +61,8 @@
                         title="clic para mostrar contraseña"
                       />
                       &nbsp;&nbsp;Mostrar Contraseña
-                    </div>
-                  </div>
+                    </div> 
+                  </div> -->
                   <div class="extra mt-3 row justify-content-between">
                     <div class="col-6">
                       <div class="form-check"></div>

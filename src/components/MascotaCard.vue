@@ -61,7 +61,7 @@
             </li>
             <li><hr class="dropdown-divider" /></li>
             <li>
-              <button id="delete" class="dropdown-item" @click="borrarMascota()"
+              <button id="delete" class="dropdown-item" @click="borrarMascota"
                 ><svg
                   width="1em"
                   height="1em"
@@ -90,11 +90,10 @@
   </div>
   <!--//app-card-->
   <div
-    class="modal fade"
+    v-show="isModalVisible"
+    class="modal"
     id="exampleModal"
     tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
   >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -103,39 +102,33 @@
           <button
             type="button"
             class="btn-close"
-            data-bs-dismiss="modal"
+            @click="showModal"
             aria-label="Close"
           ></button>
-        </div>
-        <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalForm">
-              Alta {{ this.$route.name }}
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
           </div>
           <div class="modal-body">            
-            <ProductosForm v-if="showForm === 'productos'" :item="item" />
-            <MascotasForm v-if="showForm === 'mascotas'" :item="item" />
+            <MascotasForm :item="mascota" />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="showModal">
+              Cerrar
+            </button>
+            <button @click="editarMascota" class="btn btn-primary">
+              Guardar cambios
+            </button>
           </div>
         </div>
       </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script>
 import MascotaService from '@/services/MascotaService.js';
+import MascotasForm from "../components/MascotasForm";
 
 export default {
   components: {
+    MascotasForm,
   },
 	props: {
       mascota: {
@@ -143,6 +136,12 @@ export default {
         required: true
       }
     },
+    data: function() {
+    return {
+      image: "",
+      isModalVisible: false,
+    };
+  },
     methods: {
       borrarMascota() {
         MascotaService.deleteMascota(this.mascota.id)
@@ -157,7 +156,7 @@ export default {
       this.isModalVisible = !this.isModalVisible;
     },
     editarMascota() {
-      if (this.masscota.id) {
+      if (this.mascota.id) {
         // Actualizar
         MascotaService.updateMascota(this.mascota.id, this.mascota)
 

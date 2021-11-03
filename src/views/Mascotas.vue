@@ -1,7 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
     <SearchBoton :showForm="showForm" :item="mascota" />
-    <!-- <MascotasForm :item="mascota"></MascotasForm> -->
     <div
       v-for="mascota in mascotas"
       :key="mascota.id"

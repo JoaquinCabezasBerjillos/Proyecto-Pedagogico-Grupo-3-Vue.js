@@ -1,7 +1,6 @@
 <template>
   <div class="app-card app-card-doc shadow-sm h-100">
     <div class="app-card-thumb-holder p-3">           
-     
     <img  :style="{ 'background-image': `url(${producto.foto})` }" class="thumb-image"  alt="imagen del envase del producto"/>
     </div>
     <div class="app-card-body p-3 has-card-actions">
@@ -48,7 +47,8 @@
           <!--//dropdown-toggle-->
           <ul class="dropdown-menu">
             <li>
-              <button @click="showModal" class="dropdown-item">
+              <button @click="showModal" 
+              class="dropdown-item">
                 <svg
                   width="1em"
                   height="1em"
