@@ -26,6 +26,7 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
+        <router-link :to="{ name: 'Consulta', params: { id: cliente.id } }"><button class="btn btn-primary">Crear consulta</button></router-link>
       </div>
       <!--//app-doc-meta-->
 
@@ -134,4 +135,13 @@ export default {
 </script>
 
 <style>
+.btn-primary {
+  background-color: #053189;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #f98d0d;
+  color: #053189;
+}
 </style>
