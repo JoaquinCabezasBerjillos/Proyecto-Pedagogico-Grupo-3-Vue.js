@@ -1,6 +1,6 @@
 <template>
   <div class="row g-4 mb-4">
-    <div class="col-6">
+    <div v-bind:class="{ 'col-12': !showImage, 'col-6': showImage }">
       <form class="settings-form" @submit.prevent="onSubmit">
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
@@ -55,14 +55,15 @@
       <span>
         <input
           type="file"
+          multiple
+          :name="uploadFieldName"
+          @change="filesChange($event.target.name, $event.target.files)"
           accept="image/*"
-          @change="selectFile($event)"
-          id="file-input"
         />
       </span>
     </div>
   </div>
-  <div>
+  <div class="row">
     <button @click="crearMascota" type="button" class="btn btn-primary">
       Guardar
     </button>
