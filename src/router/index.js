@@ -33,7 +33,7 @@ const routes = [
 
     children: [
         {
-          path: "/consulta/:id",
+          path: "/consulta",
           name: "Consulta",
           component: Consulta,
           meta: { requiresAuth: true },

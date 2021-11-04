@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="dropdown-menu-footer p-2 text-center">
-                      <a href="notifications.html">View all</a>
+                      <a href="notifications.html">Ver todo</a>
                     </div>
                   </div>
                   <!--//dropdown-menu-->

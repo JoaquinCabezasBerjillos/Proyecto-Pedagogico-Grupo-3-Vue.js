@@ -41,8 +41,8 @@
         </div>
         <div class="mb-3">
             <label for="cliente" class="form-label">Cliente</label>
-              <select v-model="clientes" id="clientes" class="form-select">
-                <option v-for="cliente in clientes" :value="cliente">{{clientes.nombre}}</option>  
+              <select v-model="mascota.user_id" id="clientes" class="form-select">
+                <option v-for="cliente in clientes" :value="cliente.id" :key="cliente">{{cliente.nombre}}</option>  
               </select>
           </div>
       </form>
@@ -86,24 +86,14 @@ export default {
           chip: "",
           foto: "",
           tipo: "",
-        };
-      },
-    },
-    clientes: {
-      type: Object,
-      default() {
-        return {
-          nombre: "",
-          apellidos: "",
-          movil: "",
-          email: "",
+          user_id: "",
         };
       },
     },
   },
 
   created(){
-    ClienteService.getClientes(this.clientes)
+    ClienteService.getClientes()
     .then((respuesta) => {
       console.log(respuesta.data)
     })
@@ -114,6 +104,7 @@ export default {
 
   data() {
       return {
+        clientes: {},
         mascota: this.item,
         showImage: false,
       };
