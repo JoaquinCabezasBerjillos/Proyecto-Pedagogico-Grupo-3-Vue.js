@@ -87,9 +87,9 @@
             v-model="consulta.tipo"
             required=""
           >
-            <option selected value="option-1">Perro</option>
-            <option value="option-2">Gato</option>
-            <option value="option-3">Otros</option>
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Otros">Otros</option>
             
           </select>
         </div>

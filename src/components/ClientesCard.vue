@@ -26,11 +26,11 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
-        <router-link class="btn btn-primary" :to="{name: 'consulta', params: {id: cliente.id }}">
+        <!-- <router-link class="btn btn-primary" :to="{name: 'consulta', params: {id: cliente.id }}">
        
       Crear Consulta
        
-  </router-link>
+  </router-link> -->
       </div>
       <!--//app-doc-meta-->
 
