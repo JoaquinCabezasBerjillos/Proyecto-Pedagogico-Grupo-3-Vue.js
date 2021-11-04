@@ -8,7 +8,7 @@ export default {
     deletePedido(id) {
       return apiCliente.delete("/api/pedidos/" + id);
     },
-    // Para decir que el pedido está listo y enví un email al usuario
+    // Para decir que el pedido está listo y envía un email al usuario
     updatePedido(id, producto) {
       return apiCliente.put("/api/pedidos/" + id, producto);
     },
