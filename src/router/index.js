@@ -107,6 +107,8 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
+// Interceptores de las rutas
 router.beforeEach((to, from, next) => {
   const loggedIn = !localStorage.getItem('user') || !localStorage.getItem('token')
 

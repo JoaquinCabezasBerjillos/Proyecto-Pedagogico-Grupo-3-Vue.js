@@ -26,11 +26,14 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
+
         <!-- <router-link class="btn btn-primary" :to="{name: 'consulta', params: {id: cliente.id }}">
        
       Crear Consulta
        
   </router-link> -->
+
+
       </div>
       <!--//app-doc-meta-->
 
@@ -122,6 +125,11 @@ export default {
       type: Object,
       required: true,
     },
+    data() {
+      return {
+        id:''
+      }
+    }
   },
   methods: {
     borrarCliente() {
@@ -140,12 +148,11 @@ export default {
 
 <style>
 .btn-primary {
-  background: #053189;
-  color: white;
+  background-color: #053189;
+  color: #fff;
 }
 .btn-primary:hover {
-  background: #f98d0d;
+  background-color: #f98d0d;
   color: #053189;
 }
-
 </style>
