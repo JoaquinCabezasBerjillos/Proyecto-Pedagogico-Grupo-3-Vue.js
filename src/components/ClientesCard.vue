@@ -26,7 +26,14 @@
           <li><span class="text-muted">Móvil:</span> {{ cliente.movil }}</li>
           <li><span class="text-muted">Email:</span> {{ cliente.email }}</li>
         </ul>
-        <router-link :to="{ name: 'Consulta', params: { id: cliente.id } }"><button class="btn btn-primary">Crear consulta</button></router-link>
+
+        <!-- <router-link class="btn btn-primary" :to="{name: 'consulta', params: {id: cliente.id }}">
+       
+      Crear Consulta
+       
+  </router-link> -->
+
+
       </div>
       <!--//app-doc-meta-->
 
