@@ -104,6 +104,7 @@ export default {
 
   data() {
       return {
+        clientes: {},
         mascota: this.item,
         clientes: {},
         showImage: false,

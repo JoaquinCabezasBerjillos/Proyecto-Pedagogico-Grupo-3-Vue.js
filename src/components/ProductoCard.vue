@@ -8,8 +8,7 @@
       <div class="app-doc-meta">
         <ul class="list-unstyled mb-0">
 
-           <li><span class="text-muted">Nombre:</span> {{ producto.nombre }}</li>
-          
+           <li><span class="text-muted">Nombre:</span> {{ producto.nombre }}</li>          
           
           <li><span class="text-muted">Precio:</span> {{ producto.precio }}</li>
           <li>
@@ -195,10 +194,7 @@ export default {
 </script>
 
 <style scoped>
-/* .app-card-thumb-holder
-{
- background: url("../assets/images/background/coatex.jpg") !important;
-} */
+
 .modal-dialog {
   max-width: 850px;
   margin: 2rem auto;
