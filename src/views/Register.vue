@@ -179,9 +179,7 @@ export default {
          .then(() => {
           this.$router.push({ name: "Login" });
         })
-        // .then((resp) => {
-        //   console.log(resp.data)
-        // })
+        
         .catch((err) => {
           this.errors = err.response.data.errors;
         });

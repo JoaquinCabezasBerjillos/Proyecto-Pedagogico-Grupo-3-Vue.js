@@ -32,9 +32,15 @@ const routes = [
     meta: { requiresAuth: true},
 
     children: [
+      {
+        path: "/consulta",
+        name: "Consulta",
+        component: Consulta,
+        meta: { requiresAuth: true },
+      },
         {
           path: "/consulta",
-          name: "Consulta",
+          name: "Consulta/:id",
           component: Consulta,
           meta: { requiresAuth: true },
         },
@@ -101,6 +107,8 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
+
+// Interceptores de las rutas
 router.beforeEach((to, from, next) => {
   const loggedIn = !localStorage.getItem('user') || !localStorage.getItem('token')
 

@@ -87,7 +87,9 @@
             v-model="consulta.tipo"
             required=""
           >
-            <option selected value="Perro">Perro</option>
+
+
+            <option value="Perro">Perro</option>
             <option value="Gato">Gato</option>
             <option value="Otros">Otros</option>
             
@@ -106,9 +108,12 @@
             v-model="consulta.categoria"
             required=""
           >
+
          
             <option value="Medicamento">Medicamento</option>
-            <option value="Alimentación">Alimentación</option>
+            <option value="Alimentación">Alimentación</option>       
+            <option value="Medicamento">Medicamento</option>
+
             <option value="Vacunas">Vacunas</option>
             <option value="Otros">Otros</option>
           </select>
